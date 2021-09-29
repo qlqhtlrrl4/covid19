@@ -12,7 +12,7 @@ public class HomeController {
 	public String home() {
 		
 		
-		return "/home.do";
+		return "/home.do"; //이건 tiles.xml 보고 이해 해야합니다
 	}
 	
 }
