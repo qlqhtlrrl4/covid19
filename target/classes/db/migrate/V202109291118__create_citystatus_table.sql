@@ -1,0 +1,18 @@
+CREATE TABLE `covid`.`citystatus` (
+  `citystatus_id` BIGINT NOT NULL,
+  `deathCnt` INT NULL,
+  `defCnt` INT NULL,
+  `createDt` VARCHAR(255) NULL,
+  `gubunCn` VARCHAR(255),
+  `gubunEn` VARCHAR(255),
+  `gubun` VARCHAR(255) NULL,
+  `incDec` INT NULL,
+  `isolClearCnt` INT NULL,
+  `isolIngCnt` INT NULL,
+  `localOccCnt` INT NULL,
+  `overFlowCnt` INT NULL,
+  `qurRate` DOUBLE NULL,
+  `seq` INT NULL,
+  `stdDay` VARCHAR(255) NULL,
+  `updateDt` VARCHAR(255) NULL,
+  PRIMARY KEY (`citystatus_id`));
