@@ -1,0 +1,33 @@
+.navbar{
+	background-color: rgb(245,245,245);
+	padding-top:0;
+	padding-bottom: 0;
+	.logo-text-skyblue{
+		color:rgb(194,209,220);
+	}
+	.nav-info-text{
+		font-size:12px;
+		
+		&.nav-info-text-name{
+			font-size:17px;
+		}
+	}
+	.nav-info-icons-wrapper{
+		display:flex;
+		align-items:center;
+		height: 100%;
+	}
+	.navbar-nav{
+		margin:auto;
+		
+		.nav-link{
+			padding:19px 18px;
+			margin: 0 6px;
+			font-size:16px;
+			&.active{
+				border-bottom: 2px solid rgba(0,0,0,.7);
+			}
+		}
+	}
+	
+}
