@@ -14,3 +14,5 @@
 ## Configuration
 - src/main/resources/db/props/application-sample.properties를 복사하여 src/main/resources/db/props/application.properties 를 생성 후 자신의 환경설정에 맞게 수정
 
+## Sass
+- run : sh ./run-sass-watch.sh
