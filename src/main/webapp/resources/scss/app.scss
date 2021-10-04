@@ -1,6 +1,17 @@
 @import "app/nav";
+@import "app/home";
+@import "app/toggle";
 
 body {
 	padding: 0;
-	background-color: rgb(191,209,222);
+	background-color: rgba(191,209,222,0.8);
+	.body-wrapper{
+		margin-left:60px;
+		margin-right: 60px;
+		
+	}
+	
+	.rotated180{
+		transform: rotate(180deg);
+	}
 }

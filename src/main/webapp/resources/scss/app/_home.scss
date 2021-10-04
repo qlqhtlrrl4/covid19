@@ -1,0 +1,66 @@
+.main-section{
+	margin-top:90px;
+	.summary-left-pane{
+		background-color: rgb(245,245,245);
+		padding:17px;
+		border-radius: 25px;
+		.card{
+			border:none;
+			background-color: rgb(245,245,245);
+			
+			
+			&.active{
+				background-color: rgba(194,209,220,0.8);
+				border:solid 0.5px rgba(191,197,212,0.78);
+				border-radius: 25px;
+				
+				.card-header {
+				    border-bottom: 1px solid rgba(0,0,0,.125);
+				}
+				
+			}
+			
+			.card-header {
+			    background-color: rgba(0,0,0,0);		
+		        padding: 0;
+			    margin: .75rem 1.25rem;
+			    padding-bottom: 0.60rem;	  
+			    border-bottom: none;  
+			    .panel-title{
+					display:flex;
+					justify-content: space-between;
+					.card-header-title{
+						font-weight: bold;
+						color:#262626;
+					}
+				
+				}
+			}
+		}
+	}
+	
+	.corona-info-count-wrapper{
+		background-color:rgb(245,245,245);
+		border-radius: 25px;
+		text-align: center;
+		padding: 40px;
+		.corona-info-count-title{
+			color:rgb(183,183,184);
+		}
+		.corona-color-pink{
+			color:rgb(227,155,165);
+			
+			&.badge-color-pink{
+				background-color: rgb(251,235,240);
+			}
+		}
+		.corona-color-grey{
+			color:rgb(78,84,99);
+			&.badge-color-grey{
+				background-color:#BFBCBA;
+			}
+		}
+	}
+
+}
+	

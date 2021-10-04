@@ -8,6 +8,7 @@
 <head>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <meta charset="utf-8">
 <meta name="viewport"
@@ -21,27 +22,29 @@
 <title><tiles:insertAttribute name="title" /></title>
 
 <!-- Bootstrap core CSS -->
-<link href="<c:url value="/resources/css/bootstrap.min.css"/>"
-	rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="<c:url value="/resources/css/carousel.css"/>"
-	rel="stylesheet">
+<link href="<c:url value="/resources/css/carousel.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/app.css"/>" rel="stylesheet">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery-ui.min.js"/>"></script>
+<script src="<c:url value="/resources/js/waypoints.min.js"/>"></script>
+<!-- <script src="<c:url value="/resources/js/jquery.counteup.js"/>"></script> -->
 </head>
 <body>
 
 	<div>
 		<tiles:insertAttribute name="menu" />
+		<div class="body-wrapper">
 		<tiles:insertAttribute name="body" />
+		</div>
 		<tiles:insertAttribute name="footer" />
 	</div>
 
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+	
 	
 </body>
 </html>
