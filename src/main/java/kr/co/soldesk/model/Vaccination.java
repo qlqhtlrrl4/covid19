@@ -1,4 +1,4 @@
-package kr.co.soldesk.domain;
+package kr.co.soldesk.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +19,7 @@ import lombok.Data;
 		valueColumnName = "next_val",
 		allocationSize = 1)
 @Table(name = "vaccination")
-public class VaccinationData {
+public class Vaccination {
 	
 	@Id
 	@Column(name = "vaccin_id")

@@ -1,4 +1,4 @@
-package kr.co.soldesk.domain;
+package kr.co.soldesk.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +17,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "roles")
-public class Role {
+public class Roles {
 
 
 	@Id
@@ -27,7 +27,7 @@ public class Role {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id")
-	private User user;
+	private Users user;
 	
 	private String role;
 	

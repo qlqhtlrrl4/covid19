@@ -5,15 +5,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import kr.co.soldesk.domain.User;
+import kr.co.soldesk.model.Users;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<Users, Long> {
 	// Member findMemberByMemberId(String id);
-	@Query("SELECT u FROM User u LEFT JOIN FETCH u.roles WHERE u.id = (:userId)")
-	User findById(@Param("userId") String userId);
+	@Query("SELECT u FROM Users u LEFT JOIN FETCH u.roles WHERE u.id = (:userId)")
+	Users findById(@Param("userId") String userId);
 
-	@Query("SELECT m FROM User m  WHERE m.id = (:userId)")
-	User findAdmin(@Param("userId") String userId);
+	@Query("SELECT m FROM Users m  WHERE m.id = (:userId)")
+	Users findAdmin(@Param("userId") String userId);
 
 }

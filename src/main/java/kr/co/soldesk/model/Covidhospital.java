@@ -1,4 +1,4 @@
-package kr.co.soldesk.domain;
+package kr.co.soldesk.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,9 +17,9 @@ import lombok.Data;
 		table = "covidhospital_sequence",
 		pkColumnValue = "covid_seq",
 		valueColumnName = "next_val",
-		allocationSize = 1)
+		allocationSize = 1000)
 @Table(name="covidhospital")
-public class CovidData {
+public class Covidhospital {
 	
 	@GeneratedValue(strategy=GenerationType.TABLE, generator = "covid_seq_generator")
 	@Id

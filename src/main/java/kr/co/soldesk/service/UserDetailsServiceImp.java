@@ -14,9 +14,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import kr.co.soldesk.domain.Role;
-import kr.co.soldesk.domain.User;
-import kr.co.soldesk.domain.UserDto;
+import kr.co.soldesk.model.Roles;
+import kr.co.soldesk.model.Users;
+import kr.co.soldesk.model.UserDto;
 import kr.co.soldesk.repository.RoleRepository;
 import kr.co.soldesk.repository.UserRepository;
 
@@ -37,9 +37,9 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 
 		System.out.println(userRepository.findById(id));
 		
-		User user = userRepository.findById(id);
+		Users user = userRepository.findById(id);
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-		for (Role role : user.getRoles()) {
+		for (Roles role : user.getRoles()) {
 			grantedAuthorities.add(new SimpleGrantedAuthority(role.getRole()));
 		}
 
@@ -52,14 +52,14 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 
 		memberDto.setPassword(encoder.encode(memberDto.getPassword()));
 
-		User member = new User();
+		Users member = new Users();
 		member.setPassword(memberDto.getPassword());
 		member.setId(memberDto.getId());
 		member.setEmail(memberDto.getEmail());
 		member.setName(memberDto.getName());
 		userRepository.save(member);
 
-		Role role = new Role();
+		Roles role = new Roles();
 		role.setUser(member);
 		role.setRole("ROLE_USER");
 		roleRepository.save(role);
@@ -69,13 +69,13 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 	@PostConstruct
 	@Transactional("jpatransactionManager")
 	public void initialize() {
-		User admin = userRepository.findAdmin("admin");
+		Users admin = userRepository.findAdmin("admin");
 
 		String password = encoder.encode("123456789");
 
 		if (admin == null) {
 
-			admin = new User();
+			admin = new Users();
 			admin.setId("admin");
 			admin.setEmail("admin@test");
 
@@ -84,7 +84,7 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 			System.out.println(admin);
 			userRepository.save(admin);
 
-			Role role = new Role();
+			Roles role = new Roles();
 			role.setUser(admin);
 			role.setRole("ROLE_ADMIN");
 			roleRepository.save(role);

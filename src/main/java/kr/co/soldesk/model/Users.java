@@ -1,4 +1,4 @@
-package kr.co.soldesk.domain;
+package kr.co.soldesk.model;
 
 import java.util.Set;
 
@@ -25,7 +25,7 @@ import lombok.ToString;
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Users {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,6 +42,6 @@ public class User {
 	private String name;
 		
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval=true)
-	private Set<Role> roles;
+	private Set<Roles> roles;
 	
 }

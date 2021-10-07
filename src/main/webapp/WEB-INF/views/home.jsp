@@ -13,7 +13,7 @@
 				        <a class="btn btn-link btn-block text-left panel-title" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 				          <span class="card-header-title">국내</span>
 				          <div>
-				          	<i class="fa fa-chevron-up arrow-icon rotated180"></i>
+				          	<i class="fa fa-chevron-up arrow-icon"></i>
 				          </div>
 				        </a>
 				      </h2>

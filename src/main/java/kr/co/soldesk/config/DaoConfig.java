@@ -63,7 +63,7 @@ public class DaoConfig {
 
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(jpadataSource());
-		em.setPackagesToScan(new String[] { "kr.co.soldesk.domain" });
+		em.setPackagesToScan(new String[] { "kr.co.soldesk.model" });
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
 		em.setJpaProperties(getHibernateProperties());

@@ -2,14 +2,14 @@ package kr.co.soldesk.data;
 
 import java.util.List;
 
-import kr.co.soldesk.domain.CovidData;
+import kr.co.soldesk.model.Covidhospital;
 import lombok.Data;
 
 @Data
-public class CovidHospital {
+public class CovidHospitalData {
 	
 	private int currentCount;
-	private List<CovidData> data;
+	private List<Covidhospital> data;
 	private int matchCount;
 	private int page;
 	private int perPage;

@@ -2,7 +2,7 @@ package kr.co.soldesk.data;
 
 import java.util.List;
 
-import kr.co.soldesk.domain.VaccinationData;
+import kr.co.soldesk.model.Vaccination;
 import lombok.Data;
 
 @Data
@@ -10,7 +10,7 @@ public class VaccinationStatus {
 	
 	private int currentCount;
 	
-	private List<VaccinationData> data;
+	private List<Vaccination> data;
 	
 	private int matchCount;
 	
