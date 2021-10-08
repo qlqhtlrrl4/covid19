@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/auth")
 public class LoginController {
 	
 	/*@Autowired
@@ -23,8 +24,8 @@ public class LoginController {
 		if (logout != null) {
 			model.addAttribute("logoutMsg", "You have been logged out successfully");
 		}
-
-		return "/login.do";
+		
+		return "/auth/login";
 	}
 
 }

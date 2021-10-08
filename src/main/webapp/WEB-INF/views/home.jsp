@@ -157,7 +157,7 @@
 				</div>
 				
 				<div class="col-3">			
-					<div class="col-lg-12 col-md-3 col-sm-12">
+					<div class="col-lg-12 col-md-3 col-sm-12" style="padding-left: 0; padding-right: 0;">
 						<div class="summary-right-pane">
 							<span class="date">2021.10.05 화요일</span><br/>
 							<div class="locationBtn"> 

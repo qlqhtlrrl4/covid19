@@ -100,7 +100,7 @@
 .main-section .summary-right-pane .arrowAndamount {
   font-size: var(--font-large);
   color: var(--pink-color);
-  padding-right: 88px;
+  padding-right: 119px;
   padding-top: 2px;
 }
 .main-section .summary-right-pane .arrowAndamount .amount {
@@ -219,6 +219,27 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.login-section {
+  margin-top: 160px;
+}
+.login-section .login-card-wrapper {
+  margin: auto;
+  background-color: var(--white-color);
+}
+.login-section .login-card-wrapper .logo-title-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+.login-section .login-card-wrapper .logo-title-wrapper .logo-title {
+  font-size: var(--font-xlarge);
+}
+.login-section .login-card-wrapper .logo-title-wrapper .logo-title .logo-text-skyblue {
+  color: var(--skyblue-color);
+}
+.login-section .login-card-wrapper .login-input-wrapper {
+  margin-top: 60px;
 }
 
 :root {

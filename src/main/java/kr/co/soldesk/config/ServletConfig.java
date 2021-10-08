@@ -14,6 +14,8 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
@@ -45,6 +47,16 @@ public class ServletConfig implements WebMvcConfigurer {
 		resolver.setViewClass(TilesView.class);
 		resolver.setOrder(1);
 		return resolver;
+	}
+	
+	@Bean
+	public UrlBasedViewResolver urlBasedViewResolver() {
+		final UrlBasedViewResolver urlBasedViewResolver = new UrlBasedViewResolver();
+		urlBasedViewResolver.setViewClass(JstlView.class);
+		urlBasedViewResolver.setPrefix("/WEB-INF/views");
+		urlBasedViewResolver.setSuffix(".jsp");
+		urlBasedViewResolver.setOrder(2);
+		return urlBasedViewResolver;
 	}
 	
 	@Bean("localeResolver")
