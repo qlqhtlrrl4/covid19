@@ -30,17 +30,17 @@
   width: 14px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: var(--truewhite-color);
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input.primary-confirmed:checked + .slider {
-  background-color: rgb(58,125,212);
+  background-color: #2196F3;
 }
 
 input.primary-keep-distance:checked + .slider {
-  background-color: #D66360;
+  background-color: #2196F3;
 }
 
 input:focus + .slider {

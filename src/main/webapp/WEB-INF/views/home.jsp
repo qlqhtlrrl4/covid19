@@ -1,10 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="main-section">
 	<div class="row">
-		<div class="col-lg-3 col-md-4 col-sm-12">
+		<div class="col-lg-2dot5 col-md-3 col-sm-12">
 			<div class="summary-left-pane">
 				<div class="accordion" id="accordionExample">
 				  <div class="card active">
@@ -56,21 +57,42 @@
 				    </div>
 				    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 				      <div class="card-body">
-				        성별 
+				        아시아
 				        <label class="switch">
 							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
 							<span class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
-				        연령
+				        유럽
 				        <label class="switch">
 							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
 							<span class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
-				        지역
+				        남아메리카
+				        <label class="switch">
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
+							<span class="slider round"></span>
+						</label>
+				      </div>
+				      <div class="card-body">
+				        북아메리카
+				        <label class="switch">
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
+							<span class="slider round"></span>
+						</label>
+				      </div>
+				      <div class="card-body">
+				        아프리카
+				        <label class="switch">
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
+							<span class="slider round"></span>
+						</label>
+				      </div>
+				      <div class="card-body">
+				        오세아니아
 				        <label class="switch">
 							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
 							<span class="slider round"></span>
@@ -83,7 +105,7 @@
 				      <h2 class="mb-0">
 				        <a class="btn btn-link btn-block text-left panel-title" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
 				          <span class="card-header-title">거리두기</span>
-				          <div>
+				          <div class="panel-tilte-icon">
 				          	<i class="fa fa-chevron-up arrow-icon"></i>
 				          </div>
 				        </a>
@@ -91,47 +113,74 @@
 				    </div>
 				    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 				      <div class="card-body">
-				        And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+				       단계별 정보
+				       <label class="switch">
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
+							<span class="slider round"></span>
+						</label>
 				      </div>
 				    </div>
 				  </div>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-9 col-md-8 col-sm-12">
+		<div class="col-lg-9dot5 col-md-6 col-sm-12">
 			<div class="row">
 				<div class="col-9">
 					<div class="corona-info-count-wrapper">
 						<div class="row">
 							<div class="col-3">
 								<span class="corona-info-count-title">확진자</span><br/>
-								<span class="corona-color-pink counter">311,289</span><br/>
-								<span class="corona-color-pink badge badge-pill badge-primary badge-color-pink">2,564</span>
+								<span class="corona-color-pink counter"><fmt:formatNumber type="number" maxFractionDigits="3" value="${covidStatusData.decideCnt}" /></span><br/>
+								<span class="corona-color-pink badge badge-pill badge-primary badge-color-pink"><i class="fas fa-arrow-up"></i><span class="corona-info-up-down-count">1,234</span></span>
 							</div>
 							<div class="col-3">
 								<span class="corona-info-count-title">검사자</span><br/>
-								<span class="corona-color-grey counter">14,544,258</span><br/>
-								<span class="corona-color-grey badge badge-pill badge-primary badge-color-grey">58,998</span>
+								<span class="corona-color-grey counter"><fmt:formatNumber type="number" maxFractionDigits="3" value="${covidStatusData.accExamCnt}" /></span><br/>
+								<span class="corona-color-grey badge badge-pill badge-primary badge-color-grey"><i class="fas fa-arrow-up"></i><span class="corona-info-up-down-count">1,234</span></span>
 							</div>
 							<div class="col-3">
 								<span class="corona-info-count-title">완치자</span><br/>
-								<span class="corona-color-grey counter">274,205</span><br/>
-								<span class="corona-color-grey badge badge-pill badge-primary badge-color-grey">1,481</span>
+								<span class="corona-color-grey counter"><fmt:formatNumber type="number" maxFractionDigits="3" value="${covidStatusData.clearCnt}" /></span><br/>
+								<span class="corona-color-grey badge badge-pill badge-primary badge-color-grey"><i class="fas fa-arrow-up"></i><span class="corona-info-up-down-count">1,234</span></span>
 							</div>
 							<div class="col-3">
 								<span class="corona-info-count-title">사망자</span><br/>
-								<span class="corona-color-grey counter">2,481</span><br/>
-								<span class="corona-color-grey badge badge-pill badge-primary badge-color-grey">7</span>
+								<span class="corona-color-grey counter"><fmt:formatNumber type="number" maxFractionDigits="3" value="${covidStatusData.deathCnt}" /></span><br/>
+								<span class="corona-color-grey badge badge-pill badge-primary badge-color-grey">
+									<i class="fas fa-arrow-up"></i>
+									<span class="corona-info-up-down-count">1,234</span>
+								</span>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-3">
+				
+				<div class="col-3">			
+					<div class="col-lg-12 col-md-3 col-sm-12">
+						<div class="summary-right-pane">
+							<span class="date">2021.10.05 화요일</span><br/>
+							<div class="locationBtn"> 
+								<i class="fas fa-map-marker-alt"></i>
+								<span class="location-tilte">서울</span>
+							</div>
+							<div class="arrowAndamount">
+								<i class="fas fa-arrow-up"></i>
+								<span class="amount"><fmt:formatNumber type="number" maxFractionDigits="3" value="${covidStatusData.deathCnt}" /></span>
+							</div>
+							<span class="words">개인위생에 각별히 신경 쓰세요.</span>
+							<a href="#" class="syringe-icon">
+            					<i class="fas fa-syringe"></i>
+        					</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+
 
 
 <script>
@@ -240,7 +289,7 @@
 	
 	$(".counter").counterUp({
 		delay: 10,
-		time: 1000
+		time: 3000
 	});
 	
 	

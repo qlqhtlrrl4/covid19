@@ -2,9 +2,31 @@
 @import "app/home";
 @import "app/toggle";
 
+
+:root {
+	/*Color*/
+	--grey-color:#5C6366;
+	--grey-light-color:#BFBFBF;
+	--grey-dark-color: #262626;
+	--white-color:#F5F5F5;
+	--truewhite-color:#ffffff;
+	--skyblue-color:#C2D1DC;
+	--pink-color:#eb5374;
+	
+	  /* Font Size */
+	--font-xlarge:30px;
+	--font-large: 20px;
+	--font-regular: 16px;
+	--font-medium: 14px;
+	--font-small: 12px;
+	--font-micro: 10px;
+	
+}
+ 
+ 
 body {
 	padding: 0;
-	background-color: rgba(191,209,222,0.8);
+	background-color: rgba(194,209,220,0.4);
 	.body-wrapper{
 		margin-left:60px;
 		margin-right: 60px;
@@ -13,5 +35,23 @@ body {
 	
 	.rotated180{
 		transform: rotate(180deg);
+	}
+}
+
+.col-lg-2dot5 {
+	@media (min-width: 992px) {
+		-webkit-box-flex: 0;
+	    -ms-flex: 0 0 20%;
+	    flex: 0 0 20%;
+	    max-width: 20%;
+	}
+}
+
+.col-lg-9dot5 {
+	@media (min-width: 992px) {
+		-webkit-box-flex: 0;
+	    -ms-flex: 0 0 80%;
+	    flex: 0 0 80%;
+	    max-width: 80%;
 	}
 }

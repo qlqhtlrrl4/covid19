@@ -1,21 +1,20 @@
 .main-section{
-	margin-top:90px;
+	margin-top:80px;
 	.summary-left-pane{
-		background-color: rgb(245,245,245);
+		background-color: var(--white-color);
 		padding:17px;
 		border-radius: 25px;
 		.card{
 			border:none;
-			background-color: rgb(245,245,245);
+			background-color: var(--white-color);
 			
 			
 			&.active{
-				background-color: rgba(194,209,220,0.8);
-				border:solid 0.5px rgba(191,197,212,0.78);
+				background-color: rgba(194,209,220,0.2);
 				border-radius: 25px;
 				
 				.card-header {
-				    border-bottom: 1px solid rgba(0,0,0,.125);
+				    border-bottom: 1px solid var(--grey-light-color);
 				}
 				
 			}
@@ -31,7 +30,10 @@
 					justify-content: space-between;
 					.card-header-title{
 						font-weight: bold;
-						color:#262626;
+						color: var(--grey-dark-color);
+						.panel-tilte-icon{
+						color: var(--grey-dark-color);
+						}
 					}
 				
 				}
@@ -39,25 +41,91 @@
 		}
 	}
 	
-	.corona-info-count-wrapper{
-		background-color:rgb(245,245,245);
+	.summary-right-pane{
+		background-color: var(--white-color);
 		border-radius: 25px;
 		text-align: center;
-		padding: 40px;
-		.corona-info-count-title{
-			color:rgb(183,183,184);
+		padding:10px;
+		font-size: var(--font-small);
+		.date{
+			display:flex;
+			color:var(--grey-dark-color);
+			padding-top:10px;
+			padding-left:15px;
 		}
-		.corona-color-pink{
-			color:rgb(227,155,165);
-			
-			&.badge-color-pink{
-				background-color: rgb(251,235,240);
+		.locationBtn{
+			display:flex;
+			color:var(--grey-dark-color);
+			padding-left:15px;
+			.location-tilte{
+				padding-left: 6px;
+				margin-top:-3px;
 			}
 		}
+		.arrowAndamount{
+			font-size: var(--font-large);
+			color:var(--pink-color);
+			padding-right:88px;
+			padding-top:2px;
+		.amount{
+			font-size: var(--font-xlarge);
+			color:var(--pink-color);
+			margin-left:4px;
+			margin-top:7px;		
+			}
+		}
+		.words{
+			display:flex;
+			color:var(--grey-color);
+			font-size: var(--font-micro);
+			padding-top:14px;
+			padding-left:10px;
+		}
+		.syringe-icon{
+			top: 20px;
+		    position: absolute;
+		    right: 50px;
+		    font-size: 35px;
+		    color: var(--grey-light-color);
+		}
+	}
+	
+	.corona-info-count-wrapper{
+		background-color: var(--white-color);
+		border-radius: 25px;
+		text-align: center;
+		padding: 30px;
+		.corona-info-count-title{
+			font-size:var(--font-regular);
+			color:var(--grey-color);
+			
+		}
+		.corona-color-pink{
+			color: var(--pink-color);
+			font-size: var(--font-xlarge);
+			
+			&.badge-color-pink{
+				background-color: #FDEEF1; 
+				font-size: var(--font-regular);
+			}
+			
+			.corona-info-up-down-count{
+				margin-left: 3px;
+			}
+			
+		
+		}
 		.corona-color-grey{
-			color:rgb(78,84,99);
+			color:#4c4d52;
+			font-size: var(--font-xlarge);
+			
 			&.badge-color-grey{
-				background-color:#BFBCBA;
+				background-color: #E3E3E3;
+				font-size: var(--font-regular);
+			}
+			
+			.corona-info-up-down-count{
+				margin-left: 3px;
 			}
 		}
 	}

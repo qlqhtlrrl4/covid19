@@ -17,21 +17,21 @@
         <a class="nav-link <c:if test='${active eq "vaccine"}'>active</c:if>" href="/vaccine">백신</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link <c:if test='${active eq "screening"}'>active</c:if>" href="#">선별진료소</a>
+        <a class="nav-link <c:if test='${active eq "search"}'>active</c:if>" href="/search">병원찾기</a>
       </li>
-       <li class="nav-item <c:if test='${active eq "qna"}'>active</c:if>">
-        <a class="nav-link" href="#">Q&A</a>
+       <li class="nav-item">
+        <a class="nav-link <c:if test='${active eq "qna"}'>active</c:if>" href="/qna/list">Q&A</a>
       </li>
     </ul>
   </div>
   <div class="nav-info-card">
   	<div class="row">
-  		<div class="col-3">
+  		<div class="col-4">
   			<div class="nav-info-icons-wrapper">
-  				<i class="fa fa-user fa-2x" aria-hidden="true"></i>
+  				<i class="fas fa-user-circle"></i>
   			</div>
   		</div>
-  		<div class="col-9">
+  		<div class="col-8">
   			<span class="nav-info-text">안녕하세요,</span><br/>
   			<span class="nav-info-text nav-info-text-name">김선호님</span>
   		</div>

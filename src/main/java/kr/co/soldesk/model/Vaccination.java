@@ -28,7 +28,7 @@ public class Vaccination {
 	
 	private int accumulatedFirstCnt; //전일까지 누적 통계1차
 	private int accumulatedSecondCnt; //전일까지  누적 통계 2차
-	private String baseDate; //통계일자
+	private String baseDate; //통 계일자
 	private int firstCnt; // 당일 통계(1차)
 	private int secondCnt; // 당일 통계 (2차)
 	private String sido; // 지역명칭

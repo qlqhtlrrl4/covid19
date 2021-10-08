@@ -33,7 +33,7 @@ public class FlywayConfig {
 
         Flyway flyway = fluentConfiguration.load();
 
-        flyway.migrate();
+//        flyway.migrate();
 
         return flyway;
     }

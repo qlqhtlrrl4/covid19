@@ -41,4 +41,5 @@ public class CovidStatus {
 	private String stateTime;
 	private String updateDt;
 
+	
 }

@@ -2,20 +2,28 @@
 	background-color: rgb(245,245,245);
 	padding-top:0;
 	padding-bottom: 0;
-	.logo-text-skyblue{
-		color:rgb(194,209,220);
+	.navbar-brand{
+		padding-left: 15px;
 	}
-	.nav-info-text{
-		font-size:12px;
+	.logo-text-skyblue{
+		color:var(--skyblue-color);
+	}
+		.nav-info-text{
+		font-size: var(--font-small);
+		color: var(--grey-color);
+	
 		
 		&.nav-info-text-name{
-			font-size:17px;
+			font-size: var(--font-small);
+			color: var(--grey-dark-color);
 		}
 	}
 	.nav-info-icons-wrapper{
 		display:flex;
 		align-items:center;
 		height: 100%;
+		color:var(--skyblue-color);
+		font-size:40px;
 	}
 	.navbar-nav{
 		margin:auto;
@@ -24,8 +32,11 @@
 			padding:19px 18px;
 			margin: 0 6px;
 			font-size:16px;
+			padding-bottom:10px;
+			margin-top:15px;
 			&.active{
 				border-bottom: 2px solid rgba(0,0,0,.7);
+				
 			}
 		}
 	}
