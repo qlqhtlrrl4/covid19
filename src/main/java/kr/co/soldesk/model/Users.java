@@ -2,6 +2,8 @@ package kr.co.soldesk.model;
 
 import java.util.Set;
 
+import kr.co.soldesk.model.*;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -82,11 +84,11 @@ public class Users {
 		this.name = name;
 	}
 
-	public Set<Role> getRoles() {
+	public Set<Roles> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles) {
+	public void setRoles(Set<Roles> roles) {
 		this.roles = roles;
 	}
 	
