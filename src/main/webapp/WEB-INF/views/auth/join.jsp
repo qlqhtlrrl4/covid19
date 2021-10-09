@@ -25,35 +25,6 @@ function audio() {
 		}
 	}
 }
-/* function checkRecaptcha() {
-	
-	var data = {
-			'data' : document.getElementById("answer")
-	}
-	
-	$.ajax({
-		url : "${pageContext.request.contextPath}/answer",
-		dataType : "json",
-		data : JSON.stringify(data),
-		contentType : "application/json",
-		type : "POST",
-		async : false,
-		
-		success : function(data) {
-			
-			
-			
-			if(data == "ok") {
-				return true;
-			}
-			else {
-				return false;
-			}
-			
-		}
-
-	});	
-} */
 
 function refreshBtn() {
 	var rand = Math.random();
@@ -120,11 +91,7 @@ function winPlayer(objUrl) {
 				</a>
 				
 			</div>
-			<!-- <div class = "form-group"> 
-				<input type="text" name = "answer" class = "form-control">
-			
-			</div> -->
-			
+						
 			<div class="form-group">
 				
 				<sf:input path="answer" class="form-control" />

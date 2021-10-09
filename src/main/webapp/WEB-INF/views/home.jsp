@@ -421,17 +421,13 @@ $(document).ready(function(){
 					var currentsidoData = data[i]
 					
 					sidoData.push(currentsidoData);
-					
-					
-							
+				
 				} 
 			} 
 		
 			sidoBarChart(sidoData);
 		}
 	});
-		
-		
 	
 	$.ajax({
 		
@@ -463,12 +459,9 @@ $(document).ready(function(){
 					var currenGenderData = data[i]
 					
 					genderData.push(currenGenderData);
-					
-					
 							
 				} 
 			} 
-			console.log(genderData);
 			pieChart(genderData);
 		}
 		
@@ -478,17 +471,6 @@ $(document).ready(function(){
 
  
 </script>
-
-
-<!-- Styles -->
-<!-- <style>
-#chartdiv {
-   width: 100%;
-   height: 500px;
-}
-
-
-</style> -->
 
 <!-- Resources -->
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
