@@ -25,4 +25,5 @@ public interface CovidStatusRepository extends JpaRepository<CovidStatus, Long> 
 			+ "limit 2; ", nativeQuery = true)
 	List<CovidStatus> leastTwoDay();
 	
+	
 }

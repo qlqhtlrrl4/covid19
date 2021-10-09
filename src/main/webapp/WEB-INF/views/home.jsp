@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 <div class="main-section">
 	<div class="row">
@@ -149,7 +150,8 @@
 								<span class="corona-color-grey counter"><fmt:formatNumber type="number" maxFractionDigits="3" value="${covidStatusData.deathCnt}" /></span><br/>
 								<span class="corona-color-grey badge badge-pill badge-primary badge-color-grey">
 									<i class="fas fa-arrow-up"></i>
-									<span class="corona-info-up-down-count">1,234</span>
+									<span class="corona-info-up-down-count"><fmt:formatNumber type="number" value="${covidStatusData.deathCnt}"></fmt:formatNumber></span>
+									
 								</span>
 							</div>
 						</div>
@@ -171,16 +173,63 @@
 							<span class="words">개인위생에 각별히 신경 쓰세요.</span>
 							<a href="#" class="syringe-icon">
             					<i class="fas fa-syringe"></i>
+            					<script>
+									console.log("${covidStatusData.deathCnt} ||"+"${covidStatusData.decideCnt}");
+									console.log("aaaa");
+								</script>
         					</a>
 						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="corona-info-chart-wrapper">
+						<span class="corona-info-chart-title">
+							최근 14일 확진자 현황
+						</span>	<br>
+						
+						<div class="linediv"></div>
+						<form action="/covidStatusDataDownLoad" method="get">
+                  			<input type="submit" value="Excel Down">
+               			</form>
+                 		 <input type="button" value="Export PNG" id="image"/>
+							
+					</div>
+				</div>
+			</div>
+			
+			<div class ="row">
+				<div class="col-4">
+					<div class="corona-info-chart-wrapper">
+						<span class="corona-info-chart-title">
+							성별 확진자 비율
+						</span><br>
+						<div class="piediv"></div>
+					</div>
+				</div>
+				
+				<div class="col-4">
+					<div class="corona-info-chart-wrapper">
+						<span class="corona-info-chart-title">
+							연령별 확진자 비율
+						</span><br>
+						<div class="bardiv"></div>
+					</div>
+				</div>
+				
+				<div class="col-4">
+					<div class="corona-info-chart-wrapper">
+						<span class="corona-info-chart-title">
+							지역별 확진자 비율
+						</span><br>
+						<div class="sidobarDiv"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-
 
 
 <script>
@@ -282,15 +331,369 @@
 
 	})( jQuery );
 	
-	
-	
-	
-	
-	
+
 	$(".counter").counterUp({
 		delay: 10,
-		time: 3000
+		time: 1000
 	});
 	
 	
 </script>
+
+<script>
+$(document).ready(function(){
+	$.ajax({
+		
+		url:'/leastDay',
+		type : 'get',
+		dataType:'json',
+		
+		success : function(data) {
+			lineChart(data);
+			
+		}
+		
+	});
+	
+	$.ajax({
+		
+		url:'/rangeAge',
+		type:'get',
+		dataType:'json',
+		
+		success : function(data) {
+			var today = new Date();
+			
+			var ageRangeData = [];
+		
+			var month = today.getMonth()+1;
+			month = month >= 10 ? month : '0' + month;
+			
+			var date = today.getDate()-1;
+			date = date >=10? date : '0'+date;
+			
+			var recentDay = today.getFullYear()+"-"+month+"-"+date;
+			
+			for(var i=0;i<data.length;i++) {
+				
+				var createD = data[i].createDt.toString();
+				var changeC = createD.substring(0,10);
+				
+				 if(changeC == recentDay) {
+					
+					var currenGenderData = data[i]
+					
+					ageRangeData.push(currenGenderData);			
+				} 
+			} 
+			barChart(ageRangeData);
+			
+		}
+		
+	});
+	
+	$.ajax({
+		
+		url:'/sido',
+		type:'get',
+		dataType:'json',
+		
+		success : function(data) {
+			
+			var today = new Date();
+			var sidoData= [];
+			
+			var month = today.getMonth()+1;
+			month = month >= 10 ? month : '0' + month;
+			
+			var date = today.getDate();
+			date = date >=10? date : '0'+date;
+			
+			var recentDay = today.getFullYear()+"-"+month+"-"+date;
+			
+			for(var i=0;i<data.length;i++) {
+				
+				var createD = data[i].createDt.toString();
+				var changeC = createD.substring(0,10);
+				
+				 if(changeC == recentDay) {
+					
+					var currentsidoData = data[i]
+					
+					sidoData.push(currentsidoData);
+					
+					
+							
+				} 
+			} 
+		
+			sidoBarChart(sidoData);
+		}
+	});
+		
+		
+	
+	$.ajax({
+		
+		url:'/gender',
+		type:'get',
+		dataType:'json',
+		
+		success : function(data) {
+			var today = new Date();
+			
+			var genderData = [];
+			
+			
+			var month = today.getMonth()+1;
+			month = month >= 10 ? month : '0' + month;
+			
+			var date = today.getDate()-1;
+			date = date >=10? date : '0'+date;
+			
+			var recentDay = today.getFullYear()+"-"+month+"-"+date;
+			
+			for(var i=0;i<data.length;i++) {
+				
+				var createD = data[i].createDt.toString();
+				var changeC = createD.substring(0,10);
+				
+				 if(changeC == recentDay) {
+					
+					var currenGenderData = data[i]
+					
+					genderData.push(currenGenderData);
+					
+					
+							
+				} 
+			} 
+			console.log(genderData);
+			pieChart(genderData);
+		}
+		
+		
+	});
+});
+
+ 
+</script>
+
+
+<!-- Styles -->
+<!-- <style>
+#chartdiv {
+   width: 100%;
+   height: 500px;
+}
+
+
+</style> -->
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+<!-- Chart code -->
+<script>
+   function barChart(data) {
+      am4core.ready(function() {
+
+         // Themes begin
+         am4core.useTheme(am4themes_animated);
+         // Themes end
+
+         var chart = am4core.create("bardiv", am4charts.XYChart);
+         chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+         chart.data = data;
+
+         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+         categoryAxis.renderer.grid.template.location = 0;
+         categoryAxis.dataFields.category = "gubun";
+         categoryAxis.renderer.minGridDistance = 40;
+         categoryAxis.fontSize = 11;
+
+         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+         valueAxis.min = 0;
+         valueAxis.max = 80000;
+         valueAxis.strictMinMax = true;
+         valueAxis.renderer.minGridDistance = 30;
+         
+         var series = chart.series.push(new am4charts.ColumnSeries());
+         series.dataFields.categoryX = "gubun";
+         series.dataFields.valueY = "confCase";
+         series.columns.template.tooltipText = "{valueY.value}";
+         series.columns.template.tooltipY = 0;
+         series.columns.template.strokeOpacity = 0;
+
+         // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+         series.columns.template.adapter.add("fill", function(fill, target) {
+            return chart.colors.getIndex(target.dataItem.index);
+         });
+         
+         
+
+      }); // end am4core.ready()
+   }
+</script>
+
+<!-- Chart code -->
+<script>
+function lineChart(data) {
+   am4core.ready(function() {
+
+      // Themes begin
+      am4core.useTheme(am4themes_animated);
+      // Themes end
+
+      // Create chart instance
+      var chart = am4core.create("linediv", am4charts.XYChart);
+
+      // Add data
+      chart.data = data;
+
+      // Set input format for the dates
+      //chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
+
+      // Create axes
+      var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+      var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+      // Create series
+      var series = chart.series.push(new am4charts.LineSeries());
+      series.dataFields.valueY = "decideCnt";
+      series.dataFields.dateX = "createDt";
+      series.tooltipText = "{createDt}"
+      series.strokeWidth = 2;
+      series.minBulletDistance = 10;
+
+      // Drop-shaped tooltips
+      series.tooltip.background.cornerRadius = 20;
+      series.tooltip.background.strokeOpacity = 0;
+      series.tooltip.pointerOrientation = "vertical";
+      series.tooltip.label.minWidth = 40;
+      series.tooltip.label.minHeight = 40;
+      series.tooltip.label.textAlign = "middle";
+      series.tooltip.label.textValign = "middle";
+
+      // Make bullets grow on hover
+      var bullet = series.bullets.push(new am4charts.CircleBullet());
+      bullet.circle.strokeWidth = 2;
+      bullet.circle.radius = 4;
+      bullet.circle.fill = am4core.color("#fff");
+
+      var bullethover = bullet.states.create("hover");
+      bullethover.properties.scale = 1.3;
+
+      // Make a panning cursor
+      chart.cursor = new am4charts.XYCursor();
+      chart.cursor.behavior = "panXY";
+      chart.cursor.xAxis = dateAxis;
+      chart.cursor.snapToSeries = series;
+
+     
+      dateAxis.keepSelection = true;
+
+      // Enable export
+      
+      
+      document.getElementById("image").onclick= 
+         function exportPNG() {
+           chart.exporting.export("png");
+         };
+
+      var options = chart.exporting.getFormatOptions("png");
+      options.keepTainted = true;
+      chart.exporting.setFormatOptions("png", options);
+      
+      
+      }); // end am4core.ready()
+   }
+
+
+
+</script>
+
+<script>
+function pieChart(data) {
+	am4core.ready(function() {
+
+		// Themes begin
+		am4core.useTheme(am4themes_animated);
+		// Themes end
+
+		// Create chart instance
+		var chart = am4core.create("piediv", am4charts.PieChart);
+
+		// Add data
+		chart.data = data;
+
+		// Add and configure Series
+		var pieSeries = chart.series.push(new am4charts.PieSeries());
+		pieSeries.dataFields.value = "confCase";
+		pieSeries.dataFields.category = "gubun";
+		pieSeries.slices.template.stroke = am4core.color("#fff");
+		pieSeries.slices.template.strokeOpacity = 1;
+
+		// This creates initial animation
+		pieSeries.hiddenState.properties.opacity = 1;
+		pieSeries.hiddenState.properties.endAngle = -90;
+		pieSeries.hiddenState.properties.startAngle = -90;
+
+		chart.hiddenState.properties.radius = am4core.percent(0);
+		
+		chart.legend = new am4charts.Legend();
+
+		}); // end am4core.ready()
+	
+
+}
+</script>
+
+<script>
+   function sidoBarChart(data) {
+      am4core.ready(function() {
+
+         // Themes begin
+         am4core.useTheme(am4themes_animated);
+         // Themes end
+
+         var chart = am4core.create("sidobarDiv", am4charts.XYChart);
+         chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+         chart.data = data;
+		
+         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+         categoryAxis.renderer.grid.template.location = 0;
+         categoryAxis.dataFields.category = "gubun";
+         categoryAxis.renderer.minGridDistance = 40;
+         categoryAxis.fontSize = 11;
+
+         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+         valueAxis.min = 0;
+         valueAxis.max = 50000;
+         valueAxis.strictMinMax = true;
+         valueAxis.renderer.minGridDistance = 30;
+         
+         var series = chart.series.push(new am4charts.ColumnSeries());
+         series.dataFields.categoryX = "gubun";
+         series.dataFields.valueY = "defCnt";
+         series.columns.template.tooltipText = "{gubun}";
+         series.columns.template.tooltipY = 0;
+         series.columns.template.strokeOpacity = 0;
+
+         // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+         series.columns.template.adapter.add("fill", function(fill, target) {
+            return chart.colors.getIndex(target.dataItem.index);
+         });
+         
+         
+
+      }); // end am4core.ready()
+   }
+</script>
+
+
+

@@ -19,6 +19,8 @@ public class HomeController {
 		
 		CovidStatus covidStatusData = homeService.findRecentData();
 		
+		System.out.println(covidStatusData);
+		
 		model.addAttribute("active", "home");
 		model.addAttribute("covidStatusData", covidStatusData);/*JSP에게 데이터를 주는 코드*/
 		

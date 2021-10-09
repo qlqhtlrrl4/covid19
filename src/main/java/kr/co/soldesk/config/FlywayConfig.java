@@ -31,7 +31,10 @@ public class FlywayConfig {
         fluentConfiguration.locations(resourcePath);
         System.out.println(resourcePath);
 
-        Flyway flyway = fluentConfiguration.load();
+        Flyway flyway = fluentConfiguration
+        		.ignoreIgnoredMigrations(true)
+        		.outOfOrder(true)
+        		.load();
 
 //        flyway.migrate();
 

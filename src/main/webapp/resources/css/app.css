@@ -155,6 +155,34 @@
 .main-section .corona-info-count-wrapper .corona-color-grey .corona-info-up-down-count {
   margin-left: 3px;
 }
+.main-section .corona-info-chart-wrapper {
+  background-color: whitesmoke;
+  border-radius: 25px;
+  text-align: center;
+  padding: 40px;
+  margin-top: 20px;
+}
+.main-section .corona-info-chart-wrapper .corona-info-chart-title {
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+}
+.main-section .corona-info-chart-wrapper .piediv {
+  width: 100%;
+  height: 200px;
+}
+.main-section .corona-info-chart-wrapper .linediv {
+  width: 100%;
+  height: 200px;
+}
+.main-section .corona-info-chart-wrapper .bardiv {
+  width: 100%;
+  height: 200px;
+}
+.main-section .corona-info-chart-wrapper .sidobarDiv {
+  width: 100%;
+  height: 200px;
+}
 
 .switch {
   position: relative;

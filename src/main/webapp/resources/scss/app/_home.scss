@@ -130,5 +130,39 @@
 		}
 	}
 	
+	.corona-info-chart-wrapper {
+		background-color:rgb(245,245,245);
+		border-radius: 25px;
+		text-align: center;
+		padding: 40px;
+		margin-top :20px;
+		
+		.corona-info-chart-title {
+			color : black;
+			font-size : 15px;
+			font-weight : bold;
+		}
+		.piediv {
+			width : 100%;
+			height : 200px;
+
+		}
+
+		.linediv {
+			width : 100%;
+			height : 200px;
+		}
+		
+		.bardiv {
+			width : 100%;
+			height : 200px;
+		}
+		
+		.sidobarDiv {
+			width :100%;
+			height : 200px;
+		}
+	}
+	
 }
 	

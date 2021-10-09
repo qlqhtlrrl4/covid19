@@ -50,6 +50,17 @@
 			<scope>system</scope>
 			<systemPath>${basedir}\src\main\webapp\WEB-INF\lib\simplecaptcha-1.2.1.jar</systemPath>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.2</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.google.cloud/google-cloud-translate -->
 		<!-- https://mvnrepository.com/artifact/com.google.cloud/google-cloud-translate -->
@@ -319,6 +330,7 @@
 					</additionalBuildcommands>
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>true</downloadJavadocs>
+					
 				</configuration>
 			</plugin>
 			<plugin>
