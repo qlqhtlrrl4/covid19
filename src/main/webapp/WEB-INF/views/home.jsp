@@ -208,7 +208,7 @@
 						<div class="piediv"></div>
 					</div>
 				</div>
-				
+			
 				<div class="col-4">
 					<div class="corona-info-chart-wrapper">
 						<span class="corona-info-chart-title">

@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/auth")
 public class LoginController {
 	
-	/*@Autowired
-	private Environment env;*/
-
 	@RequestMapping("/login")
 	public String login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout, Model model) {

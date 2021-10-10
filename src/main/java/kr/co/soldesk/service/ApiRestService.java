@@ -173,12 +173,9 @@ public class ApiRestService {
 		}
 
 		logger.debug(apiRestServiceTag + "CovidData saveAll Start");
-
 		covidRepository.saveAll(covidList);
-
 		logger.debug(apiRestServiceTag + "CovidData saveAllEnd");
-		// covidRepository.saveAll(covidList);
-
+		
 		logger.debug(apiRestServiceTag + "vaccinationData saveAll Start");
 		vaccinRepository.saveAll(vaccinList);
 		logger.debug(apiRestServiceTag + "vaccinationData saveAll End");
@@ -195,8 +192,6 @@ public class ApiRestService {
 		cityStatusRepository.saveAll(cityList);
 		logger.debug(apiRestServiceTag + "cityStatusRepository saveAll End");
 		
-		System.out.println(nowDate);
-
 	}
 
 	public List<Map<String, Object>> getVaccinData() {
@@ -235,6 +230,10 @@ public class ApiRestService {
 	public List<CityStatus> getCityData() {
 		
 		return cityStatusRepository.currentCityData();
+	}
+	
+	public List<Vaccination> getRecentVaccinationData() {
+		return vaccinRepository.recentVaccineData();
 	}
 	
 	

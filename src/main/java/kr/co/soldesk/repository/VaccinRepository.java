@@ -20,6 +20,9 @@ public interface VaccinRepository extends JpaRepository<Vaccination, Integer> {
 	@Query(value ="select sido,accumulatedFirstCnt from vaccination",nativeQuery = true)
 	List<Map<String,Object>> findFirstChart();
 	
+	@Query(value= "select * from vaccination where date_format(baseDate,\"%Y-%m-%d\") like DATE_FORMAT(now(),\"%Y-%m-%d\") and sido not like '전국';",nativeQuery = true)
+	List<Vaccination> recentVaccineData();
+	
 	
 	
 	//List<VaccinationDataMapping> findAllBy();

@@ -21,6 +21,7 @@ import kr.co.soldesk.service.UserDtoValidator;
 
 
 @Controller
+@RequestMapping("/auth")
 public class JoinController {
 	
 	@Autowired
@@ -40,22 +41,20 @@ public class JoinController {
 		model.addAttribute("userInfomation", userInfomation);
 		
 
-		return "/join.do";
+		return "/auth/join";
 	}
 	
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public String doJoin(@ModelAttribute("userInfomation")@Valid UserDto userInfomation, BindingResult result) {
 		
-		/*System.out.println(req.getParameter("answer"));
-		System.out.println((String)req.getSession().getAttribute("captcha"));*/
 		userDtoValidator.validate(userInfomation, result);
 		
 		if(result.hasErrors()) {
-			return "/join.do";
+			return "/auth/join";
 		}	
 		userService.save(userInfomation);
 		
-		return "redirect:/login.do"; 
+		return "redirect:/auth/login"; 
 	
 	}
 	
@@ -70,27 +69,4 @@ public class JoinController {
 		
 		new CaptchaUtil().getAudioCaptCha(req, res);
 	}
-	
-	/*@ResponseBody
-	@RequestMapping(value="/captchaAudio", method=RequestMethod.POST)
-	public void captchaAudio(@RequestBody Audio audio) throws Exception {
-		
-		//System.out.println("audio");
-		System.out.println(audio);
-		//System.out.println("audio");
-//		new CaptchaUtil().getAudioCaptCha(req, res);
-	}*/
-	
-	/*@ResponseBody
-	@RequestMapping(value="/captchaAudio", method=RequestMethod.POST)
-	public String captchaAudio(@RequestBody Answer answer) throws Exception {
-		
-		
-		System.out.println(answer);
-		System.out.println(req.getSession().getAttribute("captcha"));  
-		
-		
-		return "ok";
-
-	}*/
 }

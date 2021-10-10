@@ -3,8 +3,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>	
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <link rel="icon" type="image/png" href="http://example.com/myicon.png"> 
+
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+
+<link rel="shortcut icon" href="#">
+
+<title>Login</title>
+
+<!-- Bootstrap core CSS -->
+<link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="<c:url value="/resources/css/carousel.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/app.css"/>" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery-ui.min.js"/>"></script>
+<script src="<c:url value="/resources/js/waypoints.min.js"/>"></script>
+</head>
 
 <script>
 
@@ -40,15 +70,15 @@ function winPlayer(objUrl) {
 </script>
 
  <!-- onsubmit="return checkRecaptcha()" -->
+ 
+<body>
 
 <div class="container-wrapper">
 	<div class="container">
-		<h1>Add Product</h1>
-		<p class="lead">Fill the below information to add a product:</p>
-
+		
 		<!-- modelAttribute의 값과 AdminController의 model.addAttribute("product", .. ) product 값(key)과 일치-->
 		<sf:form
-			action="${pageContext.request.contextPath }/join"
+			action="/auth/join"
 			method="post" modelAttribute="userInfomation">
 
 			<div class="form-group">
@@ -78,7 +108,7 @@ function winPlayer(objUrl) {
 			
 			<div class="form-group">
 				<label for="captchaImg"><spring:message code="join.captcha" /></label><br>
-				<img id = "captchaImg" src="/captchaImg" alt="캡차이미지"/> 
+				<img id = "captchaImg" src="/auth/captchaImg" alt="캡차이미지"/> 
 				<div id="captchaAudio" style="display:none"></div> 
 			</div>
 			
@@ -99,10 +129,11 @@ function winPlayer(objUrl) {
 			</div>
 			
 			<input type="submit" value="submit" class="btn btn-default">
-			<a href="<c:url value="/login" />" class="btn btn-default">Cancel</a>
+			<a href="<c:url value="/auth/login" />" class="btn btn-default">Cancel</a>
 		</sf:form>
 			
 		<br />
 
 	</div>
 </div>
+</body>
