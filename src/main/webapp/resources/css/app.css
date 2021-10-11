@@ -249,25 +249,52 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.logo-title-wrapper {
+  margin-top: 110px;
+  text-align: center;
+}
+.logo-title-wrapper .logo-title {
+  font-size: var(--font-xxlarge);
+}
+.logo-title-wrapper .logo-title .logo-text-skyblue {
+  color: var(--skyblue-color);
+}
+
 .login-section {
-  margin-top: 160px;
+  margin-top: 60px;
 }
 .login-section .login-card-wrapper {
   margin: auto;
+  border-radius: 25px;
   background-color: var(--white-color);
 }
-.login-section .login-card-wrapper .logo-title-wrapper {
-  text-align: center;
+.login-section .login-card-wrapper .login-input-wrapper {
+  padding-left: 30px;
+  padding-right: 30px;
   margin-top: 30px;
 }
-.login-section .login-card-wrapper .logo-title-wrapper .logo-title {
-  font-size: var(--font-xlarge);
+.login-section .login-card-wrapper .login-input-wrapper .form-group .login-title {
+  font-size: var(--font-large);
+  color: var(--grey-dark-color);
 }
-.login-section .login-card-wrapper .logo-title-wrapper .logo-title .logo-text-skyblue {
-  color: var(--skyblue-color);
+.login-section .login-card-wrapper .login-input-wrapper .form-group .form-control {
+  margin-top: 30px;
+  padding-left: 10px;
 }
-.login-section .login-card-wrapper .login-input-wrapper {
-  margin-top: 60px;
+.login-section .login-card-wrapper .login-input-wrapper .btn {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 35px;
+}
+
+.loginfindAndjoin {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  list-style: none;
+}
+.loginfindAndjoin .li {
+  padding-right: 8px;
 }
 
 :root {
@@ -278,8 +305,10 @@ input:checked + .slider:before {
   --white-color:#F5F5F5;
   --truewhite-color:#ffffff;
   --skyblue-color:#C2D1DC;
+  --blue-color:#2196F3;
   --pink-color:#eb5374;
   /* Font Size */
+  --font-xxlarge:40px;
   --font-xlarge:30px;
   --font-large: 20px;
   --font-regular: 16px;

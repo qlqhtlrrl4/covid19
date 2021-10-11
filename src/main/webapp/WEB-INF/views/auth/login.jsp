@@ -35,37 +35,37 @@
 <!-- <script src="<c:url value="/resources/js/jquery.counteup.js"/>"></script> -->
 </head>
 <body>
+<div class="logo-title-wrapper">
+	<span class="logo-title">CORONA
+		<span class="logo-text-skyblue">
+			LIVE
+		</span>
+	</span>
+</div>
 <div class="login-section">
 	<div class="row">
 		<div class="col-lg-5 col-md-10 col-sm-11 login-card-wrapper">
-			<div class="logo-title-wrapper">
-				<span class="logo-title">CORONA
-					<span class="logo-text-skyblue">
-						LIVE
-					</span>
-				</span>
-			</div>
 			<div class="login-input-wrapper">
 				<form>
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">Email address</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-				    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-				  </div>
-				  <div class="form-group">
-				    <label for="exampleInputPassword1">Password</label>
-				    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-				  </div>
-				  <div class="form-group form-check">
-				    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-				    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-				  </div>
-				  <button type="submit" class="btn btn-primary">Submit</button>
+					<div class="form-group">
+						<div class="login-title">
+							<span>로그인</span>
+						</div>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="아이디">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호">
+					</div>
+					<button type="submit" class="btn btn-primary">로그인</button>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
-	
+<ul class="loginfindAndjoin">
+	<li><a>아이디 찾기</a></li>
+	<li><a>비밀번호 찾기</a></li>
+	<li><a>회원가입</a></li>
+</ul>
 </body>
 </html>

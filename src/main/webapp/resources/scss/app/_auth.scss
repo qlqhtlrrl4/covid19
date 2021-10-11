@@ -1,21 +1,47 @@
-.login-section{
-	margin-top: 160px;
-	.login-card-wrapper{
-		margin:auto;
-		background-color: var(--white-color);
-		.logo-title-wrapper{
-			text-align: center;
-			margin-top:30px;
-			.logo-title{
-				font-size: var(--font-xlarge);
-				.logo-text-skyblue{
-					color:var(--skyblue-color);
-				}
-			}
-		}
-		.login-input-wrapper{
-			margin-top:60px;
+.logo-title-wrapper{
+	margin-top:110px;
+	text-align: center;
+	.logo-title{
+		font-size: var(--font-xxlarge);
+		.logo-text-skyblue{
+			color: var(--skyblue-color);
 		}
 	}
-	
+}
+.login-section{
+	margin-top:60px;
+	.login-card-wrapper{
+		margin:auto;
+		border-radius: 25px;
+		background-color: var(--white-color);
+		.login-input-wrapper{
+			padding-left:30px;
+			padding-right:30px;
+			margin-top:30px;
+			.form-group{
+				.login-title{
+					font-size: var(--font-large);
+					color: var(--grey-dark-color);
+				}
+				.form-control{
+					margin-top:30px;
+					padding-left:10px;
+				}
+			}
+			.btn{
+				width:100%;
+				margin-top:15px;
+				margin-bottom:35px;
+			}
+		}
+	}
+}
+.loginfindAndjoin{
+	display:flex;
+	justify-content: center;
+	padding-top:30px;
+	list-style: none;
+	.li{
+		padding-right: 8px;
+	}
 }
