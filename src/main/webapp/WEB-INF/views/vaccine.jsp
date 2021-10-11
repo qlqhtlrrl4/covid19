@@ -16,6 +16,7 @@ $(document).ready(function(){
 			
 			console.log(data);
 			pieChart(data);
+			barChart(data);
 		}
 		
 	});

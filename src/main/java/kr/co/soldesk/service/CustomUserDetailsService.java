@@ -6,4 +6,6 @@ import kr.co.soldesk.model.UserDto;
 
 public interface CustomUserDetailsService extends UserDetailsService {
 	public void save(UserDto userDto);
+	
+	public int idCheck(String id);
 }

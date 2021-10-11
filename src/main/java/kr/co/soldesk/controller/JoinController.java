@@ -12,6 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.soldesk.captcha.CaptchaUtil;
 import kr.co.soldesk.model.UserDto;
@@ -68,5 +70,12 @@ public class JoinController {
 	public void captchaAudio(HttpServletResponse res) throws Exception {
 		
 		new CaptchaUtil().getAudioCaptCha(req, res);
+	}
+	
+	@RequestMapping(value="/idCheck", method=RequestMethod.POST)
+	@ResponseBody
+	public int idCheck(@RequestParam("id") String id) {
+		int cnt = userService.idCheck(id);
+		return cnt;
 	}
 }
