@@ -90,7 +90,7 @@ function winPlayer(objUrl) {
 
 					<div class="form-group">
 						<label for="id"><spring:message code="join.id" /></label>
-						<sf:input path="id" id="id" class="form-control" type="text" oninput="checkId()"/>
+						<sf:input path="id" id="id" class="form-control" type="text" onchange="checkId()"/>
 						<sf:errors path="id" cssStyle="color:#ff0000;" /> 
 						<span class="id_ok">사용 가능한 아이디입니다.</span>
 						<span class="id_already">누군가 이 아이디를 사용하고 있어요.</span>
@@ -147,10 +147,27 @@ function winPlayer(objUrl) {
 </div>
 </body>
 
-<script>
-function checkId(){
-    var id = $('#id').val();
+<script> 
+var allUserId;
+
+$(document).ready(function(){
+
 	$.ajax({
+    	url :'/auth/allUserId',
+    	type:'get',
+    	dataType : 'json',
+    	async:false,
+    	
+    	success:function(data) {
+    		allUserId = data;
+    		
+    		
+    		//console.log(data['user_id']);
+    		
+    	}
+    	
+    });
+	/* $.ajax({
     	url:'/auth/idCheck',
     	type:'post',
     	data:{id:id},
@@ -166,7 +183,7 @@ function checkId(){
     		else if(Number(data.documentElement.innerHTML) == 1){ // cnt가 1일 경우 -> 이미 존재하는 아이디
     			$('.id_ok').css("display","none");
             	$('.id_already').css("display", "inline-block");
-            	console.log("aaaa");
+            	
         	} else { //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
             	
             	$('.id_ok').css("display","inline-block"); 
@@ -177,7 +194,31 @@ function checkId(){
     	error:function(){
         	alert("에러입니다");
     	}
+	}); */
 });
-};
+
+
+
+function checkId() {
+	var id = $('#id').val();
+	
+	
+	if(id.trim() == "") {
+		console.log("empty");
+		$('.id_ok').css("display","none");
+		$('.id_already').css("display","none");
+	}
+	
+	
+	else if(allUserId.some(e=>e.user_id === id) == true ){ 
+		$('.id_ok').css("display","none");
+    	$('.id_already').css("display", "inline-block");
+    	
+	} else { 
+    	
+    	$('.id_ok').css("display","inline-block"); 
+    	$('.id_already').css("display", "none");
+	}
+}
 
 </script>
