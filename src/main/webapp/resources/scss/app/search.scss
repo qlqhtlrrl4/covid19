@@ -2,7 +2,22 @@
 	margin-top:80px;
 	.map{
 		background-color: var(--white-color);
-		padding:17px;
+		padding:30px;
 		border-radius: 25px;
+	}
+	.hospital-list{
+		margin-right: 15px;
+		background-color: var(--white-color);
+		padding:30px;
+		border-radius: 25px;
+		.list-group-item{
+			margin-bottom: 25px;
+			border-radius: 25px;
+			background-color:rgba(194,209,220,0.2);
+			border:none;
+			&.active{
+				background-color: var(--blue-color);
+			}
+		}
 	}
 }
