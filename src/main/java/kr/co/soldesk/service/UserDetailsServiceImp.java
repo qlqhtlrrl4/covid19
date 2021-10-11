@@ -91,4 +91,19 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 
 		}
 	}
+
+	@Override
+	public int idCheck(String id) {
+		System.out.println(id);
+		int cnt;
+		
+		if(userRepository.findById(id) != null) {
+			cnt = 1;
+		}
+		else {
+			cnt  = 0;
+		}
+		System.out.println(cnt);
+		return cnt;
+	}
 }

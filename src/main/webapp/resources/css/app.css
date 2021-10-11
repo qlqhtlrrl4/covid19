@@ -270,6 +270,35 @@ input:checked + .slider:before {
   margin-top: 60px;
 }
 
+.join-section {
+  margin-top: 130px;
+}
+.join-section .join-card-wrapper {
+  margin: auto;
+  background-color: var(--white-color);
+}
+.join-section .join-card-wrapper .logo-title-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+.join-section .join-card-wrapper .logo-title-wrapper .logo-title {
+  font-size: var(--font-xlarge);
+}
+.join-section .join-card-wrapper .logo-title-wrapper .logo-title .logo-text-skyblue {
+  color: var(--skyblue-color);
+}
+.join-section .join-card-wrapper .join-input-wrapper {
+  margin-top: 60px;
+}
+.join-section .join-card-wrapper .join-input-wrapper .form-group .id_ok {
+  color: blue;
+  display: none;
+}
+.join-section .join-card-wrapper .join-input-wrapper .form-group .id_already {
+  color: blue;
+  display: none;
+}
+
 :root {
   /*Color*/
   --grey-color:#5C6366;

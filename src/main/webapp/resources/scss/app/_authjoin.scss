@@ -1,0 +1,31 @@
+.join-section {
+	margin-top : 130px;
+	
+	.join-card-wrapper {
+		margin:auto;
+		background-color:var(--white-color);
+		
+		.logo-title-wrapper {
+			text-align:center;
+			margin-top : 30px;
+			.logo-title {
+				font-size : var(--font-xlarge);
+				.logo-text-skyblue{
+					color:var(--skyblue-color);
+				}
+			}
+		}
+		.join-input-wrapper {
+			margin-top:60px;
+			
+			.form-group{
+				.id_ok{color:blue; display: none;}
+				.id_already{color:blue; display: none;}
+			}
+			
+		}
+		
+	}
+
+}
+
