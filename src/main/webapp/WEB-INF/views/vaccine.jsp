@@ -1,71 +1,74 @@
-<!-- Resources -->
-<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
+
+<div class="vaccine-main">
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-12">
+			<div class="summary-left-panel">
+				<div class="card">
+					<div class="card-header">
+						<div class="panel-title">
+							<h4 class="mb-0">
+								<span class="card-header-title">
+									백신접종현황
+								</span>
+							</h4>
+						</div>
+					</div><!--  card header -->
+					
+					<div class="card-body">
+						<div class=""></div>
+					</div>
+				</div> 
+			</div>
+		</div> <!-- col-lg-3 -->
+		
+		<div class="col-lg-9 col-md-9 col-sm-12">
+			<div class="row">
+				<div class="col-9">
+					<div class="vaccine-info-count-wrapper">
+						<div class="row">
+							<div class="col-6">
+								<span class="vaccine-info-count-title">1차 접종현황</span>
+								<span class="vaccine-color-gray counter"><fmt:formatNumber type="number" maxFractionDigits="3" value="${vaccineData.totalFirstCnt}"/></span>
+								<span class="vaccine-color-gray badge badge-pill badge-primary badge-color-gray"></span>
+							</div>
+							
+							<div class="col-6">
+								<span class="vaccine-info-count-title">접종완료 현황</span>
+								<span class="vaccine-color-gray counter"><fmt:formatNumber type="number" maxFractionDigits="3" value="${vaccineData.totalSecondCnt}"/></span>
+								<span class="vaccine-color-gray badge badge-pill badge-primary badge-color-gray"></span>
+							</div>
+						</div>
+					</div>
+				</div> <!-- col-9 -->
+				
+				<div class="col-3">
+					<div class="vaccine-info-graph-wrapper">
+						접종완료 그래프 넣을곳
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+</div> <!-- vaccine main div -->
 
 <script>
-$(document).ready(function(){
+$(document).ready(function() {
+	
 	$.ajax({
-		
 		url:'/vaccineStatus',
 		type:'get',
-		dataType:'json',
+		dataType : 'json',
 		
 		success : function(data) {
 			
-			console.log(data);
-			pieChart(data);
-			barChart(data);
 		}
-		
 	});
 });
 
-
-
-</script>
-
-<style>
-.piediv {
-  width: 50%;
-  height: 500px
-}
-</style>
-
-<div class="piediv"></div>
-<script>
-function pieChart(data) {
-	am4core.ready(function() {
-
-		// Themes begin
-		am4core.useTheme(am4themes_animated);
-		// Themes end
-
-		// Create chart instance
-		var chart = am4core.create("piediv", am4charts.PieChart);
-
-		// Add data
-		chart.data = data;
-
-		// Add and configure Series
-		var pieSeries = chart.series.push(new am4charts.PieSeries());
-		pieSeries.dataFields.value = "totalFirstCnt";
-		pieSeries.dataFields.category = "sido";
-		pieSeries.slices.template.stroke = am4core.color("#fff");
-		pieSeries.slices.template.strokeOpacity = 1;
-
-		// This creates initial animation
-		pieSeries.hiddenState.properties.opacity = 1;
-		pieSeries.hiddenState.properties.endAngle = -90;
-		pieSeries.hiddenState.properties.startAngle = -90;
-
-		chart.hiddenState.properties.radius = am4core.percent(0);
-		
-		chart.legend = new am4charts.Legend();
-
-		}); // end am4core.ready()
-	
-
-}
 </script>

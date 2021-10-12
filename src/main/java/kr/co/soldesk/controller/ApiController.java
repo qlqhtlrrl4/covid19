@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.co.soldesk.model.CityStatus;
 import kr.co.soldesk.model.CovidGubun;
 import kr.co.soldesk.model.CovidStatus;
-import kr.co.soldesk.model.Vaccination;
 import kr.co.soldesk.service.ApiRestService;
 
 @Controller
@@ -75,14 +74,14 @@ public class ApiController {
 		return cityData;
 	}
 	
-	@GetMapping(value="/vaccineStatus", produces="application/json; charset=utf8")
+	/*@GetMapping(value="/vaccineStatus", produces="application/json; charset=utf8")
 	@ResponseBody
 	public List<Vaccination> vaccination() {
 		List<Vaccination> vaccinationData = restService.getRecentVaccinationData();
 		
 		return vaccinationData;
 	}
-	
+	*/
 	
 	
 	@GetMapping("/covidStatusDataDownLoad")

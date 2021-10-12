@@ -1,0 +1,53 @@
+.vaccine-main {
+
+	margin-top:80px;
+	
+	.summary-left-panel {
+		backgorund-color : var(--white-color);
+		padding:17px;
+		
+		border-radius : 25px;
+		
+		.card {
+			border : none;
+			background-color : var(--white-color);
+			
+			.card-header {
+				background-color:rgba(0,0,0,0);
+				padding : 0;
+				margin : .75rem 1.25rem;
+				padding-bottom :0.60rem;
+				
+				.panel-title {
+					display : block;
+					text-align : center;
+					
+					.card-header-title {
+						font-weight : bold;
+						
+						color : var(--grey-dark-color);
+					}
+				}
+			}
+		}
+	}
+	.vaccine-info-count-wrapper {
+		background-color:rgb(245,245,245);
+		border-radius : 25px;
+		text-align : center;
+		padding : 40px;
+		margin-top:20px;
+		
+		.vaccine-into-chart-title {
+			color : block;
+			font-size : 15px;
+			font-weight : bold;
+		}
+	}
+	
+	.vaccine-info-graph-wrapper {
+		background-color:rgb(245,245,245);
+		border-radius : 25px;
+	}
+
+}

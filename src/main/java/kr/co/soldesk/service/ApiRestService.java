@@ -232,7 +232,7 @@ public class ApiRestService {
 		return cityStatusRepository.currentCityData();
 	}
 	
-	public List<Vaccination> getRecentVaccinationData() {
+	public Vaccination getRecentVaccinationData() {
 		return vaccinRepository.recentVaccineData();
 	}
 	
