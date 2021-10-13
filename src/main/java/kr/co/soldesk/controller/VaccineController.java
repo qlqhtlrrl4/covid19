@@ -1,10 +1,14 @@
 package kr.co.soldesk.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.soldesk.model.Vaccination;
 import kr.co.soldesk.service.ApiRestService;
@@ -22,6 +26,15 @@ public class VaccineController {
 		System.out.println(vaccineData);
 		model.addAttribute("vaccineData", vaccineData);
 		return "/vaccine.do";
+	}
+	
+	@RequestMapping(value="/vaccineStatus",method=RequestMethod.GET)
+	@ResponseBody
+	public List<Map<String,Object>> vaccineClassify() {
+		
+		List<Map<String,Object>> vaccineClassifyData = restService.getVaccinData();
+		
+		return vaccineClassifyData;
 	}
 	
 }

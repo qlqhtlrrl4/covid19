@@ -57,6 +57,13 @@
 .main-section .summary-left-pane .card.active .card-header {
   border-bottom: 1px solid var(--grey-light-color);
 }
+.main-section .summary-left-pane .card.active .card-header .panel-title {
+  display: flex;
+  justify-content: space-between;
+}
+.main-section .summary-left-pane .card.active .card-header .panel-title .arrow-icon {
+  transform: rotate(180deg);
+}
 .main-section .summary-left-pane .card .card-header {
   background-color: rgba(0, 0, 0, 0);
   padding: 0;
@@ -362,6 +369,20 @@ input:checked + .slider:before {
   border: none;
   background-color: var(--white-color);
 }
+.vaccine-main .summary-left-pane .card.active {
+  background-color: rgba(194, 209, 220, 0.2);
+  border-radius: 25px;
+}
+.vaccine-main .summary-left-pane .card.active .card-header {
+  border-bottom: 1px solid var(--grey-light-color);
+}
+.vaccine-main .summary-left-pane .card.active .card-header .panel-title {
+  display: flex;
+  justify-content: space-between;
+}
+.vaccine-main .summary-left-pane .card.active .card-header .panel-title .arrow-icon {
+  transform: rotate(180deg);
+}
 .vaccine-main .summary-left-pane .card .card-header {
   background-color: rgba(0, 0, 0, 0);
   padding: 0;
@@ -381,20 +402,47 @@ input:checked + .slider:before {
   color: var(--grey-dark-color);
 }
 .vaccine-main .vaccine-info-count-wrapper {
-  background-color: whitesmoke;
+  background-color: var(--white-color);
   border-radius: 25px;
   text-align: center;
   padding: 30px;
+  height: 150px;
 }
 .vaccine-main .vaccine-info-count-wrapper .vaccine-info-count-title {
   color: black;
   font-size: var(--font-regular);
 }
-.vaccine-main .vaccine-info-graph-wrapper {
+.vaccine-main .vaccine-info-count-wrapper .vaccine-color-gray {
+  color: #4c4d52;
+  font-size: var(--font-xlarge);
+}
+.vaccine-main .vaccine-info-count-wrapper .vaccine-color-gray.vaccine-color-blue {
+  background-color: #4B89DC;
+  font-size: var(--font-regular);
+}
+.vaccine-main .vaccine-chart-count-wrapper {
+  background-color: var(--white-color);
+  border-radius: 25px;
+  text-align: center;
+  padding: 30px;
+  margin-top: 20px;
+  height: 500px;
+}
+.vaccine-main .vaccine-chart-count-wrapper .vaccine-chart-count-title {
+  color: black;
+  font-size: var(--font-large);
+}
+.vaccine-main .vaccine-chart-count-wrapper .vaccineAllChart {
+  width: 100%;
+  height: 350px;
+}
+.vaccine-main .summary-right-pane {
   background-color: whitesmoke;
   border-radius: 25px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
 }
-
 :root {
   /*Color*/
   --grey-color:#5C6366;

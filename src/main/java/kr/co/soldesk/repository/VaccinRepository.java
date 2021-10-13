@@ -17,7 +17,7 @@ public interface VaccinRepository extends JpaRepository<Vaccination, Integer> {
 	@Query(value = "truncate table vaccination", nativeQuery = true)
 	void deleteAll(); 
 	
-	@Query(value ="select sido,accumulatedFirstCnt from vaccination",nativeQuery = true)
+	@Query(value ="select baseDate,totalSecondCnt from vaccination where sido like '전국' order by baseDate desc limit 14;",nativeQuery = true)
 	List<Map<String,Object>> findFirstChart();
 	
 	@Query(value= "select * from vaccination where sido like '전국' order by baseDate desc limit 1;",nativeQuery = true)
