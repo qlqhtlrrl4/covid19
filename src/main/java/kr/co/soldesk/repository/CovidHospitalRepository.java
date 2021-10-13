@@ -1,5 +1,7 @@
 package kr.co.soldesk.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,6 +17,7 @@ public interface CovidHospitalRepository extends JpaRepository<Covidhospital, In
 	@Query(value = "truncate table covidhospital", nativeQuery = true)
 	void deleteAll(); 
 	
-	
+	@Query(value = "select * from covidhospital", nativeQuery = true)
+	List<Covidhospital> findAll();
 
 }

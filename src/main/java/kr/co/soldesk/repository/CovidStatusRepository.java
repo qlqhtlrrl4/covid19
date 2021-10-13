@@ -24,6 +24,9 @@ public interface CovidStatusRepository extends JpaRepository<CovidStatus, Long> 
 	@Query(value = "select  " + "   *  " + "from covidstatus " + "order by createDt desc "
 			+ "limit 2; ", nativeQuery = true)
 	List<CovidStatus> leastTwoDay();
+
+	@Query(value = "select concat(substring(stateDt, 1, 2), '/', substring(stateDt, 3, 4))  as stateDt , decideCnt from (select substring(stateDt, 5, 8) as stateDt , decideCnt from (select stateDt, decideCnt  FROM covid.covidstatus order by stateDt desc limit 7) a order by stateDt) b", nativeQuery = true)
+	List<Map<String, Object>> getRecentCovidStatutsData();
 	
 	
 }

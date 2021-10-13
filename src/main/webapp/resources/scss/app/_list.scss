@@ -1,0 +1,19 @@
+.qna-card-wrapper{
+	margin-top:80px;
+	background-color: var(--white-color);
+	.dropdown{
+		display:flex;
+		width:30%;
+		.btn{
+			margin-right:17px;
+			background-color: var(--truewhite-color);
+			color: var(--grey-dark-color);
+			border-style: none;
+		}
+		.input-group{
+			.input-group-text{
+				background:none;
+			}
+		}
+	}
+}

@@ -5,6 +5,13 @@
 @import "app/chart";
 @import "app/search";
 @import "app/authjoin";
+@import "app/list";
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 :root {
 	/*Color*/
@@ -16,6 +23,9 @@
 	--skyblue-color:#C2D1DC;
 	--blue-color:#2196F3;
 	--pink-color:#eb5374;
+	--logo-color:#8FB2BF;
+	
+	
 	
 	  /* Font Size */
 	--font-xxlarge:40px;
@@ -27,9 +37,10 @@
 	--font-micro: 10px;
 	
 }
- 
- 
+
+
 body {
+	font-family: 'GowunDodum-Regular';
 	padding: 0;
 	background-color: rgba(194,209,220,0.4);
 	.body-wrapper{

@@ -38,7 +38,7 @@
 <div class="logo-title-wrapper">
 	<span class="logo-title">CORONA
 		<span class="logo-text-skyblue">
-			LIVE
+			TIMES
 		</span>
 	</span>
 </div>

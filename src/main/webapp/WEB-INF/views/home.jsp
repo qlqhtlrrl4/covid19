@@ -186,14 +186,10 @@
 				<div class="col-12">
 					<div class="corona-info-chart-wrapper">
 						<span class="corona-info-chart-title">
-							최근 14일 확진자 현황
+							현황
 						</span>	<br>
 						
-						<div class="linediv"></div>
-						<form action="/covidStatusDataDownLoad" method="get">
-                  			<input type="submit" value="Excel Down">
-               			</form>
-                 		 <input type="button" value="Export PNG" id="image"/>
+						<div class="chartdiv"></div>
 							
 					</div>
 				</div>
@@ -677,5 +673,68 @@ function pieChart(data) {
    }
 </script>
 
+<script>
+am4core.ready(function() {
 
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+$.ajax({
+	url: "/covidStatutsLeast7Day",
+	type: "get",
+	dataType: "json",
+	success: function(data) {
+		// Create chart instance
+		var chart = am4core.create("chartdiv", am4charts.XYChart);
+		var colors = [
+			am4core.color("#ffbf00"),
+	        am4core.color("#6bd379"),
+	        am4core.color("#f46b36")
+		];
+
+		// Add data
+		chart.data = data;
+		chart.colors.list = colors;
+		// Create axes
+
+		var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+		categoryAxis.dataFields.category = "stateDt";
+		categoryAxis.renderer.grid.template.location = 0;
+		categoryAxis.renderer.minGridDistance = 30;
+		
+
+		categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
+		  if (target.dataItem && target.dataItem.index & 2 == 2) {
+		    return dy + 25;
+		  }
+		  return dy;
+		});
+
+		var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+		// Create series
+		var series = chart.series.push(new am4charts.ColumnSeries());
+		series.dataFields.valueY = "decideCnt";
+		series.dataFields.categoryX = "stateDt";
+		series.name = "decideCnt";
+		series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+		series.columns.template.fillOpacity = 1;
+
+		var columnTemplate = series.columns.template;
+		columnTemplate.strokeWidth = 2;
+		columnTemplate.strokeOpacity = .0;
+		
+		series.columns.template.adapter.add('fill', function(fill, target) {
+			return chart.colors.getIndex(target.dataItem.index);
+		});
+
+	}
+});
+
+
+
+
+}); // end am4core.ready()
+</script>
 

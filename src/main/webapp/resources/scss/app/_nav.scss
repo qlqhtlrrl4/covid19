@@ -4,9 +4,10 @@
 	padding-bottom: 0;
 	.navbar-brand{
 		padding-left: 15px;
+		font-weight: bold;
 	}
 	.logo-text-skyblue{
-		color:var(--skyblue-color);
+		color: var(--logo-color);
 	}
 		.nav-info-text{
 		font-size: var(--font-small);
@@ -20,6 +21,7 @@
 	}
 	.nav-info-icons-wrapper{
 		display:flex;
+		padding-top:5px;
 		align-items:center;
 		height: 100%;
 		color:var(--skyblue-color);

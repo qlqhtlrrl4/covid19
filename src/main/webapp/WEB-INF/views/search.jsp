@@ -15,31 +15,35 @@
  		<div class="col-lg-4 col-md-6 col-sm-12">
  			<div class="row justify-content-end">
  				<div class="hospital-list">
+ 					<div class="hospital-list-title">
+ 						<span>접종기관 목록</span>
+ 					</div>
+ 					<div class="input-group rounded">
+						<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+						  aria-describedby="search-addon" />
+						<span class="input-group-text border-0" id="search-addon">
+						    <i class="fas fa-search"></i>
+						</span>
+					</div>
  					<div class="list-group">
-					  <a href="#" class="list-group-item list-group-item-action" data-lat="37.568528578992485" data-lng="126.96748460011354">
-					    <div class="d-flex w-100 justify-content-between">
-					      <h5 class="mb-1">강북삼성병원</h5>
-					      <small>종합병원</small>
-					    </div>
-					    <p class="mb-1">서울 종로구 새문안로 29 강북삼성병원</p>
-					    <small>1599-8114</small>
-					  </a>
-					  <a href="#" class="list-group-item list-group-item-action" data-lat="37.5623824610252" data-lng="126.94086915797588">
-					    <div class="d-flex w-100 justify-content-between">
-					      <h5 class="mb-1">세브란스병원</h5>
-					      <small class="text-muted">종합병원</small>
-					    </div>
-					    <p class="mb-1">서울 서대문구 연세로 50-1</p>
-					    <small class="text-muted">1599-1004</small>
-					  </a>
-					  <a href="#" class="list-group-item list-group-item-action" data-lat="37.57972146304682" data-lng="126.99910293184942">
-					    <div class="d-flex w-100 justify-content-between">
-					      <h5 class="mb-1">서울대학병원</h5>
-					      <small class="text-muted">종합병원</small>
-					    </div>
-					    <p class="mb-1">서울 종로구 대학로 101</p>
-					    <small class="text-muted">1588-5700</small>
-					  </a>
+					  
+					  <c:forEach var="covidHospital" items="${covidhospitals}" varStatus="status">
+						<div class="list-group-item list-group-item-action">
+							<div class="hospital-title">
+								<h6 class="mb-1"><c:out value="${covidHospital.orgnm}"/></h6>
+								<i class="fas fa-arrow-circle-right"></i>
+							</div>
+							<div class="hospital-info">
+								<p class="mb-1"><c:out value="${covidHospital.orgZipaddr}"/></p>
+								<small><c:out value="${covidHospital.orgTlno}"/></small>
+							</div>
+							<div class="hospital-icon">
+								<a href="/search/${covidHospital.id}/detail" style="color: #495057;">
+									<i class="far fa-hospital"></i>
+								</a>
+							</div>
+						</div>
+					</c:forEach>
 					</div>			
  				</div>
  			</div>

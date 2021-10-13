@@ -3,8 +3,10 @@
 	text-align: center;
 	.logo-title{
 		font-size: var(--font-xxlarge);
+		font-weight: bold;
 		.logo-text-skyblue{
-			color: var(--skyblue-color);
+			color: var(--logo-color); 
+			font-weight: bold;
 		}
 	}
 }

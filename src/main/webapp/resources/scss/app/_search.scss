@@ -1,0 +1,75 @@
+.search-main{  
+	.map{
+		background-color: var(--white-color);
+		padding:30px;
+		margin-top:120px;
+		margin-left: 60px;
+		border-radius: 25px;
+	}
+	.form-control{
+		margin-top: 20px;
+		.search-icon{
+			position: absolute;
+			right:30px;
+		}
+	}
+	.hospital-list{
+		padding-top:25px;
+		padding-bottom: 30px;
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-top:50px;
+		margin-right: 80px;
+		background-color: var(--white-color);
+		border-radius: 25px;
+			.hospital-list-title{
+				color: var(--grey-dark-color);
+			}
+			.input-group{
+				margin-top:2px;
+				.input-group-text{
+					background:none;
+					margin-top:20px;
+				}
+			}
+			.list-group {
+				max-height: 500px;
+				overflow-y: scroll;
+				margin-top: 20px;
+				
+				.list-group-item{
+					padding-top:10px; 
+					padding-bottom: 15px;
+					padding-right: 17px;
+					padding-left: 40px;
+					margin-top:15px;
+					border-radius: 25px;
+					background-color:rgba(194,209,220,0.2);
+					border:none;
+					font-size:13px;
+					&.active{
+					background-color: var(--blue-color);
+					}	
+						.hospital-title{
+							margin-top:10px;
+							display:flex;
+							justify-content: space-between;
+							margin-left: 21px;
+							font-size: var(--font-large);
+						}
+						.hospital-info{
+							font-size: var(--font-small);
+							margin-left: 21px;
+						}
+						.hospital-icon{
+							position: absolute;
+							top:23px;
+							left: 20px;
+							font-size: 30px;
+						}	
+					}
+				}
+			}
+		
+			
+		}

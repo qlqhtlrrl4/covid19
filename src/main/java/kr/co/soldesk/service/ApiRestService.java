@@ -236,6 +236,8 @@ public class ApiRestService {
 		return vaccinRepository.recentVaccineData();
 	}
 	
-	
+	public List<Map<String, Object>> getRecentCovidStatutsData(){
+		return covidStatusRepository.getRecentCovidStatutsData();
+	}
 
 }

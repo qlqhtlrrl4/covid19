@@ -2,6 +2,7 @@ package kr.co.soldesk.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -81,6 +82,14 @@ public class ApiController {
 		List<Vaccination> vaccinationData = restService.getRecentVaccinationData();
 		
 		return vaccinationData;
+	}
+	
+	@GetMapping(value="/covidStatutsLeast7Day", produces="application/json; charset=utf8")
+	@ResponseBody
+	public List<Map<String, Object>> covidStatutsLeast7Day(){
+		List<Map<String, Object>> covidStatutsData = restService.getRecentCovidStatutsData();
+		
+		return  covidStatutsData;
 	}
 	
 	
