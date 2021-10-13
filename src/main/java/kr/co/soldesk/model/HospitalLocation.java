@@ -1,16 +1,13 @@
 package kr.co.soldesk.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.TableGenerator;
 
 import lombok.Data;
 
-@Data
+/*
 @Entity
 @TableGenerator(
 		name = "hospitalLocation_seq_generator",
@@ -18,7 +15,8 @@ import lombok.Data;
 		pkColumnValue = "hospitalLocation_seq",
 		valueColumnName = "next_val",
 		allocationSize = 1000)
-@Table(name="hospitalLocation")
+@Table(name="hospitalLocation")*/
+@Data
 public class HospitalLocation {
 	
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="hospitalLocation_seq_generator")

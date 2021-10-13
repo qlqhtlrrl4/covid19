@@ -353,40 +353,42 @@ input:checked + .slider:before {
 .vaccine-main {
   margin-top: 80px;
 }
-.vaccine-main .summary-left-panel {
-  backgorund-color: var(--white-color);
+.vaccine-main .summary-left-pane {
+  background-color: var(--white-color);
   padding: 17px;
   border-radius: 25px;
 }
-.vaccine-main .summary-left-panel .card {
+.vaccine-main .summary-left-pane .card {
   border: none;
   background-color: var(--white-color);
 }
-.vaccine-main .summary-left-panel .card .card-header {
+.vaccine-main .summary-left-pane .card .card-header {
   background-color: rgba(0, 0, 0, 0);
   padding: 0;
   margin: 0.75rem 1.25rem;
   padding-bottom: 0.6rem;
+  border-bottom: none;
 }
-.vaccine-main .summary-left-panel .card .card-header .panel-title {
-  display: block;
-  text-align: center;
+.vaccine-main .summary-left-pane .card .card-header .panel-title {
+  display: flex;
+  justify-content: space-between;
 }
-.vaccine-main .summary-left-panel .card .card-header .panel-title .card-header-title {
+.vaccine-main .summary-left-pane .card .card-header .panel-title .card-header-title {
   font-weight: bold;
+  color: var(--grey-dark-color);
+}
+.vaccine-main .summary-left-pane .card .card-header .panel-title .card-header-title .panel-title-icon {
   color: var(--grey-dark-color);
 }
 .vaccine-main .vaccine-info-count-wrapper {
   background-color: whitesmoke;
   border-radius: 25px;
   text-align: center;
-  padding: 40px;
-  margin-top: 20px;
+  padding: 30px;
 }
-.vaccine-main .vaccine-info-count-wrapper .vaccine-into-chart-title {
-  color: block;
-  font-size: 15px;
-  font-weight: bold;
+.vaccine-main .vaccine-info-count-wrapper .vaccine-info-count-title {
+  color: black;
+  font-size: var(--font-regular);
 }
 .vaccine-main .vaccine-info-graph-wrapper {
   background-color: whitesmoke;

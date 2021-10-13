@@ -2,10 +2,9 @@
 
 	margin-top:80px;
 	
-	.summary-left-panel {
-		backgorund-color : var(--white-color);
+	.summary-left-pane {
+		background-color : var(--white-color);
 		padding:17px;
-		
 		border-radius : 25px;
 		
 		.card {
@@ -17,15 +16,19 @@
 				padding : 0;
 				margin : .75rem 1.25rem;
 				padding-bottom :0.60rem;
+				border-bottom : none;
 				
 				.panel-title {
-					display : block;
-					text-align : center;
+					display : flex;
+					justify-content : space-between;
 					
 					.card-header-title {
 						font-weight : bold;
-						
 						color : var(--grey-dark-color);
+						
+						.panel-title-icon {
+							color : var(--grey-dark-color);
+						}
 					}
 				}
 			}
@@ -35,13 +38,11 @@
 		background-color:rgb(245,245,245);
 		border-radius : 25px;
 		text-align : center;
-		padding : 40px;
-		margin-top:20px;
+		padding : 30px;
 		
-		.vaccine-into-chart-title {
-			color : block;
-			font-size : 15px;
-			font-weight : bold;
+		.vaccine-info-count-title {
+			color : black;
+			font-size : var(--font-regular);
 		}
 	}
 	

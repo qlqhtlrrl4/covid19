@@ -7,27 +7,35 @@
 
 <div class="vaccine-main">
 	<div class="row">
-		<div class="col-lg-3 col-md-3 col-sm-12">
-			<div class="summary-left-panel">
-				<div class="card">
-					<div class="card-header">
-						<div class="panel-title">
-							<h4 class="mb-0">
-								<span class="card-header-title">
-									백신접종현황
-								</span>
-							</h4>
+		<div class="col-lg-2dot5 col-md-3 col-sm-12">
+			<div class="summary-left-pane">
+				<div class="accordion" id ="vaccineAccordion">
+					<div class="card">
+						<div class="card-header" id ="headingOne">
+							<h2 class="mb-0">
+								<a class="btn btn-link btn-block text-left panel-title" type="button" data-toggle="collapse" data-targer="#collapseOne">
+									<span class="card-header-title">백신</span>
+									<div>
+										<i class="fa fa-chevron-up arrow-icon"></i>
+									</div>
+								</a>
+							</h2>
+						</div> <!-- card-header -->
+						
+						<div id="collapseOne" class="collapse" data-parent="vaccineAccordion">
+							<div class="card-body">
+								지역
+								<label class="switch">
+									
+								</label>
+							</div>
 						</div>
-					</div><!--  card header -->
-					
-					<div class="card-body">
-						<div class=""></div>
 					</div>
-				</div> 
+				</div>
 			</div>
 		</div> <!-- col-lg-3 -->
 		
-		<div class="col-lg-9 col-md-9 col-sm-12">
+		<div class="col-lg-9dot5 col-md-9 col-sm-12">
 			<div class="row">
 				<div class="col-9">
 					<div class="vaccine-info-count-wrapper">
