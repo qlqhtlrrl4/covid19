@@ -1,5 +1,8 @@
 package kr.co.soldesk.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -12,7 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.soldesk.captcha.CaptchaUtil;
@@ -72,10 +75,17 @@ public class JoinController {
 		new CaptchaUtil().getAudioCaptCha(req, res);
 	}
 	
-	@RequestMapping(value="/idCheck", method=RequestMethod.POST)
+	/*@RequestMapping(value="/idCheck", method=RequestMethod.POST)
 	@ResponseBody
 	public int idCheck(@RequestParam("id") String id) {
 		int cnt = userService.idCheck(id);
 		return cnt;
+	}*/
+	
+	@RequestMapping(value="/allUserId",method=RequestMethod.GET)
+	@ResponseBody
+	public List<Map<String,String>> getAllid() {
+		List<Map<String,String>> allUserIdList = userService.getAllId();
+		return allUserIdList;
 	}
 }

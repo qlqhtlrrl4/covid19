@@ -1,5 +1,8 @@
 package kr.co.soldesk.repository;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,5 +18,8 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 
 	@Query("SELECT m FROM Users m  WHERE m.id = (:userId)")
 	Users findAdmin(@Param("userId") String userId);
+	
+	@Query(value="select user_id from users",nativeQuery=true)
+	List<Map<String, String>> findAllById();
 
 }

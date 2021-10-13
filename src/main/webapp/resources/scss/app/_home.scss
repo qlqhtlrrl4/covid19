@@ -15,6 +15,15 @@
 				
 				.card-header {
 				    border-bottom: 1px solid var(--grey-light-color);
+				    
+				    .panel-title {
+				    	display : flex;
+				    	justify-content : space-between;
+				    	
+				    	.arrow-icon {
+				    		transform : rotate(180deg);
+				    	}
+				    }
 				}
 				
 			}
@@ -32,7 +41,7 @@
 						font-weight: bold;
 						color: var(--grey-dark-color);
 						.panel-tilte-icon{
-						color: var(--grey-dark-color);
+							color: var(--grey-dark-color);
 						}
 					}
 				

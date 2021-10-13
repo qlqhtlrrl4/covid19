@@ -1,6 +1,8 @@
 package kr.co.soldesk.service;
 
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
@@ -94,7 +96,7 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 
 	@Override
 	public int idCheck(String id) {
-		System.out.println(id);
+		
 		int cnt;
 		
 		if(userRepository.findById(id) != null) {
@@ -103,7 +105,14 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 		else {
 			cnt  = 0;
 		}
-		System.out.println(cnt);
 		return cnt;
+	}
+
+	@Override
+	public List<Map<String, String>> getAllId() {
+		List<Map<String,String>> allUserIdList = userRepository.findAllById();
+		
+		System.out.println(allUserIdList);
+		return allUserIdList;
 	}
 }
