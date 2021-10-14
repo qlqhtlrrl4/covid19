@@ -23,7 +23,7 @@ public class VaccineController {
 	public String vaccine(Model model) {
 		
 		Vaccination vaccineData = restService.getRecentVaccinationData();
-		System.out.println(vaccineData);
+		model.addAttribute("active", "vaccine");
 		model.addAttribute("vaccineData", vaccineData);
 		return "/vaccine.do";
 	}
