@@ -89,6 +89,7 @@
 		.vaccine-chart-count-title {
 			color : black;
 			font-size : var(--font-large);
+			font-weight:bold;
 
 		}
 		.vaccineAllChart {
@@ -98,18 +99,46 @@
 	}
 	
 	.summary-right-pane {
-		background-color:rgb(245,245,245);
+		
 		border-radius : 25px;
 		height : 150px;
 		
-		display : flex;
+		position : relative;
 		justify-content : center;
+		display : flex;
 		
-		.vaccine-pieDiv-chart {
+		.vaccine-percent-chart {
+			margin : auto;
+		}
 		
+		.vaccine-percent-text {
+			position : absolute;
+			left : 50%;
+			top : 50%;
+			font-size : var(--font-large);
+			transform : translate(-42%, -10%);
 			
+			color : black;
+		}
+		
+		.vaccine-complete-text {
+			position : absolute;
+			left:50%;
+			top:50%;
+			font-size : var(--font-regular);
+			font-weight : bold;
+			transform: translate(-50%,-125%);
+		}
+		
+		.vaccine-percent-text:after {
+			content : '%';
 		}
 	}
 	
 
+}
+
+canvas {
+	width:100%;
+	height:100%;
 }

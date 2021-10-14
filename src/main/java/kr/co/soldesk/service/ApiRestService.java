@@ -240,4 +240,9 @@ public class ApiRestService {
 		return covidStatusRepository.getRecentCovidStatutsData();
 	}
 
+	public List<Map<String, Object>> getTodayVaccineData() {
+		
+		return vaccinRepository.todayVaccineData();
+	}
+
 }

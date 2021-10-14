@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 
@@ -31,18 +32,27 @@
 								</label>
 							</div>
 							
-							<div class="card-body">
-							백신 정보
-								<label class="switch">
-									<input id="location-information-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
-									<span id="information-toggle" class="slider round"></span>
-								</label>
-							</div>
+							
 						</div>
+					</div> <!-- card active -->
+				</div>
+				
+				<div class="card">
+					<div class="card-header">							
+						<h2 class = "mb-0">
+							<a class = "btn btn-link btn-block text-left panel-title" type="button">
+								<span class="card-header-title">백신 정보</span>
+							</a>
+						</h2>
 					</div>
 				</div>
 			</div>
-		</div> <!-- col-lg-3 -->
+			<!-- <div class="card">
+				<div class="card-header">
+					<h2></h2>
+				</div>
+			</div> -->
+		</div> <!-- col-lg-2dot5 -->
 		
 		<div class="col-lg-9dot5 col-md-9 col-sm-12">
 			<div class="row">
@@ -72,7 +82,10 @@
 				
 				<div class="col-3">
 					<div class="summary-right-pane">
-						<div class="vaccine-pieDiv-chart"></div>
+						
+						<canvas class="vaccine-percent-chart" id="canvas"></canvas>
+						<span class ="vaccine-complete-text">접종 완료</span>
+						<span class="vaccine-percent-text" id="percent"></span>
 					</div>
 				</div>
 			</div>
@@ -84,6 +97,7 @@
 							백신 접종 현황
 						</span> <br/>
 						<div class="vaccineAllChart"></div>
+						
 					</div>
 				</div>
 			</div>
@@ -198,48 +212,15 @@
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
 <!-- Chart code -->
-<script>
-am4core.ready(function() {
 
-// Themes begin
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-// Create chart instance
-var chart = am4core.create("vaccine-pieDiv-chart", am4charts.PieChart);
-
-// Let's cut a hole in our Pie chart the size of 40% the radius
-chart.innerRadius = am4core.percent(70);
-
-
-
-// Add and configure Series
-// 차트 시리즈 생성
-var pieSeries = chart.series.push(new am4charts.PieSeries());
-
-//바인딩할 데이터 이름
-pieSeries.dataFields.value = "value";
-
-//데이터 분류(category) 이름
-pieSeries.dataFields.category = "category";
-
-//파이 부분별 구분선 색
-pieSeries.slices.template.stroke = am4core.color("#fff");
-
-
-// Add data
-pieSeries.data = [{
-  "category": "First",
-  "value": 30
-}, {
-  "category": "Second",
-  "value": 30
-}];
-
-}); // end am4core.ready()
-</script>
 <script>
 $(document).ready(function() {
+	
+	var secondCnt = ${vaccineData.totalSecondCnt};
+	var percentage = secondCnt / 51780000 *100;
+	console.log(percentage);
+	
+	percentageChart(percentage);
 	
 	$.ajax({
 		url:'/vaccineStatus',
@@ -248,8 +229,24 @@ $(document).ready(function() {
 		
 		success : function(data) {
 			vaccineAllLineChart(data);
+ 
 		}
 	});
+	
+	$.ajax( {
+		url :'/todayVaccine',
+		type : 'get',
+		dataType : 'json',
+		
+		success : function(data) {
+			
+			var a = data;
+			console.log(a);
+			
+		}
+		
+	}); 
+	
 });
 
 </script>
@@ -274,12 +271,19 @@ function vaccineAllLineChart(data) {
       // Create axes
       var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
       var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-
+	
+      dateAxis.renderer.minGridDistance = 40;
+      //dateAxis.renderer.grid.template.location = 0;
+      
+      dateAxis.dateFormats.setKey("day", "MM/dd");
+      dateAxis.periodChangeDateFormats.setKey("day", "MM/dd");
       // Create series
       var series = chart.series.push(new am4charts.LineSeries());
-      series.dataFields.valueY = "totalSecondCnt";
+      series.dataFields.valueY = "secondCnt";
       series.dataFields.dateX = "baseDate";
-      series.tooltipText = "{baseDate}"
+      series.name="baseDate";
+     
+      series.tooltipText = "{baseDate} :[bold]{valueY}"
       series.strokeWidth = 2;
       series.minBulletDistance = 10;
 
@@ -308,6 +312,10 @@ function vaccineAllLineChart(data) {
       chart.cursor.snapToSeries = series;
 
      
+      valueAxis.renderer.line.disabled = true; //disables axis line
+      //valueAxis.renderer.labels.template.disabled = true; //disables labels
+      valueAxis.renderer.grid.template.disabled = true;  //disables grid
+      
       dateAxis.keepSelection = true;
 
       // Enable export
@@ -315,7 +323,54 @@ function vaccineAllLineChart(data) {
       
       }); // end am4core.ready()
    }
+</script>
+
+<script>
 
 
 
+
+function percentageChart(data) {
+	
+	var can = document.getElementById('canvas');
+	var	spanPercent = document.getElementById('percent');
+	var c = can.getContext('2d');
+	
+	//c.arc에서 중심을 잡기위한 변수 posX, posY
+	var posX = can.width /2;
+	var posY = can.height/2;
+	var fps = 1000/200;
+	var percent = 0;
+	var onePercent = 360/100;
+	var result = onePercent * data;
+	
+	c.lineCap = 'round';
+	
+	arcMove();
+	
+	function arcMove() {
+		var deegres = 0;
+		var acrInterval = setInterval(function () {
+			deegres +=1;
+			c.clearRect(0,0,can.width, can.height);
+			percent = deegres / onePercent;
+			
+			spanPercent.innerHTML = percent.toFixed();
+			c.beginPath();
+			c.arc(posX,posY, 70, (Math.PI/100)*270,(Math.PI/180) * (270+360));
+			c.strokeStyle = '#b1b1b1';
+	        c.lineWidth = '10';
+	        c.stroke();
+
+	        c.beginPath();
+		    c.strokeStyle = '#3949AB';
+		    c.lineWidth = '10';
+		    c.arc( posX, posY, 70, (Math.PI/180) * 270, (Math.PI/180) * (270 + deegres) );
+		     c.stroke();
+		    if( deegres >= result ) {
+		    	clearInterval(acrInterval);
+		    }
+		},fps);
+	}
+}	
 </script>

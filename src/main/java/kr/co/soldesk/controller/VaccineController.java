@@ -37,4 +37,13 @@ public class VaccineController {
 		return vaccineClassifyData;
 	}
 	
+	@RequestMapping(value="/todayVaccine", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Map<String,Object>> todayVaccine() {
+		
+		List<Map<String,Object>> today = restService.getTodayVaccineData();
+		
+		return today;
+	}
+	
 }
