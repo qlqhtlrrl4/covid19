@@ -20,15 +20,15 @@
  					</div>
  					<div class="input-group rounded">
 						<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-						  aria-describedby="search-addon" />
+                    			aria-describedby="search-addon" style="border-radius: 0 !important" />
 						<span class="input-group-text border-0" id="search-addon">
 						    <i class="fas fa-search"></i>
 						</span>
 					</div>
  					<div class="list-group">
-					  
-					  <c:forEach var="covidHospital" items="${covidhospitals}" varStatus="status">
-						<div class="list-group-item list-group-item-action">
+ 						<div class="covid-hospital-list-wrapper">
+					    <c:forEach var="covidHospital" items="${covidhospitals}" varStatus="status">
+						<div class="list-group-item list-group-item-action" data-lat="${covidHospital.lat}" data-lng="${covidHospital.lng}">
 							<div class="hospital-title">
 								<h6 class="mb-1"><c:out value="${covidHospital.orgnm}"/></h6>
 								<i class="fas fa-arrow-circle-right"></i>
@@ -44,6 +44,7 @@
 							</div>
 						</div>
 					</c:forEach>
+					</div>
 					</div>			
  				</div>
  			</div>

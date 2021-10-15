@@ -84,6 +84,14 @@ public class ApiController {
 		return  covidStatutsData;
 	}
 	
+	@GetMapping(value = "/insertLatLng")
+	@ResponseBody
+	public ResponseEntity<?> insertLatLng() {
+		restService.insertLatLng();
+
+
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 	/*@GetMapping(value="/vaccineStatus", produces="application/json; charset=utf8")
 	@ResponseBody
 	public List<Vaccination> vaccination() {

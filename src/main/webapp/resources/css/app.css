@@ -172,14 +172,16 @@
   margin-top: 20px;
 }
 .main-section .corona-info-chart-wrapper .corona-info-chart-title {
-  color: black;
+  color: var(--grey-light-color);
   font-size: 15px;
   font-weight: bold;
+  margin-right: 899px;
 }
 .main-section .corona-info-chart-wrapper .chartdiv {
   width: 80%;
   margin: auto;
   height: 300px;
+  margin-top: 35px;
 }
 .main-section .corona-info-chart-wrapper .piediv {
   width: 100%;
@@ -321,7 +323,9 @@ input:checked + .slider:before {
   border-radius: 25px;
 }
 .search-main .form-control {
-  margin-top: 20px;
+  background-color: var(--truewhite-color);
+  border: none;
+  border-radius: 0 !important;
 }
 .search-main .form-control .search-icon {
   position: absolute;
@@ -331,7 +335,7 @@ input:checked + .slider:before {
   padding-top: 25px;
   padding-bottom: 30px;
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 8px;
   margin-top: 50px;
   margin-right: 80px;
   background-color: var(--white-color);
@@ -341,16 +345,20 @@ input:checked + .slider:before {
   color: var(--grey-dark-color);
 }
 .search-main .hospital-list .input-group {
-  margin-top: 2px;
+  margin-top: 15px;
 }
 .search-main .hospital-list .input-group .input-group-text {
   background: none;
-  margin-top: 20px;
+  background-color: var(--truewhite-color);
+  margin-right: 37px;
 }
 .search-main .hospital-list .list-group {
   max-height: 500px;
   overflow-y: scroll;
   margin-top: 20px;
+}
+.search-main .hospital-list .list-group .covid-hospital-list-wrapper {
+  margin-right: 20px;
 }
 .search-main .hospital-list .list-group .list-group-item {
   padding-top: 10px;
@@ -415,20 +423,102 @@ input:checked + .slider:before {
 
 .qna-card-wrapper {
   margin-top: 80px;
+  margin-left: 120px;
+  padding-top: 55px;
+  border-radius: 25px;
   background-color: var(--white-color);
 }
-.qna-card-wrapper .dropdown {
+.qna-card-wrapper .qna-card-title {
+  font-size: var(--font-xlarge);
+  margin-left: 542px;
+  margin-right: 536px;
+  padding-left: 5px;
+  border-bottom: 2px solid #5c6366;
+}
+.qna-card-wrapper .qna-card-dropdown {
+  margin-left: 823px;
   display: flex;
   width: 30%;
 }
-.qna-card-wrapper .dropdown .btn {
-  margin-right: 17px;
+.qna-card-wrapper .qna-card-dropdown .form-select {
+  padding-left: 5px;
+  padding-right: 12px;
+  margin-right: 15px;
   background-color: var(--truewhite-color);
   color: var(--grey-dark-color);
   border-style: none;
+  border-radius: 5px;
 }
-.qna-card-wrapper .dropdown .input-group .input-group-text {
+.qna-card-wrapper .qna-card-dropdown .input-group .input-group-text {
   background: none;
+}
+.qna-card-wrapper .qna-card-head {
+  background-color: var(--grey-color);
+  border-radius: 5px;
+  color: var(--white-color);
+  font-size: var(--regular-font);
+  width: 95%;
+  margin: auto;
+  margin-top: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.qna-card-wrapper .qna-card-head .qna-head-number {
+  margin-left: 40px;
+}
+.qna-card-wrapper .qna-card-head .qna-head-title {
+  margin-left: 350px;
+  margin-right: 70px;
+}
+.qna-card-wrapper .qna-card-head .qna-head-writer {
+  margin-left: 270px;
+}
+.qna-card-wrapper .qna-card-head .qna-head-date {
+  margin-left: 60px;
+}
+.qna-card-wrapper .qna-card-head .qna-head-hits {
+  margin-left: 60px;
+}
+.qna-card-wrapper .qna-card-list {
+  display: flex;
+  background-color: var(--truewhite-color);
+  list-style: none;
+  width: 95%;
+  margin-top: 15px;
+  margin-left: 29px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+}
+.qna-card-wrapper .qna-card-list .qna-list-number {
+  margin-left: 50px;
+}
+.qna-card-wrapper .qna-card-list .qna-list-title {
+  margin-left: 160px;
+}
+.qna-card-wrapper .qna-card-list .qna-list-writer {
+  margin-left: 270px;
+}
+.qna-card-wrapper .qna-card-list .qna-list-date {
+  margin-left: 60px;
+}
+.qna-card-wrapper .qna-card-list .qna-list-hits {
+  margin-left: 60px;
+}
+.qna-card-wrapper .btn {
+  background-color: var(--truewhite-color);
+  color: var(--grey-dark-color);
+  border-style: none;
+  margin-top: 20px;
+  margin-left: 1055px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.qna-card-wrapper .pagination {
+  margin-top: 18px;
+  margin-left: 500px;
 }
 
 .vaccine-main {

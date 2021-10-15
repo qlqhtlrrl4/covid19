@@ -25,21 +25,21 @@
 				      <div class="card-body">
 				        성별 
 				        <label class="switch">
-							<input id="sex-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+							<input id="sex-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed">
 							<span id="sex-toggle" class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        연령
 				        <label class="switch">
-							<input id="age-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+							<input id="age-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed">
 							<span id="age-toggle" class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        지역
 				        <label class="switch">
-							<input id="area-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+							<input id="area-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed">
 							<span id="area-toggle" class="slider round"></span>
 						</label>
 				      </div>
@@ -60,42 +60,42 @@
 				      <div class="card-body">
 				        아시아
 				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
 							<span class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        유럽
 				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
 							<span class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        남아메리카
 				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
 							<span class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        북아메리카
 				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
 							<span class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        아프리카
 				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
 							<span class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        오세아니아
 				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
 							<span class="slider round"></span>
 						</label>
 				      </div>
@@ -116,7 +116,7 @@
 				      <div class="card-body">
 				       단계별 정보
 				       <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" checked>
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
 							<span class="slider round"></span>
 						</label>
 				      </div>

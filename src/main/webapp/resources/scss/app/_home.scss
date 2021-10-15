@@ -147,15 +147,17 @@
 		margin-top :20px;
 		
 		.corona-info-chart-title {
-			color : black;
+			color : var(--grey-light-color);
 			font-size : 15px;
-			font-weight : bold;
+			font-weight: bold;
+			margin-right: 899px;
 		}
 		
 		.chartdiv {
 			width: 80%;
 		    margin: auto;
 		    height: 300px;
+		    margin-top:35px;
 		}
 		
 		.piediv {
