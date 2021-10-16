@@ -37,6 +37,7 @@ public class Covidhospital {
 	private String orgnm;
 	private String slrYmd;
 	private String sttTm;
-	
+	private String lat;
+	private String lng;
 	
 }

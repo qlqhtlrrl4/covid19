@@ -16,4 +16,6 @@ public class SearchService {
 	public List<Covidhospital> findAllCovidhospital() {
 		return covidHospitalRepository.findAll();
 	}
+	
+	
 }

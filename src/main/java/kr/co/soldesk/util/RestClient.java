@@ -30,6 +30,14 @@ public class RestClient {
 		this.restTemplate = new RestTemplate();
 		this.restTemplate.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
 	}
+	
+	public RestClient(String type) {
+	    if(type.equals("geocoding")) {
+	      this.headers = getJsonGeoCodeHeaders();
+	      this.restTemplate = new RestTemplate();
+	      this.restTemplate.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
+	    }
+	}
 
 	public <T> T call(HttpMethod httpMethod, String url, String jsonBody, Class<T> responseType) {
 
@@ -42,6 +50,18 @@ public class RestClient {
 		return gson.fromJson(response.getBody(), responseType);
 
 	}
+	
+	public <T> T callInsertLatLng(HttpMethod httpMethod, String url, String jsonBody, Class<T> responseType) {
+	    entity = new HttpEntity<String>(jsonBody, headers);
+	    ResponseEntity<String> response = restTemplate.exchange(
+	        url,
+	        httpMethod,
+	        entity,
+	        String.class);
+
+	    Gson gson = new Gson();
+	    return gson.fromJson(response.getBody(), responseType);
+	  }
 
 	public <T>Object parser(String url, Class<T> responseType) {
 
@@ -75,5 +95,15 @@ public class RestClient {
 		return headers;
 
 	}
+	
+	 private HttpHeaders getJsonGeoCodeHeaders() {
+		    HttpHeaders headers = new HttpHeaders();
+		    headers.setContentType(MediaType.APPLICATION_JSON);
+		    headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
+		    headers.set("X-NCP-APIGW-API-KEY-ID", "fjpe07eakb");
+		    headers.set("X-NCP-APIGW-API-KEY", "ikysRTPv9lL3ofMuOTuuOwQWwVU8IEQHbiAqMCd5");
+
+		    return headers;
+	  }
 
 }
