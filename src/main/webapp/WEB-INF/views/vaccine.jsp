@@ -101,6 +101,33 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class="row">
+				<div class="col-12">
+					<div class="vaccine-info-wrapper">
+						<ul class="nav nav-tabs nav-justified">
+							<li class="nav-item">
+								<a class="nav-link active" data-toggle="tab" href="#pfizer" >화이자</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link"  data-toggle="tab" href="#astra" >아스트라제네카</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link"  data-toggle="tab" href="#janssen">얀센</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" data-toggle="tab" href="#moderna" >모더나</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane fade show active" id="pfizer" >aaaaa</div>
+							<div class="tab-pane fade" id="astra" >bbbbb</div>
+							<div class="tab-pane fade" id="janssen" >cccc</div>
+							<div class="tab-pane fade" id="moderna" >dddd</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div> 
 </div> <!-- vaccine main div -->

@@ -98,3 +98,7 @@ hs_err_pid*
 #ignore properties file
 application.properties
 
+#sass file
+app.css
+app.css.map
+

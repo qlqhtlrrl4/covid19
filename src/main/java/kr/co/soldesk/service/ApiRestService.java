@@ -243,20 +243,23 @@ public class ApiRestService {
 	}
 	
 	public void insertLatLng() {
+		
 		List<Covidhospital> covidhospitalList = covidRepository.findAll();
 		RestClient restClient = new RestClient("geocoding");
 		JSONObject jsonObject = new JSONObject();
 		GeoCodingResult geoCodingResult = new GeoCodingResult();
-		for(Covidhospital covidhospital : covidhospitalList) {
-			String addr = covidhospital.getOrgZipaddr();
-			String url = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="+addr;
-			geoCodingResult = restClient.callInsertLatLng(HttpMethod.GET, url, jsonObject.toString(), GeoCodingResult.class);
-			GeoCodingResultLatLng geoCodingResultLatLng = geoCodingResult.getAddresses().get(0);
-			System.out.println(geoCodingResultLatLng.getX());
-			System.out.println(geoCodingResultLatLng.getY());
-			System.out.println(Integer.toString(covidhospital.getId()));
-			covidRepository.updateLatLng(geoCodingResultLatLng.getY(), geoCodingResultLatLng.getX(), Integer.toString(covidhospital.getId()));
-		}
+		try {
+			for(Covidhospital covidhospital : covidhospitalList) {
+				String addr = covidhospital.getOrgZipaddr();
+				String url = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="+addr;
+				geoCodingResult = restClient.callInsertLatLng(HttpMethod.GET, url, jsonObject.toString(), GeoCodingResult.class);
+				GeoCodingResultLatLng geoCodingResultLatLng = geoCodingResult.getAddresses().get(0);
+				System.out.println(geoCodingResultLatLng.getX());
+				System.out.println(geoCodingResultLatLng.getY());
+				System.out.println(Integer.toString(covidhospital.getId()));
+				covidRepository.updateLatLng(geoCodingResultLatLng.getY(), geoCodingResultLatLng.getX(), Integer.toString(covidhospital.getId()));
+			}
+		} catch(Exception e) {}
 	}
 
 	public List<Map<String, Object>> getTodayVaccineData() {
