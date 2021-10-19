@@ -17,7 +17,6 @@ public class QnaController {
 	
 	@RequestMapping(value="/detail", method = RequestMethod.GET)
 	public String detail(Model model) {
-		
 		model.addAttribute("active","qna");
 		return "/qna/detail.do";
 	}
