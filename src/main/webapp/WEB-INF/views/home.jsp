@@ -106,7 +106,7 @@
 				      <h2 class="mb-0">
 				        <a class="btn btn-link btn-block text-left panel-title" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
 				          <span class="card-header-title">거리두기</span>
-				          <div class="panel-tilte-icon">
+				          <div class="panel-title-icon">
 				          	<i class="fa fa-chevron-up arrow-icon"></i>
 				          </div>
 				        </a>

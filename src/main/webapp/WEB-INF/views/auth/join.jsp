@@ -72,55 +72,58 @@ function winPlayer(objUrl) {
  <!-- onsubmit="return checkRecaptcha()" -->
  
 <body>
-
+	<div class="logo-title-wrapper">
+		<span class="logo-title">CORONA <span class="logo-text-skyblue">
+				TIMES 
+			</span>
+		</span>
+	</div>
 <div class="join-section">
 	<div class="row">
 		<div class="col-lg-5 col-md-10 col-sm-11 join-card-wrapper">
-			<div class="logo-title-wrapper">
-				<span class="logo-title">CORONA
-					<span class="logo-text-skyblue">
-						TIMES
-					</span>
-				</span>
-			</div>
-			
 			<div class="join-input-wrapper">
 				<!-- modelAttribute의 값과 AdminController의 model.addAttribute("product", .. ) product 값(key)과 일치-->
 				<sf:form action="/auth/join" method="post" modelAttribute="userInfomation">
 
 					<div class="form-group">
-						<label for="id"><spring:message code="join.id" /></label>
+						<label for="id"><spring:message code="아이디" /></label>
 						<sf:input path="id" id="id" class="form-control" type="text" onchange="checkId()"/>
 						<sf:errors path="id" cssStyle="color:#ff0000;" /> 
-						<span class="id_ok">사용 가능한 아이디입니다.</span>
-						<span class="id_already">누군가 이 아이디를 사용하고 있어요.</span>
+						<span class="id_ok">사용 가능한 아이디 입니다.</span>
+						<span class="id_already">다른 유저가 사용중인 아이디 입니다.</span>
 					</div>
 
 
 					<div class="form-group">
-						<label for="password"><spring:message code="join.password" /></label>
+						<label for="password"><spring:message code="비밀번호" /></label>
 						<sf:password path="password" id="password" class="form-control" />
+					<sf:errors path="password" cssStyle="color:#ff0000;" />
+					</div>
+					
+					<div class="form-group">
+						<label for="password_check"><spring:message code="비밀번호확인" /></label>
+						<sf:password path="password" id="password_check" class="form-control" />
 					<sf:errors path="password" cssStyle="color:#ff0000;" />
 					</div>
 
 					<div class="form-group">
-						<label for="email"><spring:message code="join.email" /></label>
+						<label for="email"><spring:message code="이메일" /></label>
 						<sf:input path="email" id="email" class="form-control" />
 						<sf:errors path="email" cssStyle="color:#ff0000;" />
 					</div>
 			
 					<div class="form-group">
-						<label for="name"><spring:message code="join.name" /></label>
+						<label for="name"><spring:message code="이름" /></label>
 						<sf:input path="name" id="name" class="form-control" />
 						<sf:errors path="name" cssStyle="color:#ff0000;" />
 					</div>
 			
 					<div class="form-group">
-						<label for="captchaImg"><spring:message code="join.captcha" /></label><br>
+						<label for="captchaImg"><spring:message code="아래 이미지를 보이는대로 입력해 주세요." /></label><br>
 						<img id = "captchaImg" src="/auth/captchaImg" alt="캡차이미지"/> 
 						<div id="captchaAudio" style="display:none"></div> 
 						
-						<span>
+						<span class="join-icons">
 							<a onclick = "javascript:refreshBtn()" class = "refreshBtn">
 				          		<i class="fas fa-redo-alt fa-2x"></i>
 							</a>
@@ -138,8 +141,8 @@ function winPlayer(objUrl) {
 						<sf:errors path="answer" cssStyle="color:#ff0000;" />
 					</div>
 			
-					<input type="submit" value="submit" class="btn btn-default">
-					<a href="<c:url value="/auth/login" />" class="btn btn-default">Cancel</a>
+					<a href="<c:url value="/auth/login" />" class="btn btn-primary">취소</a>
+					<input type="submit" value="가입하기" class="btn btn-primary">
 				</sf:form>
 			</div>
 		</div>
