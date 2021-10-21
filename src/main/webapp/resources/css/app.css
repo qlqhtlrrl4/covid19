@@ -81,7 +81,7 @@
   font-weight: bold;
   color: var(--grey-dark-color);
 }
-.main-section .summary-left-pane .card .card-header .panel-title .card-header-title .panel-tilte-icon {
+.main-section .summary-left-pane .card .card-header .panel-title .card-header-title .panel-title-icon {
   color: var(--grey-dark-color);
 }
 .main-section .summary-right-pane {
@@ -289,7 +289,7 @@ input:checked + .slider:before {
 .login-section .login-card-wrapper .login-input-wrapper {
   padding-left: 30px;
   padding-right: 30px;
-  margin-top: 30px;
+  margin: 34px 0px;
 }
 .login-section .login-card-wrapper .login-input-wrapper .form-group .login-title {
   font-size: var(--font-large);
@@ -301,14 +301,14 @@ input:checked + .slider:before {
 }
 .login-section .login-card-wrapper .login-input-wrapper .btn {
   width: 100%;
-  margin-top: 15px;
-  margin-bottom: 35px;
+  margin: 15px 0;
 }
 
 .loginfindAndjoin {
   display: flex;
   justify-content: center;
   padding-top: 30px;
+  padding-left: 0;
   list-style: none;
 }
 .loginfindAndjoin li {
@@ -393,25 +393,32 @@ input:checked + .slider:before {
   font-size: 30px;
 }
 
+.logo-title-wrapper {
+  margin-top: 110px;
+  text-align: center;
+}
+.logo-title-wrapper .logo-title {
+  font-size: var(--font-xxlarge);
+  font-weight: bold;
+}
+.logo-title-wrapper .logo-title .logo-text-skyblue {
+  color: var(--logo-color);
+  font-weight: bold;
+}
+
 .join-section {
-  margin-top: 130px;
+  margin-top: 60px;
 }
 .join-section .join-card-wrapper {
   margin: auto;
+  margin-bottom: 80px;
+  border-radius: 25px;
   background-color: var(--white-color);
 }
-.join-section .join-card-wrapper .logo-title-wrapper {
-  text-align: center;
-  margin-top: 30px;
-}
-.join-section .join-card-wrapper .logo-title-wrapper .logo-title {
-  font-size: var(--font-xlarge);
-}
-.join-section .join-card-wrapper .logo-title-wrapper .logo-title .logo-text-skyblue {
-  color: var(--skyblue-color);
-}
 .join-section .join-card-wrapper .join-input-wrapper {
-  margin-top: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 35px 0px;
 }
 .join-section .join-card-wrapper .join-input-wrapper .form-group .id_ok {
   color: blue;
@@ -420,6 +427,19 @@ input:checked + .slider:before {
 .join-section .join-card-wrapper .join-input-wrapper .form-group .id_already {
   color: blue;
   display: none;
+}
+.join-section .join-card-wrapper .join-input-wrapper .join-icons {
+  position: relative;
+  left: 7px;
+  top: 7px;
+}
+.join-section .join-card-wrapper .join-input-wrapper .join-icons i {
+  padding-right: 2px;
+}
+.join-section .join-card-wrapper .join-input-wrapper .btn {
+  width: 49%;
+  margin-top: 5px;
+  margin-left: 1px;
 }
 
 .qna-card-wrapper {
