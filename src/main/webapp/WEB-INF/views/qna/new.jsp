@@ -2,26 +2,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<form>
-	 <div class="form-group">
-		 <label for="formGroupExampleInput">제목</label>
-		 <input type="text" class="form-control" id="qna-new-title" placeholder="Example input">
-	 </div>
-	 <div class="form-group">
-		<label for="exampleFormControlTextarea1">내용</label>
-		<textarea class="form-control" id="qna-new-content" rows="10"></textarea>
-	 </div>
-	 <div class="text-right">
+<div class="new-section">
+	<div class="row">
+		<div class="col-lg-10 col-md-8 col-sm-11 new-card-wrapper">
+			<div class="new-card-title">
+				<span>Q&A</span>
+			</div>
+			<div class="input-group mb-3">
+  				<div class="input-group-prepend">
+    				<span class="input-group-text">제목</span>
+  				</div>
+  				<input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+			</div>
+			<div class="input-group mb-3">
+  				<div class="input-group-prepend">
+    				<span class="input-group-text">작성자</span>
+  				</div>
+  				<input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+			</div>
+			<div class="input-group mb-3">
+  				<div class="input-group-prepend">
+    				<span class="input-group-text">내용</span>
+  				</div>
+  				<input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+			</div>
+			<div class="input-group mb-3">
+  				<div class="input-group-prepend">
+    				<span class="input-group-text">비공개 설정</span>
+    			<div class="form-check form-check-inline">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+   					<label class="form-check-label" for="inlineRadio1">공개</label>
+   				</div>
+				<div class="form-check form-check-inline">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+ 				 	<label class="form-check-label" for="inlineRadio2">비공개</label>
+				</div>
+				</div>
+			</div>
+			<div class="input-group mb-3">
+  				<div class="input-group-prepend">
+    				<span class="input-group-text">비밀번호</span>
+  				</div>
+  				<input type="password" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+			</div>
+		<div class="text-right">
 	 	<button type="button" class="btn btn-secondary btn-sm cancel-btn">
 			<span>취소</span>
 		</button>
 		<button type="button" class="btn btn-secondary btn-sm save-btn">
 			<span>등록</span>
 		</button>
+		</div>
+		</div>
 	</div>
-</form>
-
+</div>
 <script>
 $(document).ready(function(){
 	$(".cancel-btn").on("click", function(){

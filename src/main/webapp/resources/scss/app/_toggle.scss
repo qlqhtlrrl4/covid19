@@ -35,16 +35,16 @@
 }
 
 input.primary-confirmed:checked + .slider {
-  background-color: #2196F3;
+  background-color: #00A3FF;
 }
 
 input.primary-keep-distance:checked + .slider {
-  background-color: #2196F3;
+  background-color: #00A3FF;
 }
 
 input:focus + .slider {
 	
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #00A3FF;
 }
 
 input:checked + .slider:before {

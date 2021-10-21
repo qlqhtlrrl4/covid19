@@ -688,9 +688,9 @@ $.ajax({
 		// Create chart instance
 		var chart = am4core.create("chartdiv", am4charts.XYChart);
 		var colors = [
-			am4core.color("#ffbf00"),
-	        am4core.color("#6bd379"),
-	        am4core.color("#f46b36")
+			am4core.color("#F9F871"),
+	        am4core.color("#BBFC9C"),
+	        am4core.color("#83C0A4")
 		];
 
 		// Add data

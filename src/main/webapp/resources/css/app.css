@@ -239,15 +239,15 @@
 }
 
 input.primary-confirmed:checked + .slider {
-  background-color: #2196F3;
+  background-color: #00A3FF;
 }
 
 input.primary-keep-distance:checked + .slider {
-  background-color: #2196F3;
+  background-color: #00A3FF;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #00A3FF;
 }
 
 input:checked + .slider:before {
@@ -462,7 +462,7 @@ input:checked + .slider:before {
   border-radius: 0px;
 }
 .qna-card-wrapper .qna-card-head {
-  background-color: var(--grey-color);
+  background-color: #95A4AE;
   border-radius: 5px;
   color: var(--white-color);
   font-size: var(--regular-font);
@@ -518,8 +518,8 @@ input:checked + .slider:before {
   margin-left: 60px;
 }
 .qna-card-wrapper .btn {
-  background-color: var(--skyblue-color);
-  color: var(--grey-dark-color);
+  background-color: #95A4AE;
+  color: var(--white-color);
   border-style: none;
   margin-top: 20px;
   margin-left: 1043px;
@@ -531,6 +531,27 @@ input:checked + .slider:before {
 .qna-card-wrapper .pagination {
   margin-top: 18px;
   margin-left: 500px;
+}
+
+.new-card-wrapper {
+  margin-top: 60px;
+  margin-left: 120px;
+  padding-top: 50px;
+  border-radius: 25px;
+  background-color: var(--white-color);
+}
+.new-card-wrapper .new-card-title {
+  font-size: var(--font-xlarge);
+  margin-left: 555px;
+  margin-right: 526px;
+  padding-left: 5px;
+  border-bottom: 2px solid #5c6366;
+}
+.new-card-wrapper .input-group {
+  margin-top: 40px;
+}
+.new-card-wrapper .input-group .form-control-title {
+  padding-top: 40px;
 }
 
 .vaccine-main {
@@ -670,9 +691,9 @@ canvas {
   --white-color:#F5F5F5;
   --truewhite-color:#ffffff;
   --skyblue-color:#C2D1DC;
-  --blue-color:#2196F3;
+  --blue-color:#00A3FF;
   --pink-color:#eb5374;
-  --logo-color:#8FB2BF;
+  --logo-color:#86B1CC;
   /* Font Size */
   --font-xxlarge:40px;
   --font-xlarge:30px;
