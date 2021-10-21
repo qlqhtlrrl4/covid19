@@ -637,6 +637,24 @@ input:checked + .slider:before {
   background-color: #4B89DC;
   font-size: var(--font-regular);
 }
+.vaccine-main .location-percentage-info-wrapper {
+  background-color: var(--white-color);
+  border-radius: 25px;
+  padding: 30px;
+  margin-top: 20px;
+  height: 500px;
+  text-align: center;
+}
+.vaccine-main .location-percentage-info-wrapper .location-percentage-info-title {
+  color: black;
+  font-weight: bold;
+  font-size: var(--font-regular);
+}
+.vaccine-main .location-percentage-info-wrapper .locationChart {
+  width: 100%;
+  height: 350px;
+  margin-top: 50px;
+}
 .vaccine-main .vaccine-chart-count-wrapper {
   background-color: var(--white-color);
   border-radius: 25px;
@@ -647,12 +665,13 @@ input:checked + .slider:before {
 }
 .vaccine-main .vaccine-chart-count-wrapper .vaccine-chart-count-title {
   color: black;
-  font-size: var(--font-large);
+  font-size: var(--font-regular);
   font-weight: bold;
 }
 .vaccine-main .vaccine-chart-count-wrapper .vaccineAllChart {
   width: 100%;
   height: 350px;
+  margin-top: 50px;
 }
 .vaccine-main .vaccine-info-wrapper {
   background-color: var(--white-color);
@@ -661,6 +680,20 @@ input:checked + .slider:before {
   padding: 30px;
   margin-top: 20px;
   height: 500px;
+}
+.vaccine-main .vaccine-info-wrapper .vaccine-info-nav {
+  background-color: #d3d3d3;
+  border-radius: 20px;
+}
+.vaccine-main .vaccine-info-wrapper .vaccine-info-nav .vaccine-info-link-color {
+  color: black;
+}
+.vaccine-main .vaccine-info-wrapper .vaccine-info-nav .vaccine-info-link-color:hover {
+  border-style: hidden;
+}
+.vaccine-main .vaccine-info-wrapper .vaccine-info-nav .vaccine-info-link-color.active {
+  font-weight: bold;
+  border-radius: 20px;
 }
 .vaccine-main .summary-right-pane {
   border-radius: 25px;
@@ -690,6 +723,21 @@ input:checked + .slider:before {
 }
 .vaccine-main .summary-right-pane .vaccine-percent-text:after {
   content: "%";
+}
+
+.table-borderless {
+  margin-top: 30px;
+  background-color: white;
+  border-radius: 25px;
+}
+
+.table-borderless td {
+  border: none;
+  width: 50%;
+}
+
+.td-text-left {
+  text-align: left;
 }
 
 canvas {

@@ -28,6 +28,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/owner/OneDrive/문서/카카오톡 받은 파일/simplecaptcha-1.2.1/simplecaptcha-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hojin/Downloads/simplecaptcha-1.2.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
