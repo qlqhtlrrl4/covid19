@@ -650,9 +650,8 @@ function pieChart(data) {
          categoryAxis.fontSize = 11;
 
          var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-         valueAxis.min = 0;
-         valueAxis.max = 50000;
-         valueAxis.strictMinMax = true;
+         
+         //valueAxis.strictMinMax = true;
          valueAxis.renderer.minGridDistance = 30;
          
          var series = chart.series.push(new am4charts.ColumnSeries());

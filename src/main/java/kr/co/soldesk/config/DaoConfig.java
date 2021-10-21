@@ -41,6 +41,7 @@ public class DaoConfig {
 		prop.put("hibernate.order_updates", "true");
 		prop.put("hibernate.jdbc.batch_size", 100);
 		prop.put("hibernate.jdbc.batch_versioned_data", "true");
+	
 
 		return prop;
 	}

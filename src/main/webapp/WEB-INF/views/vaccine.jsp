@@ -56,7 +56,7 @@
 		
 		<div class="col-lg-9dot5 col-md-9 col-sm-12">
 			<div class="row">
-				<div class="col-9">
+				<div class="col-6">
 					<div class="vaccine-info-count-wrapper">
 						<div class="row">
 							<div class="col-6">
@@ -91,7 +91,7 @@
 			</div>
 			
 			<div class="row">
-				<div class="col-12">
+				<div class="col-9">
 					<div class="vaccine-chart-count-wrapper">
 						<span class="vaccine-chart-count-title">
 							백신 접종 현황
@@ -103,28 +103,157 @@
 			</div>
 			
 			<div class="row">
-				<div class="col-12">
+				<div class="col-9">
 					<div class="vaccine-info-wrapper">
-						<ul class="nav nav-tabs nav-justified">
+						<ul class="nav nav-tabs nav-justified vaccine-info-nav">
 							<li class="nav-item">
-								<a class="nav-link active" data-toggle="tab" href="#pfizer" >화이자</a>
+								<a class="nav-link active vaccine-info-link-color" data-toggle="tab" href="#pfizer" >화이자</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link"  data-toggle="tab" href="#astra" >아스트라제네카</a>
+								<a class="nav-link vaccine-info-link-color" data-toggle="tab" href="#astra" >아스트라제네카</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link"  data-toggle="tab" href="#janssen">얀센</a>
+								<a class="nav-link vaccine-info-link-color" data-toggle="tab" href="#janssen">얀센</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" data-toggle="tab" href="#moderna" >모더나</a>
+								<a class="nav-link vaccine-info-link-color" data-toggle="tab" href="#moderna" >모더나</a>
 							</li>
 						</ul>
 						<div class="tab-content">
-							<div class="tab-pane fade show active" id="pfizer" >aaaaa</div>
-							<div class="tab-pane fade" id="astra" >bbbbb</div>
-							<div class="tab-pane fade" id="janssen" >cccc</div>
-							<div class="tab-pane fade" id="moderna" >dddd</div>
+							<div class="tab-pane fade show active" id="pfizer" >
+								<table class="table table-borderless">
+									<tbody>
+										
+										<tr>
+											<td>개발국</td>
+											<td class="td-text-left">미국/독일</td>
+										</tr>
+										<tr>
+											<td>수량</td>
+											<td class="td-text-left">6,600만회 분</td>
+										</tr>
+										<tr>
+											<td>접종횟수</td>
+											<td class="td-text-left">2회</td>
+										</tr>
+										<tr>
+											<td>접종간격</td>
+											<td class="td-text-left">21일</td>
+										</tr>
+										<tr>
+											<td>보관</td>
+											<td class="td-text-left">-75℃±15℃ (6개월)</td>
+										</tr>
+										<tr>
+											<td>유통</td>
+											<td class="td-text-left">2∼8℃ (5일)</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="tab-pane fade" id="astra" >
+								<table class="table table-borderless">
+									<tbody>
+										<tr>
+											<td>개발국</td>
+											<td class="td-text-left">영국</td>
+										</tr>
+										<tr>
+											<td>수량</td>
+											<td class="td-text-left">2,600만회 분</td>
+										</tr>
+										<tr>
+											<td>접종횟수</td>
+											<td class="td-text-left">2회</td>
+										</tr>
+										<tr>
+											<td>접종간격</td>
+											<td class="td-text-left">8~12주</td>
+										</tr>
+										<tr>
+											<td>보관</td>
+											<td class="td-text-left">2~8℃ (6개월)</td>
+										</tr>
+										<tr>
+											<td>유통</td>
+											<td class="td-text-left">2∼8℃ (6개월)</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="tab-pane fade" id="janssen" >
+								<table class="table table-borderless">
+									<tbody>
+										<tr>
+											<td>개발국</td>
+											<td class="td-text-left">미국</td>
+										</tr>
+										<tr>
+											<td>수량</td>
+											<td class="td-text-left">701만회 분</td>
+										</tr>
+										<tr>
+											<td>접종횟수</td>
+											<td class="td-text-left">1회 * (임상결과에 따라 변경가능)</td>
+										</tr>
+										<tr>
+											<td>접종간격</td>
+											<td class="td-text-left">-</td>
+										</tr>
+										<tr>
+											<td>보관</td>
+											<td class="td-text-left">-20℃ (24개월)</td>
+										</tr>
+										<tr>
+											<td>유통</td>
+											<td class="td-text-left">2∼8℃ (4.5개월)</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="tab-pane fade" id="moderna" >
+								<table class="table table-borderless">
+									<tbody>
+										<tr>
+											<td>개발국</td>
+											<td class="td-text-left">미국</td>
+										</tr>
+										<tr>
+											<td>수량</td>
+											<td class="td-text-left">4,000만회 분</td>
+										</tr>
+										<tr>
+											<td>접종횟수</td>
+											<td class="td-text-left">2회</td>
+										</tr>
+										<tr>
+											<td>접종간격</td>
+											<td class="td-text-left">21일</td>
+										</tr>
+										<tr>
+											<td>보관</td>
+											<td class="td-text-left">-20℃ (6개월)</td>
+										</tr>
+										<tr>
+											<td>유통</td>
+											<td class="td-text-left">2∼8℃ (30일)</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-9">
+					<div class="location-percentage-info-wrapper">
+						<span class="location-percentage-info-title">
+							지역별 백신 접종 현황
+							
+						</span>
+						<div class="locationChart"></div>
 					</div>
 				</div>
 			</div>
@@ -274,11 +403,91 @@ $(document).ready(function() {
 		
 	}); 
 	
+	$.ajax({
+		url : '/todayLocationData',
+		type:'get',
+		dataType : 'json',
+		
+		success : function(data) {
+			locationBarChart(data);
+			console.log(data);
+		}
+	})
+	
 });
 
 </script>
 
 <script>
+function locationBarChart(data) {
+	am4core.ready(function() {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        var chart = am4core.create("locationChart", am4charts.XYChart);
+        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+        chart.data = data;
+		
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.dataFields.category = "sido";
+        categoryAxis.renderer.minGridDistance = 40;
+        categoryAxis.fontSize = 15;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        /* valueAxis.min = 0;
+        valueAxis.max = 50000; */
+        //valueAxis.strictMinMax = true;
+        valueAxis.renderer.minGridDistance = 30;
+        
+        var label = categoryAxis.renderer.labels.template;
+      //label.truncate = true;
+      label.maxWidth = 200;
+      label.tooltipText = "{category}";
+      
+
+      categoryAxis.events.on("sizechanged", function(ev) {
+        var axis = ev.target;
+        var cellWidth = axis.pixelWidth / (axis.endIndex - axis.startIndex);
+        if (cellWidth < axis.renderer.labels.template.maxWidth) {
+          axis.renderer.labels.template.rotation = -65;
+          axis.renderer.labels.template.horizontalCenter = "right";
+          axis.renderer.labels.template.verticalCenter = "middle";
+        }
+        else {
+          axis.renderer.labels.template.rotation = 0;
+          axis.renderer.labels.template.horizontalCenter = "middle";
+          axis.renderer.labels.template.verticalCenter = "top";
+        }
+      });
+        
+        //격자 지우기
+        valueAxis.renderer.grid.template.disabled = true;
+        
+        var series = chart.series.push(new am4charts.ColumnSeries());
+        series.dataFields.categoryX = "sido";
+        series.dataFields.valueY = "secondCnt";
+        series.columns.template.tooltipText = "{sido} : [bold]{valueY}[/]";
+        series.columns.template.tooltipY = 0;
+        series.columns.template.strokeOpacity = 0;
+        
+
+        // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+        series.columns.template.adapter.add("fill", function(fill, target) {
+           return chart.colors.getIndex(target.dataItem.index);
+        });
+        
+        
+
+     }); // end am4core.ready()
+	 
+  }
+	
+
+
 function vaccineAllLineChart(data) {
    am4core.ready(function() {
 
@@ -322,6 +531,8 @@ function vaccineAllLineChart(data) {
       series.tooltip.label.minHeight = 40;
       series.tooltip.label.textAlign = "middle";
       series.tooltip.label.textValign = "middle";
+      valueAxis.cursorTooltipEnabled = false;
+      dateAxis.cursorTooltipEnabled = false; 
 
       // Make bullets grow on hover
       var bullet = series.bullets.push(new am4charts.CircleBullet());
@@ -331,14 +542,18 @@ function vaccineAllLineChart(data) {
 
       var bullethover = bullet.states.create("hover");
       bullethover.properties.scale = 1.3;
+      
+      
 
       // Make a panning cursor
       chart.cursor = new am4charts.XYCursor();
-      chart.cursor.behavior = "panXY";
-      chart.cursor.xAxis = dateAxis;
-      chart.cursor.snapToSeries = series;
-
-     
+      //chart.cursor.behavior = "panXY";
+      //chart.cursor.xAxis = dateAxis;
+      //chart.cursor.snapToSeries = series;
+      chart.cursor.lineX.disabled = true;
+	  chart.cursor.lineY.disabled = true;
+      chart.cursor.behavior = "none";
+      
       valueAxis.renderer.line.disabled = true; //disables axis line
       //valueAxis.renderer.labels.template.disabled = true; //disables labels
       valueAxis.renderer.grid.template.disabled = true;  //disables grid
@@ -346,8 +561,7 @@ function vaccineAllLineChart(data) {
       dateAxis.keepSelection = true;
 
       // Enable export
-      
-      
+     
       }); // end am4core.ready()
    }
 </script>
@@ -384,7 +598,7 @@ function percentageChart(data) {
 			
 			spanPercent.innerHTML = percent.toFixed();
 			c.beginPath();
-			c.arc(posX,posY, 70, (Math.PI/100)*270,(Math.PI/180) * (270+360));
+			c.arc(posX,posY, 70,(Math.PI/100)*270,(Math.PI/180)*(270+360));
 			c.strokeStyle = '#b1b1b1';
 	        c.lineWidth = '10';
 	        c.stroke();
@@ -392,7 +606,7 @@ function percentageChart(data) {
 	        c.beginPath();
 		    c.strokeStyle = '#3949AB';
 		    c.lineWidth = '10';
-		    c.arc( posX, posY, 70, (Math.PI/180) * 270, (Math.PI/180) * (270 + deegres) );
+		    c.arc(posX, posY, 70,(Math.PI/180)*270,(Math.PI/180)*(270 + deegres));
 		     c.stroke();
 		    if( deegres >= result ) {
 		    	clearInterval(acrInterval);

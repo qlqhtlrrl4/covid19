@@ -267,4 +267,9 @@ public class ApiRestService {
 		return vaccinRepository.todayVaccineData();
 	}
 
+	public List<Map<String, Object>> getLocationData() {
+		
+		return vaccinRepository.locationData();
+	}
+
 }
