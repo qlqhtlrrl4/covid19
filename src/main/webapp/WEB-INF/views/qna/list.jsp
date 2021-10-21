@@ -20,7 +20,7 @@
 			</select>
   			<div class="input-group rounded">
     			<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-      			aria-describedby="search-addon" />
+      			aria-describedby="search-addon" style="border-radius: 0 !important"/>
     			<span class="input-group-text border-0" id="search-addon">
       				<i class="fas fa-search"></i>
     			</span>
@@ -32,6 +32,7 @@
     				<span class="qna-head-title">제목</span>
     				<span class="qna-head-writer">작성자</span>
     				<span class="qna-head-date">작성일</span>
+    				<span class="qna-head-update">수정일</span>
     				<span class="qna-head-hits">조회수</span>
   				</div>
   				<div class="qna-card-list">
@@ -55,11 +56,18 @@
   					<span class="qna-list-date">21.05.05</span>
   					<span class="qna-list-hits">2455</span>
   				</div>
+  				<div class="qna-card-list">
+  					<span class="qna-list-number">3</span>
+  					<span class="qna-list-title"><a>파일 다운로드가 안돼요.</a></span>
+  					<span class="qna-list-writer">최**</span>
+  					<span class="qna-list-date">21.05.05</span>
+  					<span class="qna-list-hits">2455</span>
+  				</div>
 			</div>
-			<button type="button" class="btn btn-secondary btn-sm">
+			<a href="/qna/new" type="button" class="btn btn-secondary btn-sm">
 				<span>글쓰기</span>
 				<i class="fas fa-pen"></i>
-			</button>
+			</a>
 			<nav aria-label="Page navigation example">
   				<ul class="pagination">
     				<li class="page-item">

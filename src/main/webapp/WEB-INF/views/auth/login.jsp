@@ -49,7 +49,7 @@
 				<form>
 					<div class="form-group">
 						<div class="login-title">
-							<span>로그인</span>
+							<span>Login</span>
 						</div>
 						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="아이디">
 					</div>

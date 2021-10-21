@@ -1,30 +1,50 @@
+.logo-title-wrapper{
+	margin-top:110px;
+	text-align: center;
+	.logo-title{
+		font-size: var(--font-xxlarge);
+		font-weight: bold;
+		.logo-text-skyblue{
+			color: var(--logo-color); 
+			font-weight: bold;
+		}
+	}
+}
+
 .join-section {
-	margin-top : 130px;
-	
+	margin-top : 60px;
 	.join-card-wrapper {
 		margin:auto;
-		background-color:var(--white-color);
+		margin-bottom: 80px;
+		border-radius: 25px;
+		background-color: var(--white-color);
 		
-		.logo-title-wrapper {
-			text-align:center;
-			margin-top : 30px;
-			.logo-title {
-				font-size : var(--font-xlarge);
-				.logo-text-skyblue{
-					color:var(--skyblue-color);
-				}
-			}
-		}
 		.join-input-wrapper {
-			margin-top:60px;
-			
+			padding-left:30px;
+			padding-right:30px;
+			margin:35px 0px;
+
 			.form-group{
 				.id_ok{color:blue; display: none;}
 				.id_already{color:blue; display: none;}
-			}
 			
+			}
+		    
+		.join-icons{
+			position: relative;
+    		left: 7px;
+    		top: 7px;
+		i{
+			padding-right: 2px;
 		}
-		
+
+		}	
+		.btn{
+			width: 49%;
+			margin-top: 5px;
+			margin-left: 1px;
+		}
+		}
 	}
 
 }

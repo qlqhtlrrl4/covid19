@@ -1,18 +1,18 @@
 .qna-card-wrapper{
- 	margin-top:80px;
+ 	margin-top:60px;
  	margin-left:120px;
- 	padding-top:55px;
+ 	padding-top:50px;
  	border-radius:25px;
 	background-color: var(--white-color);
 	.qna-card-title{
 		font-size: var(--font-xlarge);
-		margin-left: 542px;
-		margin-right: 536px;
+		margin-left: 555px;
+		margin-right: 526px;
 		padding-left: 5px;
 		border-bottom: 2px solid rgb(92,99,102);
 	}
 	.qna-card-dropdown{
-		margin-left:823px;
+		margin-left:814px;
 		display:flex;
 		width:30%;
 		.form-select{
@@ -25,13 +25,22 @@
 			border-radius: 5px;
 		}
 		.input-group{
+		
+			.form-control{
+				background-color: var(--truewhite-color);
+				border:none;
+				border-radius: 0 !important;
+			}
 			.input-group-text{
 				background:none;
+				background-color:var(--truewhite-color);
+				margin-right: 31px;
+				border-radius: 0px;
 			}
 		}
 	}
 	.qna-card-head{
-		background-color: var(--grey-color);
+		background-color: #95A4AE;
 		border-radius:5px;
 		color: var(--white-color);
 		font-size: var(--regular-font);
@@ -44,17 +53,21 @@
 			margin-left:40px;
 		}
 		.qna-head-title{
-			margin-left:350px;
-			margin-right:70px;
+			margin-left:300px;
+			margin-right:75px;
 		}
 		.qna-head-writer{
-			margin-left:270px;
+			margin-left:190px;
 		}
 		.qna-head-date{
-			margin-left:60px;
+			margin-left:70px;
 		}
+		.qna-head-update{
+			margin-left: 70px;	
+		}
+		
 		.qna-head-hits{
-			margin-left: 60px;
+			margin-left: 70px;
 		}
 	}
 	.qna-card-list{
@@ -84,11 +97,11 @@
 		}
 	}
 	.btn{
-		background-color: var(--truewhite-color);
-		color: var(--grey-dark-color);
+		background-color: #95A4AE;
+		color: var(--white-color);
 		border-style:none;
 		margin-top:20px;
-		margin-left:1055px;
+		margin-left:1043px;
 		padding-top:6px;
 		padding-bottom:6px;
 		padding-left:16px;
@@ -97,5 +110,26 @@
 	.pagination{
 		margin-top:18px;
 		margin-left:500px;
+		
+	}
+}
+.new-card-wrapper{
+ 	margin-top:60px;
+ 	margin-left:120px;
+ 	padding-top:50px;
+ 	border-radius:25px;
+	background-color: var(--white-color);
+	.new-card-title{
+		font-size: var(--font-xlarge);
+		margin-left: 555px;
+		margin-right: 526px;
+		padding-left: 5px;
+		border-bottom: 2px solid rgb(92,99,102);
+	}
+	.input-group{
+		margin-top:40px;
+		.form-control-title{
+			padding-top:40px;
+		}
 	}
 }

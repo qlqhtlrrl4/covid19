@@ -1,0 +1,680 @@
+.navbar {
+  background-color: whitesmoke;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navbar .navbar-brand {
+  padding-left: 15px;
+  font-weight: bold;
+}
+.navbar .logo-text-skyblue {
+  color: var(--logo-color);
+}
+.navbar .nav-info-text {
+  font-size: var(--font-small);
+  color: var(--grey-color);
+}
+.navbar .nav-info-text.nav-info-text-name {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+.navbar .nav-info-icons-wrapper {
+  display: flex;
+  padding-top: 5px;
+  align-items: center;
+  height: 100%;
+  color: var(--skyblue-color);
+  font-size: 40px;
+}
+.navbar .navbar-nav {
+  margin: auto;
+}
+.navbar .navbar-nav .nav-link {
+  padding: 19px 18px;
+  margin: 0 6px;
+  font-size: 16px;
+  padding-bottom: 10px;
+  margin-top: 15px;
+}
+.navbar .navbar-nav .nav-link.active {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+}
+
+.main-section {
+  margin-top: 80px;
+}
+.main-section .summary-left-pane {
+  background-color: var(--white-color);
+  padding: 17px;
+  border-radius: 25px;
+}
+.main-section .summary-left-pane .card {
+  border: none;
+  background-color: var(--white-color);
+}
+.main-section .summary-left-pane .card.active {
+  background-color: rgba(194, 209, 220, 0.2);
+  border-radius: 25px;
+}
+.main-section .summary-left-pane .card.active .card-header {
+  border-bottom: 1px solid var(--grey-light-color);
+}
+.main-section .summary-left-pane .card.active .card-header .panel-title {
+  display: flex;
+  justify-content: space-between;
+}
+.main-section .summary-left-pane .card.active .card-header .panel-title .arrow-icon {
+  transform: rotate(180deg);
+}
+.main-section .summary-left-pane .card .card-header {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0;
+  margin: 0.75rem 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: none;
+}
+.main-section .summary-left-pane .card .card-header .panel-title {
+  display: flex;
+  justify-content: space-between;
+}
+.main-section .summary-left-pane .card .card-header .panel-title .card-header-title {
+  font-weight: bold;
+  color: var(--grey-dark-color);
+}
+.main-section .summary-left-pane .card .card-header .panel-title .card-header-title .panel-tilte-icon {
+  color: var(--grey-dark-color);
+}
+.main-section .summary-right-pane {
+  background-color: var(--white-color);
+  border-radius: 25px;
+  text-align: center;
+  padding: 10px;
+  font-size: var(--font-small);
+}
+.main-section .summary-right-pane .date {
+  display: flex;
+  color: var(--grey-dark-color);
+  padding-top: 10px;
+  padding-left: 15px;
+}
+.main-section .summary-right-pane .locationBtn {
+  display: flex;
+  color: var(--grey-dark-color);
+  padding-left: 15px;
+}
+.main-section .summary-right-pane .locationBtn .location-tilte {
+  padding-left: 6px;
+  margin-top: -3px;
+}
+.main-section .summary-right-pane .arrowAndamount {
+  font-size: var(--font-large);
+  color: var(--pink-color);
+  padding-right: 119px;
+  padding-top: 2px;
+}
+.main-section .summary-right-pane .arrowAndamount .amount {
+  font-size: var(--font-xlarge);
+  color: var(--pink-color);
+  margin-left: 4px;
+  margin-top: 7px;
+}
+.main-section .summary-right-pane .words {
+  display: flex;
+  color: var(--grey-color);
+  font-size: var(--font-micro);
+  padding-top: 14px;
+  padding-left: 10px;
+}
+.main-section .summary-right-pane .syringe-icon {
+  top: 20px;
+  position: absolute;
+  right: 50px;
+  font-size: 35px;
+  color: var(--grey-light-color);
+}
+.main-section .corona-info-count-wrapper {
+  background-color: var(--white-color);
+  border-radius: 25px;
+  text-align: center;
+  padding: 30px;
+}
+.main-section .corona-info-count-wrapper .corona-info-count-title {
+  font-size: var(--font-regular);
+  color: var(--grey-color);
+}
+.main-section .corona-info-count-wrapper .corona-color-pink {
+  color: var(--pink-color);
+  font-size: var(--font-xlarge);
+}
+.main-section .corona-info-count-wrapper .corona-color-pink.badge-color-pink {
+  background-color: #FDEEF1;
+  font-size: var(--font-regular);
+}
+.main-section .corona-info-count-wrapper .corona-color-pink .corona-info-up-down-count {
+  margin-left: 3px;
+}
+.main-section .corona-info-count-wrapper .corona-color-grey {
+  color: #4c4d52;
+  font-size: var(--font-xlarge);
+}
+.main-section .corona-info-count-wrapper .corona-color-grey.badge-color-grey {
+  background-color: #E3E3E3;
+  font-size: var(--font-regular);
+}
+.main-section .corona-info-count-wrapper .corona-color-grey .corona-info-up-down-count {
+  margin-left: 3px;
+}
+.main-section .corona-info-chart-wrapper {
+  background-color: whitesmoke;
+  border-radius: 25px;
+  text-align: center;
+  padding: 40px;
+  margin-top: 20px;
+}
+.main-section .corona-info-chart-wrapper .corona-info-chart-title {
+  color: var(--grey-light-color);
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 899px;
+}
+.main-section .corona-info-chart-wrapper .chartdiv {
+  width: 80%;
+  margin: auto;
+  height: 300px;
+  margin-top: 35px;
+}
+.main-section .corona-info-chart-wrapper .piediv {
+  width: 100%;
+  height: 200px;
+}
+.main-section .corona-info-chart-wrapper .linediv {
+  width: 100%;
+  height: 200px;
+}
+.main-section .corona-info-chart-wrapper .bardiv {
+  width: 100%;
+  height: 200px;
+}
+.main-section .corona-info-chart-wrapper .sidobarDiv {
+  width: 100%;
+  height: 200px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+  float: right;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  display: none;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: -5px;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--truewhite-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input.primary-confirmed:checked + .slider {
+  background-color: #2196F3;
+}
+
+input.primary-keep-distance:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.logo-title-wrapper {
+  margin-top: 110px;
+  text-align: center;
+}
+.logo-title-wrapper .logo-title {
+  font-size: var(--font-xxlarge);
+  font-weight: bold;
+}
+.logo-title-wrapper .logo-title .logo-text-skyblue {
+  color: var(--logo-color);
+  font-weight: bold;
+}
+
+.login-section {
+  margin-top: 60px;
+}
+.login-section .login-card-wrapper {
+  margin: auto;
+  border-radius: 25px;
+  background-color: var(--white-color);
+}
+.login-section .login-card-wrapper .login-input-wrapper {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 30px;
+}
+.login-section .login-card-wrapper .login-input-wrapper .form-group .login-title {
+  font-size: var(--font-large);
+  color: var(--grey-dark-color);
+}
+.login-section .login-card-wrapper .login-input-wrapper .form-group .form-control {
+  margin-top: 30px;
+  padding-left: 10px;
+}
+.login-section .login-card-wrapper .login-input-wrapper .btn {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 35px;
+}
+
+.loginfindAndjoin {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  list-style: none;
+}
+.loginfindAndjoin li {
+  padding-right: 8px;
+}
+
+.search-main .map {
+  background-color: var(--white-color);
+  padding: 30px;
+  margin-top: 120px;
+  margin-left: 60px;
+  border-radius: 25px;
+}
+.search-main .form-control {
+  background-color: var(--truewhite-color);
+  border: none;
+  border-radius: 0 !important;
+}
+.search-main .form-control .search-icon {
+  position: absolute;
+  right: 30px;
+}
+.search-main .hospital-list {
+  padding-top: 25px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 8px;
+  margin-top: 50px;
+  margin-right: 80px;
+  background-color: var(--white-color);
+  border-radius: 25px;
+}
+.search-main .hospital-list .hospital-list-title {
+  color: var(--grey-dark-color);
+}
+.search-main .hospital-list .input-group {
+  margin-top: 15px;
+}
+.search-main .hospital-list .input-group .input-group-text {
+  border-radius: 0px;
+  background: none;
+  background-color: var(--truewhite-color);
+  margin-right: 37px;
+}
+.search-main .hospital-list .list-group {
+  max-height: 500px;
+  overflow-y: scroll;
+  margin-top: 20px;
+}
+.search-main .hospital-list .list-group .covid-hospital-list-wrapper {
+  margin-right: 20px;
+}
+.search-main .hospital-list .list-group .list-group-item {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-right: 17px;
+  padding-left: 40px;
+  margin-top: 15px;
+  border-radius: 25px;
+  background-color: rgba(194, 209, 220, 0.2);
+  border: none;
+  font-size: 13px;
+}
+.search-main .hospital-list .list-group .list-group-item.active {
+  background-color: var(--blue-color);
+}
+.search-main .hospital-list .list-group .list-group-item .hospital-title {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 21px;
+  font-size: var(--font-large);
+}
+.search-main .hospital-list .list-group .list-group-item .hospital-info {
+  font-size: var(--font-small);
+  margin-left: 21px;
+}
+.search-main .hospital-list .list-group .list-group-item .hospital-icon {
+  position: absolute;
+  top: 23px;
+  left: 20px;
+  font-size: 30px;
+}
+
+.join-section {
+  margin-top: 130px;
+}
+.join-section .join-card-wrapper {
+  margin: auto;
+  background-color: var(--white-color);
+}
+.join-section .join-card-wrapper .logo-title-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+.join-section .join-card-wrapper .logo-title-wrapper .logo-title {
+  font-size: var(--font-xlarge);
+}
+.join-section .join-card-wrapper .logo-title-wrapper .logo-title .logo-text-skyblue {
+  color: var(--skyblue-color);
+}
+.join-section .join-card-wrapper .join-input-wrapper {
+  margin-top: 60px;
+}
+.join-section .join-card-wrapper .join-input-wrapper .form-group .id_ok {
+  color: blue;
+  display: none;
+}
+.join-section .join-card-wrapper .join-input-wrapper .form-group .id_already {
+  color: blue;
+  display: none;
+}
+
+.qna-card-wrapper {
+  margin-top: 60px;
+  margin-left: 120px;
+  padding-top: 50px;
+  border-radius: 25px;
+  background-color: var(--white-color);
+}
+.qna-card-wrapper .qna-card-title {
+  font-size: var(--font-xlarge);
+  margin-left: 555px;
+  margin-right: 526px;
+  padding-left: 5px;
+  border-bottom: 2px solid #5c6366;
+}
+.qna-card-wrapper .qna-card-dropdown {
+  margin-left: 814px;
+  display: flex;
+  width: 30%;
+}
+.qna-card-wrapper .qna-card-dropdown .form-select {
+  padding-left: 5px;
+  padding-right: 12px;
+  margin-right: 15px;
+  background-color: var(--truewhite-color);
+  color: var(--grey-dark-color);
+  border-style: none;
+  border-radius: 5px;
+}
+.qna-card-wrapper .qna-card-dropdown .input-group .form-control {
+  background-color: var(--truewhite-color);
+  border: none;
+  border-radius: 0 !important;
+}
+.qna-card-wrapper .qna-card-dropdown .input-group .input-group-text {
+  background: none;
+  background-color: var(--truewhite-color);
+  margin-right: 31px;
+  border-radius: 0px;
+}
+.qna-card-wrapper .qna-card-head {
+  background-color: var(--grey-color);
+  border-radius: 5px;
+  color: var(--white-color);
+  font-size: var(--regular-font);
+  width: 95%;
+  margin: auto;
+  margin-top: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.qna-card-wrapper .qna-card-head .qna-head-number {
+  margin-left: 40px;
+}
+.qna-card-wrapper .qna-card-head .qna-head-title {
+  margin-left: 300px;
+  margin-right: 75px;
+}
+.qna-card-wrapper .qna-card-head .qna-head-writer {
+  margin-left: 190px;
+}
+.qna-card-wrapper .qna-card-head .qna-head-date {
+  margin-left: 70px;
+}
+.qna-card-wrapper .qna-card-head .qna-head-update {
+  margin-left: 70px;
+}
+.qna-card-wrapper .qna-card-head .qna-head-hits {
+  margin-left: 70px;
+}
+.qna-card-wrapper .qna-card-list {
+  display: flex;
+  background-color: var(--truewhite-color);
+  list-style: none;
+  width: 95%;
+  margin-top: 15px;
+  margin-left: 29px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+}
+.qna-card-wrapper .qna-card-list .qna-list-number {
+  margin-left: 50px;
+}
+.qna-card-wrapper .qna-card-list .qna-list-title {
+  margin-left: 160px;
+}
+.qna-card-wrapper .qna-card-list .qna-list-writer {
+  margin-left: 270px;
+}
+.qna-card-wrapper .qna-card-list .qna-list-date {
+  margin-left: 60px;
+}
+.qna-card-wrapper .qna-card-list .qna-list-hits {
+  margin-left: 60px;
+}
+.qna-card-wrapper .btn {
+  background-color: var(--skyblue-color);
+  color: var(--grey-dark-color);
+  border-style: none;
+  margin-top: 20px;
+  margin-left: 1043px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.qna-card-wrapper .pagination {
+  margin-top: 18px;
+  margin-left: 500px;
+}
+
+.vaccine-main {
+  margin-top: 80px;
+}
+.vaccine-main .summary-left-pane {
+  background-color: var(--white-color);
+  padding: 17px;
+  border-radius: 25px;
+}
+.vaccine-main .summary-left-pane .card {
+  border: none;
+  background-color: var(--white-color);
+}
+.vaccine-main .summary-left-pane .card.active {
+  background-color: rgba(194, 209, 220, 0.2);
+  border-radius: 25px;
+}
+.vaccine-main .summary-left-pane .card.active .card-header {
+  border-bottom: 1px solid var(--grey-light-color);
+}
+.vaccine-main .summary-left-pane .card.active .card-header .panel-title {
+  display: flex;
+  justify-content: space-between;
+}
+.vaccine-main .summary-left-pane .card.active .card-header .panel-title .arrow-icon {
+  transform: rotate(180deg);
+}
+.vaccine-main .summary-left-pane .card .card-header {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0;
+  margin: 0.75rem 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: none;
+}
+.vaccine-main .summary-left-pane .card .card-header .panel-title {
+  display: flex;
+  justify-content: space-between;
+}
+.vaccine-main .summary-left-pane .card .card-header .panel-title .card-header-title {
+  font-weight: bold;
+  color: var(--grey-dark-color);
+}
+.vaccine-main .summary-left-pane .card .card-header .panel-title .card-header-title .panel-title-icon {
+  color: var(--grey-dark-color);
+}
+.vaccine-main .vaccine-info-count-wrapper {
+  background-color: var(--white-color);
+  border-radius: 25px;
+  text-align: center;
+  padding: 30px;
+  height: 150px;
+}
+.vaccine-main .vaccine-info-count-wrapper .vaccine-info-count-title {
+  color: black;
+  font-size: var(--font-regular);
+}
+.vaccine-main .vaccine-info-count-wrapper .vaccine-color-gray {
+  color: #4c4d52;
+  font-size: var(--font-xlarge);
+}
+.vaccine-main .vaccine-info-count-wrapper .vaccine-color-gray.vaccine-color-blue {
+  background-color: #4B89DC;
+  font-size: var(--font-regular);
+}
+.vaccine-main .vaccine-chart-count-wrapper {
+  background-color: var(--white-color);
+  border-radius: 25px;
+  text-align: center;
+  padding: 30px;
+  margin-top: 20px;
+  height: 500px;
+}
+.vaccine-main .vaccine-chart-count-wrapper .vaccine-chart-count-title {
+  color: black;
+  font-size: var(--font-large);
+}
+.vaccine-main .vaccine-chart-count-wrapper .vaccineAllChart {
+  width: 100%;
+  height: 350px;
+}
+.vaccine-main .summary-right-pane {
+  background-color: whitesmoke;
+  border-radius: 25px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+}
+@font-face {
+  font-family: "GowunDodum-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  /*Color*/
+  --grey-color:#5C6366;
+  --grey-light-color:#BFBFBF;
+  --grey-dark-color: #262626;
+  --white-color:#F5F5F5;
+  --truewhite-color:#ffffff;
+  --skyblue-color:#C2D1DC;
+  --blue-color:#2196F3;
+  --pink-color:#eb5374;
+  --logo-color:#8FB2BF;
+  /* Font Size */
+  --font-xxlarge:40px;
+  --font-xlarge:30px;
+  --font-large: 20px;
+  --font-regular: 16px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+body {
+  font-family: "GowunDodum-Regular";
+  padding: 0;
+  background-color: rgba(194, 209, 220, 0.4);
+}
+body .body-wrapper {
+  margin-left: 60px;
+  margin-right: 60px;
+}
+body .rotated180 {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 992px) {
+  .col-lg-2dot5 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-lg-9dot5 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 80%;
+    flex: 0 0 80%;
+    max-width: 80%;
+  }
+}
+
+/*# sourceMappingURL=app.css.map */

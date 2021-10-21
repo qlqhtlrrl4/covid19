@@ -33,7 +33,7 @@
   		</div>
   		<div class="col-8">
   			<span class="nav-info-text">안녕하세요,</span><br/>
-  			<span class="nav-info-text nav-info-text-name">김선호님</span>
+  			<span class="nav-info-text nav-info-text-name">박보검님</span>
   		</div>
   	</div>
   
