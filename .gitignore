@@ -96,11 +96,11 @@ hs_err_pid*
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse
 
 #ignore properties file
-/src/main/resources/db/props/application.properties
+src/main/resources/db/props/application.properties
 
 #sass file
-/src/main/webapp/resources/css/app.css
-/src/main/webapp/resources/css/app.css.map
+src/main/webapp/resources/css/app.css
+src/main/webapp/resources/css/app.css.map
 
 #EclipseCore
 .project
