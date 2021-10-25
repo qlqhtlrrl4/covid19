@@ -1,5 +1,4 @@
 .vaccine-main {
-
 	margin-top:80px;
 	
 	.summary-left-pane {
@@ -61,17 +60,17 @@
 		height : 150px;
 		
 		.vaccine-info-count-title {
-			color : black;
+			color : var(--grey-dark-color);
 			font-size:var(--font-regular);
 			
 		}
 		
 		.vaccine-color-gray {
-			color : #4c4d52;
+			color : var(--grey-light-color);
 			font-size:var(--font-xlarge);
 			
 			&.vaccine-color-blue {
-				background-color :#4B89DC;
+				background-color :#7FD1AE;
 				font-size:var(--font-regular);
 			}
 		}
