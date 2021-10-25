@@ -267,9 +267,20 @@ public class ApiRestService {
 		return vaccinRepository.todayVaccineData();
 	}
 
-	public List<Map<String, Object>> getLocationData() {
+	public List<Map<String, Object>> getDayLocationData() {
 		
-		return vaccinRepository.locationData();
+		return vaccinRepository.locationDayData();
+	}
+
+	public List<Map<String, Object>> getWeekLocationeData() {
+		
+		return vaccinRepository.locationWeekData();
+
+	}
+	
+	public List<Map<String,Object>> getMonthLocationData() {
+		
+		return vaccinRepository.locationMonthData();
 	}
 
 }

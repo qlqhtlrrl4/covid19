@@ -1,5 +1,6 @@
 package kr.co.soldesk.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,12 +57,23 @@ public class VaccineController {
 		return today;
 	}
 	
-	@RequestMapping(value="/todayLocationData",method=RequestMethod.GET)
+	//@RequestMapping(value="/LocationData",method=RequestMethod.GET)
+	@RequestMapping(value="/LocationData", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Map<String,Object>> locationVaccine() {
-		 List<Map<String,Object>> location = restService.getLocationData();
+	public Map<String, List<Map<String,Object>>> locationVaccine() {
 		
-		return location;
+		List<Map<String,Object>> dayLocation = restService.getDayLocationData();
+		List<Map<String,Object>> weekLocation = restService.getWeekLocationeData();
+		List<Map<String,Object>> monthLocation = restService.getMonthLocationData();
+		
+		Map<String, List<Map<String,Object>>> allLocationData = new HashMap<String, List<Map<String,Object>>>();
+		allLocationData.put("dayLocation",dayLocation);
+		allLocationData.put("weekLocation",weekLocation);
+		allLocationData.put("monthLocation",monthLocation);
+		System.out.println(allLocationData);
+		return allLocationData;
 	}
+	
+	
 	
 }

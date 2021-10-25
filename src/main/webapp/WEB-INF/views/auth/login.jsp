@@ -46,15 +46,28 @@
 	<div class="row">
 		<div class="col-lg-5 col-md-10 col-sm-11 login-card-wrapper">
 			<div class="login-input-wrapper">
-				<form>
+				<c:if test="${not empty errorMsg }">
+					<div style="color: #ff0000;">
+						<h3>${errorMsg }</h3>
+					</div>
+				</c:if>
+		
+				<c:if test="${not empty logoutMsg }">
+					<div style="color: #0000ff;">
+						<h3>${logoutMsg }</h3>
+					</div>
+				</c:if>
+				
+				<form action="/auth/login" method="post">
+					
 					<div class="form-group">
 						<div class="login-title">
 							<span>Login</span>
 						</div>
-						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="아이디">
+						<input type="text" class="form-control" name="id" id="id" aria-describedby="emailHelp" placeholder="아이디">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호">
+						<input type="password" class="form-control" name="password" id="password" placeholder="비밀번호">
 					</div>
 					<button type="submit" class="btn btn-primary">로그인</button>
 				</form>

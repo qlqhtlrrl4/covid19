@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -36,7 +37,8 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-
+		
+		System.out.println("sdaaaaaaaaaaaaaaaaaaaaaaaaaa"+id);
 		System.out.println(userRepository.findById(id));
 		
 		Users user = userRepository.findById(id);
@@ -44,8 +46,8 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 		for (Roles role : user.getRoles()) {
 			grantedAuthorities.add(new SimpleGrantedAuthority(role.getRole()));
 		}
-
-		return new org.springframework.security.core.userdetails.User(user.getId(), user.getPassword(),
+		
+		return new User(user.getId(), user.getPassword(),
 				grantedAuthorities);
 	}
 

@@ -12,12 +12,19 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Entity
-@Data
 @Table(name = "users")
-
+@Getter
+@Setter
+@ToString
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Users {
 
 	@Id

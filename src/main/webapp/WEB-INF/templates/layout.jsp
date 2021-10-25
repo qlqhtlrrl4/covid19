@@ -32,6 +32,10 @@
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/resources/js/jquery-ui.min.js"/>"></script>
 <script src="<c:url value="/resources/js/waypoints.min.js"/>"></script>
+<script src="${pageContext.request.contextPath}/resources/js/handlebars-v4.5.3.min.js" type="text/javascript"></script>
+
+<script src="${pageContext.request.contextPath}/resources/js/handlebars-helper.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/resources/js/vaccine-location.js" type="text/javascript"></script>
 <!-- <script src="<c:url value="/resources/js/jquery.counteup.js"/>"></script> -->
 </head>
 <body>

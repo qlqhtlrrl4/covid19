@@ -23,11 +23,17 @@ public interface VaccinRepository extends JpaRepository<Vaccination, Integer> {
 	@Query(value= "select * from vaccination where sido like '전국' order by baseDate desc limit 1;",nativeQuery = true)
 	Vaccination recentVaccineData();
 	
-	@Query(value="select baseDate, totalSecondCnt from vaccination where sido like '전국' order by baseDate desc limit 1;",nativeQuery = true)
+	@Query(value="select baseDate, totalSecondCnt from vaccination where sido like '전국' order by baseDate desc limit 7;",nativeQuery = true)
 	List<Map<String, Object>> todayVaccineData();
 	
 	@Query(value="select sido,secondCnt from vaccination where sido not like '전국'and date_format(baseDate,\"%Y-%m-%d\") = DATE_FORMAT(now(),\"%Y-%m-%d\");",nativeQuery = true)
-	List<Map<String, Object>> locationData();
+	List<Map<String, Object>> locationDayData();
+	
+	@Query(value="select sido,secondCnt from vaccination where sido not like '전국' ",nativeQuery=true)
+	List<Map<String, Object>> locationWeekData();
+	
+	@Query(value="SELECT sum(secondCnt),month(baseDate) FROM covid.vaccination where sido like '전국' group by month(baseDate); ", nativeQuery = true)
+	List<Map<String, Object>> locationMonthData();
 	
 	
 	

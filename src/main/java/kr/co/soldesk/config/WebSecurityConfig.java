@@ -50,12 +50,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')").antMatchers("/**").permitAll()
 				.antMatchers("/").permitAll()
 				.anyRequest().authenticated().and().formLogin()// Form 로그인 인증 기능이 작동함
-				.loginPage("/login.jsp")// 사용자 정의 로그인 페이지
+				.loginPage("/auth/login.jsp")// 사용자 정의 로그인 페이지
 				.defaultSuccessUrl("/")// 로그인 성공 후 이동 페이지
-				.failureUrl("/login?error")// 로그인 실패 후 이동 페이지
-				.usernameParameter("username")// 아이디 파라미터명 설정
+				.failureUrl("/auth/login?error")// 로그인 실패 후 이동 페이지
+				.usernameParameter("id")// 아이디 파라미터명 설정
 				.passwordParameter("password")// 패스워드 파라미터명 설정
-				.loginProcessingUrl("/login")// 로그인 Form Action Url
+				.loginProcessingUrl("/auth/login")// 로그인 Form Action Url
 				
 				.and()
 				.logout()

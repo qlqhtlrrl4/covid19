@@ -86,7 +86,7 @@ Handlebars.getTemplate = function(name) {
                 xhr.setRequestHeader("Accept","*/*");
             },
             dataType: "text",
-            url : '/templates/' + name + '.hbs',
+            url : '/resources/handlebars/' + name + '.hbs',
             success : function(data) {
                 if (Handlebars.templates === undefined) {
                     Handlebars.templates = {};

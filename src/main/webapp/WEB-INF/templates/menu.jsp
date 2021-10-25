@@ -24,18 +24,37 @@
       </li>
     </ul>
   </div>
-  <div class="nav-info-card">
-  	<div class="row">
-  		<div class="col-4">
-  			<div class="nav-info-icons-wrapper">
-  				<i class="fas fa-user-circle"></i>
+  
+	<c:if test="${pageContext.request.userPrincipal.name == null}">
+  		<div class="navbar-user-wrapper">
+  			<a class="nav-link" href="/auth/login">로그인</a>
+			<a class="nav-link" href="/auth/join">회원가입</a>
+  		</div>							
+	</c:if>
+  
+  		<c:if test="${pageContext.request.userPrincipal.name != null}">
+  			<div class="nav-user-info-wrapper">
+  				<div class="nav-info-icons-wrapper">
+  					<i class="fas fa-user-circle"></i>
+  					<!-- <a class="nav-link" href="#"><i class="fas fa-user-circle"></i></a> -->
+  				</div>
+  			
+  			
+				<span class="nav-info-text">안녕하세요,</span><br/>
+  				<span class="nav-info-text nav-info-text-name">${pageContext.request.userPrincipal.name}님</span>				
+  			
+  			
+  				<span class="nav-info-text">
+  					<a class="nav-link" href="/logout">로그아웃</a>
+  				</span>
   			</div>
-  		</div>
-  		<div class="col-8">
-  			<span class="nav-info-text">안녕하세요,</span><br/>
-  			<span class="nav-info-text nav-info-text-name">박보검님</span>
-  		</div>
-  	</div>
+  			
+  		</c:if>
+  	
+  	<!-- <div class="navbar-user-wrapper">
+  			<a class="nav-link" href="/auth/login">로그인</a>
+			<a class="nav-link" href="/auth/join">회원가입</a>
+  	</div> -->
   
   </div>
 </nav>

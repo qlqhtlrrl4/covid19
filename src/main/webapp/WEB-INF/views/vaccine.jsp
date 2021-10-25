@@ -5,7 +5,6 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-
 <div class="vaccine-main">
 	<div class="row">
 		<div class="col-lg-2dot5 col-md-3 col-sm-12">
@@ -25,7 +24,7 @@
 						
 						<div id="collapseOne" class="collapse show" data-parent="#vaccineAccordion">
 							<div class="card-body">
-								지역
+								접종현황
 								<label class="switch">
 									<input id="location-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
 									<span id="location-toggle" class="slider round"></span>
@@ -35,6 +34,43 @@
 							
 						</div>
 					</div> <!-- card active -->
+					
+					<div class ="card">
+						<div class="card-header" id="headingTwo">
+							<h2 class="mb-0">
+								<a class="btn btn-link btn-block text-left panel-title" type="button" data-toggle="collapse" data-target="#collapseTwo">
+									<span class="card-header-title">기간</span>
+									<div><i class="fa fa-chevron-up arrow-icon"></i></div>
+								</a>
+							</h2>
+						</div>
+						
+						<div id="collapseTwo" class="collapse" data-parent="#vaccineAccordion">
+							<div class="card-body">
+								일별
+								<label class="switch">
+									<input id="dayLocation-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+									<span id="dayLocation-toggle" class="slider round"></span>
+								</label>
+							</div>
+							
+							<div class="card-body">
+								주별
+								<label class="switch">
+									<input id="weekLocation-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+									<span id="weekLocation-toggle" class="slider round"></span>
+								</label>
+							</div>
+							
+							<div class="card-body">
+								월별
+								<label class="switch">
+									<input id="monthLocation-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+									<span id="monthLocation-toggle" class="slider round"></span>
+								</label>
+							</div>
+						</div>
+					</div>
 				</div>
 				
 				<div class="card">
@@ -246,21 +282,29 @@
 				</div>
 			</div>
 			
-			<div class="row">
-				<div class="col-9">
-					<div class="location-percentage-info-wrapper">
-						<span class="location-percentage-info-title">
-							지역별 백신 접종 현황
-							
-						</span>
-						<div class="locationChart"></div>
-					</div>
+			<div class="location-collection row" id="location-collection">
+				
+				<!-- <span class="location-collection-title">
+					지역별 백신 접종 현황	
+				</span>
+				<br> -->
+				
+				<div id="daylocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12" >
+					<div class="location-chart-title">일별</div>
 				</div>
+				
+				<div id="weeklocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12" >
+					<div class="location-chart-title">주별</div>
+				</div>
+				
+				<div id="monthlocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12" >
+					<div class="location-chart-title">월별</div>
+				</div>
+			
 			</div>
 		</div>
 	</div> 
 </div> <!-- vaccine main div -->
-
 
 <script>
 	$(".card").on("show.bs.collapse", function() {
@@ -278,6 +322,20 @@
 		
 		$(this).removeClass('active');
 	});
+	
+	/* $(".chart-toggle-btn").on('change',function() {
+		debugger;
+		var type = $(this).prop("id").replace(/-check-box/,"");
+		var cardId = type+"-chart-card";
+		var chartBarId = type+"-bar-chart";
+		var chartPieId = type+"-pie-chart";
+		var name=$(this); //getText
+		
+		var cardHtml = self.cardTemplate({
+			type : type,
+			name : name
+		});
+	}); */
 	
 	(function( $ ){
 		  "use strict";
@@ -403,91 +461,11 @@ $(document).ready(function() {
 		
 	}); 
 	
-	$.ajax({
-		url : '/todayLocationData',
-		type:'get',
-		dataType : 'json',
-		
-		success : function(data) {
-			locationBarChart(data);
-			console.log(data);
-		}
-	})
-	
 });
 
 </script>
 
 <script>
-function locationBarChart(data) {
-	am4core.ready(function() {
-
-        // Themes begin
-        am4core.useTheme(am4themes_animated);
-        // Themes end
-
-        var chart = am4core.create("locationChart", am4charts.XYChart);
-        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
-
-        chart.data = data;
-		
-        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-        categoryAxis.renderer.grid.template.location = 0;
-        categoryAxis.dataFields.category = "sido";
-        categoryAxis.renderer.minGridDistance = 40;
-        categoryAxis.fontSize = 15;
-
-        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-        /* valueAxis.min = 0;
-        valueAxis.max = 50000; */
-        //valueAxis.strictMinMax = true;
-        valueAxis.renderer.minGridDistance = 30;
-        
-        var label = categoryAxis.renderer.labels.template;
-      //label.truncate = true;
-      label.maxWidth = 200;
-      label.tooltipText = "{category}";
-      
-
-      categoryAxis.events.on("sizechanged", function(ev) {
-        var axis = ev.target;
-        var cellWidth = axis.pixelWidth / (axis.endIndex - axis.startIndex);
-        if (cellWidth < axis.renderer.labels.template.maxWidth) {
-          axis.renderer.labels.template.rotation = -65;
-          axis.renderer.labels.template.horizontalCenter = "right";
-          axis.renderer.labels.template.verticalCenter = "middle";
-        }
-        else {
-          axis.renderer.labels.template.rotation = 0;
-          axis.renderer.labels.template.horizontalCenter = "middle";
-          axis.renderer.labels.template.verticalCenter = "top";
-        }
-      });
-        
-        //격자 지우기
-        valueAxis.renderer.grid.template.disabled = true;
-        
-        var series = chart.series.push(new am4charts.ColumnSeries());
-        series.dataFields.categoryX = "sido";
-        series.dataFields.valueY = "secondCnt";
-        series.columns.template.tooltipText = "{sido} : [bold]{valueY}[/]";
-        series.columns.template.tooltipY = 0;
-        series.columns.template.strokeOpacity = 0;
-        
-
-        // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
-        series.columns.template.adapter.add("fill", function(fill, target) {
-           return chart.colors.getIndex(target.dataItem.index);
-        });
-        
-        
-
-     }); // end am4core.ready()
-	 
-  }
-	
-
-
 function vaccineAllLineChart(data) {
    am4core.ready(function() {
 
@@ -531,8 +509,6 @@ function vaccineAllLineChart(data) {
       series.tooltip.label.minHeight = 40;
       series.tooltip.label.textAlign = "middle";
       series.tooltip.label.textValign = "middle";
-      valueAxis.cursorTooltipEnabled = false;
-      dateAxis.cursorTooltipEnabled = false; 
 
       // Make bullets grow on hover
       var bullet = series.bullets.push(new am4charts.CircleBullet());
@@ -542,18 +518,14 @@ function vaccineAllLineChart(data) {
 
       var bullethover = bullet.states.create("hover");
       bullethover.properties.scale = 1.3;
-      
-      
 
       // Make a panning cursor
       chart.cursor = new am4charts.XYCursor();
-      //chart.cursor.behavior = "panXY";
-      //chart.cursor.xAxis = dateAxis;
-      //chart.cursor.snapToSeries = series;
-      chart.cursor.lineX.disabled = true;
-	  chart.cursor.lineY.disabled = true;
-      chart.cursor.behavior = "none";
-      
+      chart.cursor.behavior = "panXY";
+      chart.cursor.xAxis = dateAxis;
+      chart.cursor.snapToSeries = series;
+
+     
       valueAxis.renderer.line.disabled = true; //disables axis line
       //valueAxis.renderer.labels.template.disabled = true; //disables labels
       valueAxis.renderer.grid.template.disabled = true;  //disables grid
@@ -561,7 +533,8 @@ function vaccineAllLineChart(data) {
       dateAxis.keepSelection = true;
 
       // Enable export
-     
+      
+      
       }); // end am4core.ready()
    }
 </script>
@@ -598,7 +571,7 @@ function percentageChart(data) {
 			
 			spanPercent.innerHTML = percent.toFixed();
 			c.beginPath();
-			c.arc(posX,posY, 70,(Math.PI/100)*270,(Math.PI/180)*(270+360));
+			c.arc(posX,posY, 70, (Math.PI/100)*270,(Math.PI/180) * (270+360));
 			c.strokeStyle = '#b1b1b1';
 	        c.lineWidth = '10';
 	        c.stroke();
@@ -606,7 +579,7 @@ function percentageChart(data) {
 	        c.beginPath();
 		    c.strokeStyle = '#3949AB';
 		    c.lineWidth = '10';
-		    c.arc(posX, posY, 70,(Math.PI/180)*270,(Math.PI/180)*(270 + deegres));
+		    c.arc( posX, posY, 70, (Math.PI/180) * 270, (Math.PI/180) * (270 + deegres) );
 		     c.stroke();
 		    if( deegres >= result ) {
 		    	clearInterval(acrInterval);
@@ -614,4 +587,9 @@ function percentageChart(data) {
 		},fps);
 	}
 }	
+
+$(function () {
+	
+	var vaccineChartManager = new VaccineChartManager();
+})
 </script>

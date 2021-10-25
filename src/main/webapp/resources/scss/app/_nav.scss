@@ -19,14 +19,22 @@
 			color: var(--grey-dark-color);
 		}
 	}
-	.nav-info-icons-wrapper{
-		display:flex;
-		padding-top:5px;
-		align-items:center;
-		height: 100%;
-		color:var(--skyblue-color);
-		font-size:40px;
+	
+	.nav-user-info-wrapper {
+		display : flex;
+		
+		
+		.nav-info-icons-wrapper{
+			display:flex;
+			padding-top:5px;
+			align-items:center;
+			height: 100%;
+			color:var(--skyblue-color);
+			font-size:40px;
+		}
 	}
+	
+	
 	.navbar-nav{
 		margin:auto;
 		
@@ -40,6 +48,18 @@
 				border-bottom: 2px solid rgba(0,0,0,.7);
 				
 			}
+		}
+	}
+	
+	.navbar-user-wrapper {	
+		display : flex;
+		
+		.nav-link {
+			
+			font-size : 16px;
+			margin : 0 6px;
+			margin-top :15px;
+			color: rgba(0,0,0,.7);
 		}
 	}
 	

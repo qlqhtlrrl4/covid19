@@ -10,11 +10,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Entity
+
 @Table(name = "roles")
-@Data
+@Getter
+@Setter
+@Entity
 public class Roles {
 
 	@Id
