@@ -49,7 +49,7 @@
 				    <div class="card-header" id="headingTwo">
 				      <h2 class="mb-0">
 				        <a class="btn btn-link btn-block text-left panel-title" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-				          <span class="card-header-title">해외</span>
+				          <button class="card-header-title">해외</button>
 				          <div>
 				          	<i class="fa fa-chevron-up arrow-icon"></i>
 				          </div>
