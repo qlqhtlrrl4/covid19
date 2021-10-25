@@ -36,31 +36,35 @@
     				<span class="qna-head-hits">조회수</span>
   				</div>
   				<div class="qna-card-list">
-  					<span class="qna-list-number">3</span>
+  					<span class="qna-list-number">4</span>
   					<span class="qna-list-title"><a>질문 있어요!</a></span>
   					<span class="qna-list-writer">김**</span>
   					<span class="qna-list-date">21.05.05</span>
+  					<span class="qna-list-update">21.05.08</span>
   					<span class="qna-list-hits">2455</span>
   				</div>
   				<div class="qna-card-list">
   					<span class="qna-list-number">3</span>
-  					<span class="qna-list-title"><a>비밀글 입니다.</a></span>
+  					<span class="qna-list-title"><a>질문 있어요!</a></span>
   					<span class="qna-list-writer">이**</span>
   					<span class="qna-list-date">21.05.05</span>
+  					<span class="qna-list-update">21.05.08</span>
   					<span class="qna-list-hits">2455</span>
   				</div>
   				<div class="qna-card-list">
-  					<span class="qna-list-number">3</span>
-  					<span class="qna-list-title"><a>파일 다운로드가 안돼요.</a></span>
+  					<span class="qna-list-number">2</span>
+  					<span class="qna-list-title"><a>질문 있어요!</a></span>
   					<span class="qna-list-writer">최**</span>
   					<span class="qna-list-date">21.05.05</span>
+  					<span class="qna-list-update">21.05.08</span>
   					<span class="qna-list-hits">2455</span>
   				</div>
   				<div class="qna-card-list">
-  					<span class="qna-list-number">3</span>
-  					<span class="qna-list-title"><a>파일 다운로드가 안돼요.</a></span>
+  					<span class="qna-list-number">1</span>
+  					<span class="qna-list-title"><a>질문 있어요!</a></span>
   					<span class="qna-list-writer">최**</span>
   					<span class="qna-list-date">21.05.05</span>
+  					<span class="qna-list-update">21.05.08</span>
   					<span class="qna-list-hits">2455</span>
   				</div>
 			</div>

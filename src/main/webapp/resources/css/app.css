@@ -167,15 +167,14 @@
 .main-section .corona-info-chart-wrapper {
   background-color: whitesmoke;
   border-radius: 25px;
-  text-align: center;
+  text-align: left;
   padding: 40px;
   margin-top: 20px;
 }
 .main-section .corona-info-chart-wrapper .corona-info-chart-title {
-  color: var(--grey-light-color);
+  color: var(--grey-dark-color);
   font-size: 15px;
-  font-weight: bold;
-  margin-right: 899px;
+  margin-left: 50px;
 }
 .main-section .corona-info-chart-wrapper .chartdiv {
   width: 80%;
@@ -496,7 +495,7 @@ input:checked + .slider:before {
   margin-left: 40px;
 }
 .qna-card-wrapper .qna-card-head .qna-head-title {
-  margin-left: 300px;
+  margin-left: 266px;
   margin-right: 75px;
 }
 .qna-card-wrapper .qna-card-head .qna-head-writer {
@@ -529,13 +528,16 @@ input:checked + .slider:before {
   margin-left: 160px;
 }
 .qna-card-wrapper .qna-card-list .qna-list-writer {
-  margin-left: 270px;
+  margin-left: 214px;
 }
 .qna-card-wrapper .qna-card-list .qna-list-date {
+  margin-left: 73px;
+}
+.qna-card-wrapper .qna-card-list .qna-list-update {
   margin-left: 60px;
 }
 .qna-card-wrapper .qna-card-list .qna-list-hits {
-  margin-left: 60px;
+  margin-left: 61px;
 }
 .qna-card-wrapper .btn {
   background-color: #95A4AE;
@@ -552,6 +554,11 @@ input:checked + .slider:before {
   margin-top: 18px;
   margin-left: 500px;
 }
+.qna-card-wrapper .pagination .page-item .page-link {
+  background: none;
+  border: none;
+  color: var(--gery-dark-color);
+}
 
 .new-card-wrapper {
   margin-top: 60px;
@@ -563,7 +570,7 @@ input:checked + .slider:before {
 .new-card-wrapper .new-card-title {
   font-size: var(--font-xlarge);
   margin-left: 555px;
-  margin-right: 526px;
+  margin-right: 537px;
   padding-left: 5px;
   border-bottom: 2px solid #5c6366;
 }
@@ -626,15 +633,15 @@ input:checked + .slider:before {
   height: 150px;
 }
 .vaccine-main .vaccine-info-count-wrapper .vaccine-info-count-title {
-  color: black;
+  color: var(--grey-dark-color);
   font-size: var(--font-regular);
 }
 .vaccine-main .vaccine-info-count-wrapper .vaccine-color-gray {
-  color: #4c4d52;
+  color: var(--grey-light-color);
   font-size: var(--font-xlarge);
 }
 .vaccine-main .vaccine-info-count-wrapper .vaccine-color-gray.vaccine-color-blue {
-  background-color: #4B89DC;
+  background-color: #7FD1AE;
   font-size: var(--font-regular);
 }
 .vaccine-main .location-percentage-info-wrapper {

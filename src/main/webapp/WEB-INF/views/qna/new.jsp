@@ -12,7 +12,7 @@
   				<div class="input-group-prepend">
     				<span class="input-group-text">제목</span>
   				</div>
-  				<input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+  				<input id="qna-new-title" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
 			</div>
 			<div class="input-group mb-3">
   				<div class="input-group-prepend">
@@ -24,7 +24,7 @@
   				<div class="input-group-prepend">
     				<span class="input-group-text">내용</span>
   				</div>
-  				<input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+  				<input id="qna-new-content" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
 			</div>
 			<div class="input-group mb-3">
   				<div class="input-group-prepend">

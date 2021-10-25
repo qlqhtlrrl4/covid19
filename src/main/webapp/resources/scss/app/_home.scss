@@ -142,15 +142,14 @@
 	.corona-info-chart-wrapper {
 		background-color:rgb(245,245,245);
 		border-radius: 25px;
-		text-align: center;
+		text-align: left;
 		padding: 40px;
 		margin-top :20px;
 		
 		.corona-info-chart-title {
-			color : var(--grey-light-color);
+			color : var(--grey-dark-color);
 			font-size : 15px;
-			font-weight: bold;
-			margin-right: 899px;
+			margin-left: 50px;
 		}
 		
 		.chartdiv {
