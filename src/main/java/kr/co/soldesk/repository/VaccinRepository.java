@@ -24,15 +24,20 @@ public interface VaccinRepository extends JpaRepository<Vaccination, Integer> {
 	Vaccination recentVaccineData();
 	
 	@Query(value="select baseDate, totalSecondCnt from vaccination where sido like '전국' order by baseDate desc limit 7;",nativeQuery = true)
-	List<Map<String, Object>> todayVaccineData();
-	
-	@Query(value="select sido,secondCnt from vaccination where sido not like '전국'and date_format(baseDate,\"%Y-%m-%d\") = DATE_FORMAT(now(),\"%Y-%m-%d\");",nativeQuery = true)
 	List<Map<String, Object>> locationDayData();
 	
-	@Query(value="select sido,secondCnt from vaccination where sido not like '전국' ",nativeQuery=true)
+	@Query(value="select sido,secondCnt from vaccination where sido not like '전국'and date_format(baseDate,\"%Y-%m-%d\") = DATE_FORMAT(now(),\"%Y-%m-%d\");",nativeQuery = true)
+	List<Map<String, Object>> todayVaccineData();
+	
+	@Query(value="select date_format(date_sub(baseDate, interval(DAYOFWEEK(baseDate)-1)DAY),'%Y-%m-%d')AS start,"
+			+ "date_format(date_sub(baseDate, interval(DAYOFWEEK(baseDate)-7)DAY),'%Y-%m-%d')as end,"
+			+ "date_format(baseDate,'%Y%U')as 'date',"
+			+ "sum(secondCnt) from vaccination where sido like '전국'"
+			+ " group by start, end, date\r\n" + 
+			"order by  date desc limit 7; ",nativeQuery=true)
 	List<Map<String, Object>> locationWeekData();
 	
-	@Query(value="SELECT sum(secondCnt),month(baseDate) FROM covid.vaccination where sido like '전국' group by month(baseDate); ", nativeQuery = true)
+	@Query(value="SELECT sum(secondCnt),date_format((baseDate),'%Y-%m')as month FROM covid.vaccination where sido like '전국' group by date_format((baseDate),'%Y-%m'); ", nativeQuery = true)
 	List<Map<String, Object>> locationMonthData();
 	
 	

@@ -95,12 +95,16 @@
 			border: 1px lightblue solid;
 			margin-top : 30px;
 			
+			.data-location-chart {
+
+				height : 300px;
+				margin-top:50px;
+			}
+			.nav-tabs {
+				border-bottom: none;
+			}
 		}
-		.locationChart {
-			
-			height : 350px;
-			margin-top:50px;
-		}
+		
 	}
 	
 	.vaccine-chart-count-wrapper {

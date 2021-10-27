@@ -624,7 +624,7 @@ function pieChart(data) {
 		
 		chart.legend = new am4charts.Legend();
 
-		}); // end am4core.ready()
+	}); // end am4core.ready()
 	
 
 }

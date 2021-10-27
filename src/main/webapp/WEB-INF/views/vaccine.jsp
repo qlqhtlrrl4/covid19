@@ -284,23 +284,119 @@
 			
 			<div class="location-collection row" id="location-collection">
 				
-				<!-- <span class="location-collection-title">
-					지역별 백신 접종 현황	
-				</span>
-				<br> -->
-				
-				<div id="daylocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12" >
+				<div id="dayLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12">
 					<div class="location-chart-title">일별</div>
+					<div class="form-inline nav nav-tabs" role="tablist">
+						<div class="form-group">
+							<div class="abc-radio abc-radio-primary">
+								<input class="check-chart-type"
+									   type="radio"
+									   id="dayLocation-bar-type"
+									   name="dayLocation-chart-type"
+									   data-target="#dayLocation-bar-chart"
+								checked>
+								<label class="form-check-label" for="dayLocation-bar-type">
+									<a href=""></a>Bar
+								</label>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<div class="abc-radio abc-radio-primary">
+								<input class="check-chart-type"
+									   type="radio"
+									   id="dayLocation-pie-type"
+									   name="dayLocation-chart-type"
+									   data-target="#dayLocation-pie-chart">
+								<label class="form-check-label" for="dayLocation-pie-type">
+									Pie
+								</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="tab-content">
+						<div id="dayLocation-bar-chart" class="data-location-chart tab-pane fade show active"></div>
+						<div id="dayLocation-pie-chart" class="data-location-chart tab-pane fade"></div>
+					</div>
 				</div>
 				
-				<div id="weeklocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12" >
+				
+				<div id="weekLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12">
 					<div class="location-chart-title">주별</div>
+						<div class="form-inline nav nav-tabs" role="tablist">
+							<div class="form-group">
+								<div class="abc-radio abc-radio-primary">
+									<input class="check-chart-type"
+										   type="radio"
+										   id="weekLocation-bar-type"
+										   name="weekLocation-chart-type"
+										   data-target="#weekLocation-bar-chart"
+									checked>
+									<label class="form-check-label" for="weekLocation-bar-type">
+										Bar
+									</label>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="abc-radio abc-radio-primary">
+									<input class="check-chart-type"
+										   type="radio"
+										   id="weekLocation-pie-type"
+										   name="weekLocation-chart-type"
+										   data-target="#weekLocation-pie-chart">
+									<label class="form-check-label" for="weekLocation-pie-type">
+										Pie
+									</label>
+								</div>
+							</div>
+						</div>
+						
+						<div class="tab-content">
+							<div id="weekLocation-bar-chart" class="data-location-chart tab-pane fade show active"></div>
+							<div id="weekLocation-pie-chart" class="data-location-chart tab-pane fade"></div>
+						</div>
 				</div>
 				
-				<div id="monthlocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12" >
+				<div id="monthLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12">
 					<div class="location-chart-title">월별</div>
+					<div class="form-inline nav nav-tabs" role="tablist">
+						<div class="form-group">
+							<div class="abc-radio abc-radio-primary">
+								<input class="check-chart-type"
+									   type="radio"
+									   id="monthLocation-bar-type"
+									   name="monthLocation-chart-type"
+									   data-target="#monthLocation-bar-chart"
+								checked>
+								<label class="form-check-label" for="monthLocation-bar-type">
+									Bar
+								</label>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<div class="abc-radio abc-radio-primary">
+								<input class="check-chart-type"
+									   type="radio"
+									   id="monthLocation-pie-type"
+									   name="monthLocation-chart-type"
+									   data-target="#monthLocation-pie-chart">
+								<label class="form-check-label" for="monthLocation-pie-type">
+									Pie
+								</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="tab-content">
+						<div id="monthLocation-bar-chart" class="data-location-chart tab-pane fade show active"></div>
+						<div id="monthLocation-pie-chart" class="data-location-chart tab-pane fade"></div>
+					</div>
 				</div>
-			
+				
+				
 			</div>
 		</div>
 	</div> 
@@ -311,7 +407,7 @@
 		
 		var icon = $(this).find(".arrow-icon");
 		
-		icon.css("transform","rotate(180deg)");
+		icon.css("transform","rotate(180deg)");	
 		$(this).addClass('active');
 	});
 	
@@ -322,20 +418,6 @@
 		
 		$(this).removeClass('active');
 	});
-	
-	/* $(".chart-toggle-btn").on('change',function() {
-		debugger;
-		var type = $(this).prop("id").replace(/-check-box/,"");
-		var cardId = type+"-chart-card";
-		var chartBarId = type+"-bar-chart";
-		var chartPieId = type+"-pie-chart";
-		var name=$(this); //getText
-		
-		var cardHtml = self.cardTemplate({
-			type : type,
-			name : name
-		});
-	}); */
 	
 	(function( $ ){
 		  "use strict";
@@ -447,7 +529,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$.ajax( {
+	/* $.ajax( {
 		url :'/todayVaccine',
 		type : 'get',
 		dataType : 'json',
@@ -459,7 +541,7 @@ $(document).ready(function() {
 			
 		}
 		
-	}); 
+	});  */
 	
 });
 

@@ -48,7 +48,7 @@
 			<artifactId>simplecaptcha</artifactId>
 			<version>1.2.1</version>
 			<scope>system</scope>
-			<systemPath>C:\Users\hyojin\projects\covid19\src\main\webapp\WEB-INF\lib\simplecaptcha-1.2.1.jar</systemPath>
+			<systemPath>${basedir}\src\main\webapp\WEB-INF\lib\simplecaptcha-1.2.1.jar</systemPath>
 		</dependency>
 		
 		<dependency>

@@ -48,7 +48,7 @@ public class VaccineController {
 		return vaccineClassifyData;
 	}
 	
-	@RequestMapping(value="/todayVaccine", method=RequestMethod.GET)
+	@RequestMapping(value="/todayVaccine", method=RequestMethod.POST)
 	@ResponseBody
 	public List<Map<String,Object>> todayVaccine() {
 		
@@ -73,7 +73,5 @@ public class VaccineController {
 		System.out.println(allLocationData);
 		return allLocationData;
 	}
-	
-	
 	
 }

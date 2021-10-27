@@ -1,6 +1,36 @@
-
-
-<div id="{{type}}-chart-card" class="location-chart-wrapper col-lg-6 col-md-6 col-sm-12" >
-	<div class="location-chart-title">{{name}}</div>
-	
+<div id="{{type}}-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12">
+    <div class="location-chart-title">{{name}}</div>
+    <div class="form-inline nav nav-tabs" role="tablist">
+        <div class="form-group">
+            <div class="abc-radio abc-radio-primary">
+                <input class="check-chart-type"
+                        type="radio"
+                        id="{{type}}-bar-type"
+                        name="{{type}}-chart-type"
+                        data-target="#{{type}}-bar-chart"
+                checked>
+                <label class="form-check-label" for="{{type}}-bar-type">
+                    Bar
+                </label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="abc-radio abc-radio-primary">
+                <input class="check-chart-type"
+                        type="radio"
+                        id="{{type}}-pie-type"
+                        name="{{type}}-chart-type"
+                        data-target="#{{type}}-pie-chart">
+                <label class="form-check-label" for="{{type}}-pie-type">
+                    Pie
+                </label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="tab-content">
+        <div id="{{type}}-bar-chart" class="data-location-chart tab-pane fade show active"></div>
+        <div id="{{type}}-pie-chart" class="data-location-chart tab-pane fade"></div>
+    </div>
 </div>

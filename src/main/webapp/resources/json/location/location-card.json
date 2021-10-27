@@ -1,0 +1,148 @@
+{
+	"dayLocation-chart-card" : {
+		"name" : "일별",
+		"enName" : "daily",
+		"type" : "dayLocation",
+		"data" : null
+	},
+	
+	"weekLocation-chart-card" : {
+		"name" : "주별",
+		"enName" : "weekly",
+		"type" : "weekLocation",
+		"data" : null
+	},
+	
+	"monthLocation-chart-card" : {
+		"name" : "월별",
+		"enName" : "monthly",
+		"type" : "monthLocation",
+		"data" : null
+	},
+	
+	
+	"seoul-chart-card" :{
+		"name" : "서울",
+		"enName" : "seoul",
+		"type" : "seoul",
+		"data" : null
+	},
+	
+	"busan-chart-card" : {
+		"name" : "부산",
+		"enName" : "busan",
+		"type" : "busan",
+		"data" : null
+	},
+	
+	"daegu-chart-card" : {
+		"name" : "대구",
+		"enName" : "daegu",
+		"type" : "daegu",
+		"data" : null
+	},
+	
+	"inchen-chart-card" : {
+		"name" : "인천",
+		"enName" : "inchen",
+		"type" : "inchen",
+		"data" : null
+	},
+	
+	"gwangju-chart-card" : {
+		"name" : "광주",
+		"enName" : "gwangju",
+		"type" : "gwangju",
+		"data" : null
+	},
+	
+	"daejeon-chart-card" : {
+		"name" : "대전",
+		"enName" : "daejeon",
+		"type" : "daejeon",
+		"data" : null
+	},
+	
+	"ulsan-chart-card" : { 
+		"name" : "울산",
+		"enName" : "ulsan",
+		"type" : "ulsan",
+		"data" : null
+	},
+	
+	"saejong-chart-card" : {
+		"name" : "세종",
+		"enName" : "saejong",
+		"type" : "saejong",
+		"data" : null
+	},
+	
+	"gyeongi-chart-card" : {
+		"name" : "경기",
+		"enName" : "gyeongi",
+		"type" : "gyeongi",
+		"data" : null
+	},
+	
+	"gangwon-chart-card" : {
+		"name" : "강원도",
+		"enName" : "gangwon",
+		"type" : "gangwon",
+		"data" : null
+	},
+	
+	"chungcheongnam-chart-card" : {
+		"name" : "충청남도",
+		"enName" : "chungcheongnamdo",
+		"type" : "chungcheongnam",
+		"data" : null
+	},
+	
+	"chungcheongbuk-chart-card" : {
+		"name" : "충청북도",
+		"enName" : "chungcheongbukdo",
+		"type" : "chungcheongbuk",
+		"data" : null
+	},
+	
+	"jeollanam-chart-card" : {
+		"name" : "전라남도",
+		"enName" : "jeollanam",
+		"type" : "jeollanam",
+		"data" : null
+	},
+	
+	"jeollabuk-chart-card" : {
+		"name" : "전라북도",
+		"enName" : "jeollabuk",
+		"type" : "jeollabuk",
+		"data" : null
+	},
+	
+	"gyeongsangnam-chart-card" : {
+		"name" : "경상남도",
+		"enName" : "gyeongsangnam",
+		"type" : "gyeongsangnam",
+		"data" : null
+	},
+	
+	"gyeongsangbuk-chart-card" : {
+		"name" : "경상북도",
+		"enName" : "gyeongsangbuk",
+		"type" : "gyeongsangbuk",
+		"data" : null
+	},
+	
+	"jeju-chart-card" : {
+		"name" : "제주",
+		"enName" : "jeju",
+		"type" : "jeju",
+		"data" : null
+	}
+	
+	
+	 
+	
+	
+
+}
