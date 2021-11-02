@@ -36,7 +36,7 @@ public class FlywayConfig {
         		.outOfOrder(true)
         		.load();
 
-        //flyway.migrate();
+        flyway.migrate();
 
         return flyway;
     }

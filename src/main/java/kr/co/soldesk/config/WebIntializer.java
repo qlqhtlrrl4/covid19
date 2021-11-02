@@ -29,6 +29,7 @@ public class WebIntializer implements WebApplicationInitializer{
 		disContext.register(ServiceConfig.class);
 		disContext.register(WebSecurityConfig.class);
 		disContext.register(PageConfig.class);
+		disContext.register(RedisConfig.class);
 		
 		ContextLoaderListener listener = new ContextLoaderListener(disContext);
 		servletContext.addListener(listener);

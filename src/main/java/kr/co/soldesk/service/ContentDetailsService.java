@@ -1,11 +1,9 @@
 package kr.co.soldesk.service;
 
-import java.util.List;
 import java.util.Locale;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 import kr.co.soldesk.model.ContentDto;
 import kr.co.soldesk.model.Contents;

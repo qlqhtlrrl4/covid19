@@ -34,6 +34,10 @@ import kr.co.soldesk.repository.CovidStatusRepository;
 import kr.co.soldesk.repository.VaccinRepository;
 import kr.co.soldesk.util.RestClient;
 import lombok.extern.slf4j.Slf4j;
+import redis.clients.jedis.GeoRadiusResponse;
+import redis.clients.jedis.GeoUnit;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.params.geo.GeoRadiusParam;
 
 @Service
 @PropertySource("classpath:db/props/application.properties")
@@ -80,7 +84,8 @@ public class ApiRestService {
 
 	private static final Logger logger = LoggerFactory.getLogger(ApiRestService.class);
 	private static final String apiRestServiceTag = "------------------[[apiRestServiceTag]]-----------------";
-
+	private static final String redisGeoKey = "hospital";
+	
 	public void callApi() {
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
@@ -248,18 +253,20 @@ public class ApiRestService {
 		RestClient restClient = new RestClient("geocoding");
 		JSONObject jsonObject = new JSONObject();
 		GeoCodingResult geoCodingResult = new GeoCodingResult();
-		try {
-			for(Covidhospital covidhospital : covidhospitalList) {
+		for(Covidhospital covidhospital : covidhospitalList) {
+			try {
 				String addr = covidhospital.getOrgZipaddr();
-				String url = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="+addr;
+				String url = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query=" + addr;
 				geoCodingResult = restClient.callInsertLatLng(HttpMethod.GET, url, jsonObject.toString(), GeoCodingResult.class);
 				GeoCodingResultLatLng geoCodingResultLatLng = geoCodingResult.getAddresses().get(0);
 				System.out.println(geoCodingResultLatLng.getX());
 				System.out.println(geoCodingResultLatLng.getY());
 				System.out.println(Integer.toString(covidhospital.getId()));
 				covidRepository.updateLatLng(geoCodingResultLatLng.getY(), geoCodingResultLatLng.getX(), Integer.toString(covidhospital.getId()));
+			} catch (Exception e) {
+				continue;
 			}
-		} catch(Exception e) {}
+		}
 	}
 
 	public List<Map<String, Object>> getTodayVaccineData() {
@@ -286,6 +293,32 @@ public class ApiRestService {
 	public List<CityStatus> getLocationData() {
 		
 		return cityStatusRepository.locationData();
+	}
+
+	public void insertLatLngToRedis() {
+		Jedis jedis = new Jedis("localhost");
+		List<Map<String, String>> latLngList = covidRepository.findAllLatLngNotNull();
+
+		for(Map<String, String> latLngMap : latLngList) {
+//			double lng = (double) latLngMap.get("lng");
+//			double lat = (double) latLngMap.get("lat");
+			double lng = Double.parseDouble(latLngMap.get("lng"));
+			double lat = Double.parseDouble(latLngMap.get("lat"));
+			String orgnm = (String) latLngMap.get("orgnm");
+
+			jedis.geoadd(redisGeoKey, lng, lat, orgnm);
+		}
+		System.out.println("complete");
+	}
+	
+	public List<GeoRadiusResponse> getGeoRadius1km(double lng, double lat) {
+		Jedis jedis = new Jedis("localhost");
+		GeoRadiusParam geoRadiusParam = GeoRadiusParam.geoRadiusParam().withCoord();
+
+		List<GeoRadiusResponse> geoRadiusResponseList = jedis.georadius(redisGeoKey, lng, lat, 1, GeoUnit.KM, geoRadiusParam);
+
+
+		return geoRadiusResponseList;
 	}
 
 	/*public CityStatus getTodayCityData() {

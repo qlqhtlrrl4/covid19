@@ -1,27 +1,26 @@
 package kr.co.soldesk.controller;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import kr.co.soldesk.model.CityStatus;
-import kr.co.soldesk.model.CovidGubun;
 import kr.co.soldesk.model.CovidStatus;
+import kr.co.soldesk.model.LatLng;
 import kr.co.soldesk.service.ApiRestService;
+import redis.clients.jedis.GeoCoordinate;
+import redis.clients.jedis.GeoRadiusResponse;
 
 @Controller
 public class ApiController {
@@ -91,6 +90,38 @@ public class ApiController {
 
 
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/insertLatLngToRedis")
+	public ResponseEntity<?> insertLatLngToRedis() {
+		restService.insertLatLngToRedis();
+
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@PostMapping(value = "/getGeoradius1km")
+	@ResponseBody
+	public ResponseEntity<?> getGeoradius1km(@ModelAttribute("latLng") LatLng latLng) {
+		System.out.println("getGeoradius1km start");
+		System.out.println("latLng.getLng()");
+		System.out.println(latLng.getLng());
+		System.out.println("latLng.getLat()");
+		System.out.println(latLng.getLat());
+		List<GeoRadiusResponse> geoRadiusResponseList = restService.getGeoRadius1km(latLng.getLng(), latLng.getLat());
+		System.out.println(geoRadiusResponseList.size());
+		List<Map<String, Double>> resultMapList = new ArrayList<>();
+
+		for(GeoRadiusResponse geoRadiusResponse : geoRadiusResponseList) {
+			System.out.println("geoRadiusResponse.getDistance()");
+			System.out.println(geoRadiusResponse.getDistance());
+			GeoCoordinate geoCoordinate = geoRadiusResponse.getCoordinate();
+			Map<String, Double> resultMap = new HashMap<>();
+			resultMap.put("lat", geoCoordinate.getLatitude());
+			resultMap.put("lng", geoCoordinate.getLongitude());
+			resultMapList.add(resultMap);
+		}
+
+		return new ResponseEntity<>(resultMapList, HttpStatus.OK);
 	}
 	/*@GetMapping(value="/vaccineStatus", produces="application/json; charset=utf8")
 	@ResponseBody

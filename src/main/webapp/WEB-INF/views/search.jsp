@@ -65,25 +65,60 @@
 	        position: loca,
 	        map: map
 	    });
+
+
 	    
 	    $(".list-group-item-action").on('click', function(){
 	    	$(".list-group-item-action").removeClass('active');
 	    	$(this).addClass('active');
-	    	
-	    	var lat = $(this).data('lat');
-	    	var lng = $(this).data('lng');
-	    	
-	    	var loca = new naver.maps.LatLng(lat, lng);
-		    var mapOptions = {
-		        center: loca,
-		        zoom: 17
-		    };
-		
-		    var map = new naver.maps.Map('map', mapOptions);
-		    var marker = new naver.maps.Marker({
-		        position: loca,
-		        map: map
-		    });
+			var lat = $(this).data('lat');
+			var lng = $(this).data('lng');
+
+	    	$.ajax({
+				type: "post",
+				url: "/getGeoradius1km",
+				data: {
+					lat: lat,
+					lng: lng
+				},
+				dataType: 'json',
+				async: false,
+				success: function (result) {
+					console.log('result');
+					console.log(result);
+
+					var loca = new naver.maps.LatLng(lat, lng);
+					var mapOptions = {
+						center: loca,
+						zoom: 17
+					};
+
+					var map = new naver.maps.Map('map', mapOptions);
+					var marker = new naver.maps.Marker({
+						position: loca,
+						map: map
+					});
+
+					for(var i = 0; i < result.length; i++) {
+						var radiusLat = result[i]['lat'];
+						var radiusLng = result[i]['lng'];
+
+						var radiusLocation = new naver.maps.LatLng(radiusLat, radiusLng);
+						var radiusMarker = new naver.maps.Marker({
+							position: radiusLocation,
+							map: map,
+							icon: {
+								url: '<c:url value="/resources/images/pin_default.png"/>', //아이콘 경로
+								size: new naver.maps.Size(22, 35),
+								origin: new naver.maps.Point(0, 0),
+								anchor: new naver.maps.Point(11, 35)
+							}
+						});
+					}
+				}
+			})
+
+
 	    });
     });
     
