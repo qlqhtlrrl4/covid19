@@ -52,6 +52,15 @@
 		}
 	}
 	
+	.dropdown{
+		.btn{
+			font-size: 10px;
+			border-style: none;
+			background-color: var(--skyblue-color);
+			color:var(--grey-dark-color);
+		}
+	}
+	
 	.navbar-user-wrapper {	
 		display : flex;
 		
