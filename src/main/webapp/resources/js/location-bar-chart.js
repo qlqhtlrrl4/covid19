@@ -24,7 +24,7 @@ function drawBarChart(id, data, category, value) {
     	
     	
     }
-    chart.radius = am4core.percent(40);
+   
     
     // Create series
     var series = chart.series.push(new am4charts.LineSeries());

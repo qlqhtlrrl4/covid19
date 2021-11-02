@@ -160,6 +160,258 @@
 		
 	}
 	
+	.content {
+		position : relative;
+		display: block;
+    	transform: translate(-75px,-10px);
+    	
+		.btn-light:hover {
+			background-color:transparent;
+			border : none;
+		}
+		.btn-light {
+			background-color:transparent;
+			border : none;
+			padding-top : 5px;
+			padding-bottom:5px;
+			padding-left :10px;
+			padding-right : 10px;
+			line-height: 15px;
+			
+			.location-info-count {
+				font-size : var(--font-medium);
+				color : red;
+				font-weight : bold;
+			}
+			
+			.location-info-title {
+				font-size : var(--font-small);
+				font-weight : bold;
+			
+			}
+			
+			.location-info-def {
+				font-size : var(--font-micro);
+				font-weight:bold;
+			}
+			
+			&.active {
+				background-color:gray;
+				
+				.location-info-count {
+					font-size : var(--font-medium);
+					color : white;
+					font-weight : bold;
+				}
+				
+				.location-info-title {
+					font-size : var(--font-small);
+					font-weight : bold;
+					color:white;
+				
+				}
+				
+				.location-info-def {
+					font-size : var(--font-micro);
+					font-weight:bold;
+					color:white;
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+		.seoul-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;		
+			border-radius: 5px;
+			
+			top:290px;
+			left:155px;	
+			
+		}
+		
+		.incheon-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:240px;
+			left:80px;
+		}
+		.gyeongi-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:190px;
+			left:150px;
+		}
+		.gangwon-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:245px;
+			left:255px;
+		}
+		.chungbuk-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:350px;
+			left:225px;
+		}
+		.chungnam-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:360px;
+			left:70px;
+		}
+		.sejong-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:365px;
+			left:150px;
+		}
+		.gyeongbuk-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:370px;
+			left:310px;
+		}
+		.jeonbuk-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:475px;
+			left:100px;
+		}
+		.daejeon-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:440px;
+			left:175px;
+		}
+		.daegu-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:460px;
+			left:275px;
+		}
+		.ulsan-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:490px;
+			left:345px;
+		}
+		.busan-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:560px;
+			left:320px;
+		}
+		.gwangju-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:540px;
+			left:135px;
+		}
+		.jeonnam-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:585px;
+			left:70px;
+		}
+		.gyeongnam-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+			
+			border-radius: 5px;
+			
+			top:535px;
+			left:235px;
+		}
+		
+		.jeju-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: #ffffff;
+		
+			border-radius: 5px;
+			
+			top:730px;
+			left:90px;
+		}
+		
+		.city-info-box {
+			position:absolute;
+			z-index:1;
+			background-color: transparent;
+		
+			border-radius: 5px;
+			
+			top:85px;
+			left:75px;
+			
+			
+		}
+		
+	}
+	
 	.summary-right-pane {
 		
 		border-radius : 25px;

@@ -221,11 +221,11 @@ public class ApiRestService {
 		return covidStatusRepository.leastTwoDay();
 	}
 	
-	public List<CovidGubun> getGenderData(){
+	public List<Map<String,Object>> getGenderData(){
 		return covidGubunRepository.genderData();
 	}
 
-	public List<CovidGubun> getRangeAge() {
+	public List<Map<String,Object>> getRangeAge() {
 		return covidGubunRepository.rangeAgeData();
 	}
 
@@ -282,5 +282,20 @@ public class ApiRestService {
 		
 		return vaccinRepository.locationMonthData();
 	}
+
+	public List<CityStatus> getLocationData() {
+		
+		return cityStatusRepository.locationData();
+	}
+
+	/*public CityStatus getTodayCityData() {
+		
+		return cityStatusRepository.todayData();
+	}
+
+	public CityStatus getYesterDayCityData() {
+		// TODO Auto-generated method stub
+		return cityStatusRepository.yesterDayData();
+	}*/
 
 }

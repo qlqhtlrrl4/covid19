@@ -51,9 +51,9 @@ public class ApiController {
 	
 	@GetMapping(value="/gender", produces="application/json; charset=utf8")
 	@ResponseBody
-	public List<CovidGubun> gender() {
+	public List<Map<String,Object>> gender() {
 		
-		List<CovidGubun> genderData = restService.getGenderData();
+		List<Map<String,Object>> genderData = restService.getGenderData();
 		//System.out.println(genderData);
 		
 		return genderData;
@@ -61,8 +61,8 @@ public class ApiController {
 	
 	@GetMapping(value="/rangeAge", produces="application/json; charset=utf8")
 	@ResponseBody
-	public List<CovidGubun> rangeAge() {
-		List<CovidGubun> ageData = restService.getRangeAge();
+	public List<Map<String,Object>> rangeAge() {
+		List<Map<String,Object>> ageData = restService.getRangeAge();
 		
 		return ageData;
 	}

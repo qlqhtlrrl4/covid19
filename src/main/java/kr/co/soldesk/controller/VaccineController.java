@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.co.soldesk.model.CovidStatus;
+import kr.co.soldesk.model.CityStatus;
 import kr.co.soldesk.model.Vaccination;
 import kr.co.soldesk.service.ApiRestService;
-import kr.co.soldesk.service.HomeService;
 
 @Controller
 public class VaccineController {
@@ -22,8 +21,6 @@ public class VaccineController {
 	@Autowired
 	private ApiRestService restService;
 	
-	@Autowired
-	private HomeService homeService;
 	
 	@RequestMapping(value = "/vaccine", method = RequestMethod.GET)
 	public String vaccine(Model model) {
@@ -32,10 +29,12 @@ public class VaccineController {
 		model.addAttribute("active", "vaccine");
 		model.addAttribute("vaccineData", vaccineData);
 		
-		CovidStatus covidStatusData = homeService.findRecentData();
-	
-		//model.addAttribute("active", "home");
-		model.addAttribute("covidStatusData", covidStatusData);/*JSP에게 데이터를 주는 코드*/
+		/*CityStatus todayCityData = restService.getTodayCityData();
+		CityStatus yesterDayCityData = restService.getYesterDayCityData();
+		
+		model.addAttribute("todayCityData",todayCityData);
+		model.addAttribute("yesterDayCityData",yesterDayCityData);
+		*/
 		return "/vaccine.do";
 	}
 	
@@ -57,7 +56,7 @@ public class VaccineController {
 		return today;
 	}
 	
-	//@RequestMapping(value="/LocationData",method=RequestMethod.GET)
+	
 	@RequestMapping(value="/LocationData", method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, List<Map<String,Object>>> locationVaccine() {
@@ -72,6 +71,14 @@ public class VaccineController {
 		allLocationData.put("monthLocation",monthLocation);
 		System.out.println(allLocationData);
 		return allLocationData;
+	}
+	
+	@RequestMapping(value="/cityData",method=RequestMethod.GET)
+	@ResponseBody
+	public List<CityStatus> cityData() {
+		List<CityStatus> cityData = restService.getLocationData();
+		
+		return cityData;
 	}
 	
 }

@@ -243,6 +243,7 @@
 		$(this).removeClass('active');
 	});
 	
+	
 	/*!
 	* jquery.counterup.js 1.0
 	*
@@ -358,14 +359,14 @@ $(document).ready(function(){
 		dataType:'json',
 		
 		success : function(data) {
-			var today = new Date();
+			/* var today = new Date();
 			
 			var ageRangeData = [];
 		
 			var month = today.getMonth()+1;
 			month = month >= 10 ? month : '0' + month;
 			
-			var date = today.getDate()-1;
+			var date = today.getDate();
 			date = date >=10? date : '0'+date;
 			
 			var recentDay = today.getFullYear()+"-"+month+"-"+date;
@@ -381,8 +382,8 @@ $(document).ready(function(){
 					
 					ageRangeData.push(currenGenderData);			
 				} 
-			} 
-			barChart(ageRangeData);
+			}  */
+			barChart(data);
 			
 		}
 		
@@ -432,15 +433,15 @@ $(document).ready(function(){
 		dataType:'json',
 		
 		success : function(data) {
-			var today = new Date();
+			/* var today = new Date();
 			
 			var genderData = [];
-			
-			
+			debugger;
+			console.log(data);
 			var month = today.getMonth()+1;
 			month = month >= 10 ? month : '0' + month;
 			
-			var date = today.getDate()-1;
+			var date = today.getDate();
 			date = date >=10? date : '0'+date;
 			
 			var recentDay = today.getFullYear()+"-"+month+"-"+date;
@@ -457,8 +458,8 @@ $(document).ready(function(){
 					genderData.push(currenGenderData);
 							
 				} 
-			} 
-			pieChart(genderData);
+			}  */
+			pieChart(data);
 		}
 		
 		

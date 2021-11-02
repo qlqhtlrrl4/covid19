@@ -102,8 +102,8 @@ function winPlayer(objUrl) {
 					
 					<div class="form-group">
 						<label for="password_check"><spring:message code="비밀번호확인" /></label>
-						<sf:password path="password" id="password_check" class="form-control" />
-					<sf:errors path="password" cssStyle="color:#ff0000;" />
+						<sf:password path="password_check" id="password_check" class="form-control" />
+					<sf:errors path="password_check" cssStyle="color:#ff0000;" />
 					</div>
 
 					<div class="form-group">
