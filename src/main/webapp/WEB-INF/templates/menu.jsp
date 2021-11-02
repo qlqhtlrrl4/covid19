@@ -61,5 +61,5 @@
 			<a class="nav-link" href="/auth/join">회원가입</a>
   	</div> -->
   
-  </div>
+  
 </nav>

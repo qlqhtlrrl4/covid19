@@ -7,7 +7,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import kr.co.soldesk.model.Board;
-import kr.co.soldesk.model.CityStatus;
 
 @Repository
 public interface BoardRepository  extends JpaRepository<Board, Long>  {
