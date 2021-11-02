@@ -44,4 +44,6 @@ public class Users {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval=true)
 	private Set<Roles> roles;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "writerIdx", cascade = CascadeType.ALL,orphanRemoval = true)
+	private Set<Contents> contents;
 }

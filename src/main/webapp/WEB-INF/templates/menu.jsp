@@ -25,6 +25,11 @@
     </ul>
   </div>
   
+  	<c:if test="${path ne 'read' }">
+	<a href="?lang=ko">한국어</a> 
+	<a href="?lang=en">English</a>
+	</c:if>
+  
 	<c:if test="${pageContext.request.userPrincipal.name == null}">
   		<div class="navbar-user-wrapper">
   			<a class="nav-link" href="/auth/login">로그인</a>

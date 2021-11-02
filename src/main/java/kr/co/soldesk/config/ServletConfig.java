@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -85,9 +86,17 @@ public class ServletConfig implements WebMvcConfigurer {
 		return messageSource;
 	}
 	
+
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(localeChangeInterceptor());
+		registry.addWebRequestInterceptor(openEntityManagerInViewInterceptor()).addPathPatterns("/**");
+
+	}
+
+	@Bean
+	public OpenEntityManagerInViewInterceptor openEntityManagerInViewInterceptor() {
+		return new OpenEntityManagerInViewInterceptor();
 	}
 
 }

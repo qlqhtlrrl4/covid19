@@ -21,5 +21,7 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 	
 	@Query(value="select user_id from users",nativeQuery=true)
 	List<Map<String, String>> findAllById();
+	
+	List<Users> findAll();
 
-}
+}	

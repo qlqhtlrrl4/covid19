@@ -28,6 +28,7 @@ public class WebIntializer implements WebApplicationInitializer{
 		disContext.register(DaoConfig.class);
 		disContext.register(ServiceConfig.class);
 		disContext.register(WebSecurityConfig.class);
+		disContext.register(PageConfig.class);
 		
 		ContextLoaderListener listener = new ContextLoaderListener(disContext);
 		servletContext.addListener(listener);

@@ -36,6 +36,7 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 	private RoleRepository roleRepository;
 
 	@Override
+	@Transactional("jpatransactionManager")
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 		
 		System.out.println("sdaaaaaaaaaaaaaaaaaaaaaaaaaa"+id);
@@ -116,5 +117,10 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 		
 		System.out.println(allUserIdList);
 		return allUserIdList;
+	}
+	
+	@Override
+	public List<Users> findAll(){
+		return userRepository.findAll();
 	}
 }
