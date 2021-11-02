@@ -44,9 +44,10 @@
   					<!-- <a class="nav-link" href="#"><i class="fas fa-user-circle"></i></a> -->
   				</div>
   			
-  			
-				<span class="nav-info-text">안녕하세요,</span><br/>
-  				<span class="nav-info-text nav-info-text-name">${pageContext.request.userPrincipal.name}님</span>				
+  				<div>
+  					<span class="nav-info-text">안녕하세요,</span><br>
+  					<span class="nav-info-text nav-info-text-name">${pageContext.request.userPrincipal.name}님</span><br/>
+  				</div>	
   			
   			
   				<span class="nav-info-text">
