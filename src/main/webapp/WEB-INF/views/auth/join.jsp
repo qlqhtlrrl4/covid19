@@ -141,7 +141,7 @@ function winPlayer(objUrl) {
 						<sf:errors path="answer" cssStyle="color:#ff0000;" />
 					</div>
 			
-					<a href="<c:url value="/auth/login" />" class="btn btn-primary">취소</a>
+					<a href="<c:url value="/" />" class="btn btn-primary">취소</a>
 					<input type="submit" value="가입하기" class="btn btn-primary">
 				</sf:form>
 			</div>

@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.soldesk.model.Users;
 
@@ -23,5 +25,11 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 	List<Map<String, String>> findAllById();
 	
 	List<Users> findAll();
+	
+	
+	@Modifying
+	@Query(value="update users set password=(:password) where user_id=(:id) ",nativeQuery = true)
+	void updatePw(@Param("password") String password, @Param("id") String id);
+	
 
 }	

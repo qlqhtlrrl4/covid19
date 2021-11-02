@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.soldesk.captcha.CaptchaUtil;
 import kr.co.soldesk.model.ContentDto;
 import kr.co.soldesk.model.Contents;
 import kr.co.soldesk.model.Reply;
@@ -43,41 +45,48 @@ public class QnaController {
 
 	@Autowired
 	private ReplyServiceImp replyServiceImp;
+<<<<<<< Updated upstream
 	
 	
+=======
+
+	@Autowired
+	private TextTrans textTrans;
+	
+
+	@Autowired
+	private HttpServletRequest req;
+>>>>>>> Stashed changes
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@Transactional
 	public String index(@ModelAttribute("contentList") Contents contentList,
 			@PageableDefault(size = 10, sort = "contentIdx", direction = Sort.Direction.DESC) Pageable pageable,
 			@RequestParam(required = false, defaultValue = "") String field,
-			@RequestParam(required = false, defaultValue = "") String word, Model model,
-			HttpServletRequest req
-			) {
-		
-		String lang=req.getParameter("lang");
+			@RequestParam(required = false, defaultValue = "") String word, Model model, HttpServletRequest req) {
+
+		String lang = req.getParameter("lang");
 //		List<Contents> list=contentDetailServiceImp.getContentList();
 //		model.addAttribute("list", list);
 //		
 //		System.out.println(list);
 
 		Page<Contents> contentlist = contentDetailServiceImp.paging(pageable, field, word);
-		
-		
+
 		int pageNumber = contentlist.getPageable().getPageNumber(); // 현재페이지
 		int totalPages = contentlist.getTotalPages(); // 총 페이지 수. 검색에따라 10개면 10개..
 		int pageBlock = 10; // 블럭의 수 1, 2, 3, 4, 5
 		int startBlockPage = ((pageNumber) / pageBlock) * pageBlock + 1; // 현재 페이지가 7이라면 1*5+1=6
 		int endBlockPage = startBlockPage + pageBlock - 1; // 6+5-1=10. 6,7,8,9,10해서 10.
 		endBlockPage = totalPages < endBlockPage ? totalPages : endBlockPage;
-		
-		model.addAttribute("lang",lang);
-		model.addAttribute("pageNumber",pageNumber);
+
+		model.addAttribute("lang", lang);
+		model.addAttribute("pageNumber", pageNumber);
 		model.addAttribute("startBlockPage", startBlockPage);
 		model.addAttribute("endBlockPage", endBlockPage);
 		model.addAttribute("contentlist", contentlist);
 		model.addAttribute("active", "qna");
-		
+
 		return "/qna/list.do";
 	}
 
@@ -89,20 +98,24 @@ public class QnaController {
 
 	@RequestMapping(value = "/write_pro", method = RequestMethod.POST)
 	public String write_pro(@Valid @ModelAttribute("writeContent") ContentDto writeContent, BindingResult result,
-			@RequestParam(name = "userName") String userName,
-			Locale locale) {
-		
+			HttpServletRequest req, Model model, Locale locale) {
+
 		if (result.hasErrors()) {
 
 			return "/qna/write.do";
 		}
-		
+
+		String userName = req.getParameter("userName");
+		System.out.println(userName);
+
+		model.addAttribute("userName", userName);
+
 		List<Users> userList = userService.findAll();
 		for (Users ul : userList) {
 			if (userName.equals(ul.getId())) {
-				
+
 				System.out.println(locale);
-				contentDetailServiceImp.addContent(writeContent, ul,locale);
+				contentDetailServiceImp.addContent(writeContent, ul, locale);
 			}
 		}
 
@@ -122,15 +135,28 @@ public class QnaController {
 
 		return "/qna/write_success.do";
 	}
+	
+	@RequestMapping(value="/captchaImg")
+	public void captchaImg(HttpServletResponse res) throws Exception {
+		new CaptchaUtil().getImgCaptCha(req, res);
+	}
+	
+	
+	@RequestMapping(value="/captchaAudio")
+	public void captchaAudio(HttpServletResponse res) throws Exception {
+		
+		new CaptchaUtil().getAudioCaptCha(req, res);
+	}
 
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public String read(@RequestParam(name = "contentIdx") int contentIdx,
-			@ModelAttribute("contentList") Contents contentList, Model model,
-			HttpServletRequest req) {
-		
-		
-		String lang=req.getParameter("lang");
-		model.addAttribute("lang",lang);
+			@ModelAttribute("contentList") Contents contentList, Model model, HttpServletRequest req) {
+
+		String lang = req.getParameter("lang");
+		model.addAttribute("lang", lang);
+
+		String userName = req.getParameter("userName");
+		model.addAttribute("userName", userName);
 
 		contentDetailServiceImp.getCount(contentList.getContentIdx());
 		System.out.println(contentList.getContentIdx());
@@ -141,27 +167,26 @@ public class QnaController {
 
 		List<Reply> replyList = replyServiceImp.readReply(contentIdx);
 		model.addAttribute("replyList", replyList);
-		
-		model.addAttribute("path","read");
+
+		model.addAttribute("userName", userName);
+		model.addAttribute("path", "read");
 
 		return "/qna/read.do";
 	}
 
 	@RequestMapping(value = "/reply_write", method = RequestMethod.GET)
 	public String reply_write(@ModelAttribute("writeReply") Reply writeReply,
-			@RequestParam("contentIdx") int contentIdx, Model model
-			) {
+			@RequestParam("contentIdx") int contentIdx, Model model) {
 
 		model.addAttribute("contentIdx", contentIdx);
-		
-		
 
 		return "/qna/reply_write.do";
 	}
 
 	@RequestMapping(value = "/reply_write_pro", method = RequestMethod.POST)
 	public String write_pro(@Valid @ModelAttribute("writeReply") Reply writeReply, BindingResult result,
-							@RequestParam(name = "userName") String userName) {
+			@RequestParam(name = "userName") String userName, @RequestParam(name = "contentIdx") int contentIdx,
+			Model model) {
 
 		if (result.hasErrors()) {
 
@@ -175,17 +200,19 @@ public class QnaController {
 			}
 		}
 
+		model.addAttribute("contentIdx", contentIdx);
+		model.addAttribute("userName", userName);
+
 		return "/qna/reply_write_success.do";
 	}
-	
-	
-	@RequestMapping(value="/reply_delete", method = RequestMethod.GET)
-	   public String reply_delete(@RequestParam("replyIdx") int replyIdx) {
-	      
-	      replyServiceImp.deleteReply(replyIdx);
-	      
-	      return "/qna/reply_delete.do";
-	   }
+
+	@RequestMapping(value = "/reply_delete", method = RequestMethod.GET)
+	public String reply_delete(@RequestParam("replyIdx") int replyIdx) {
+
+		replyServiceImp.deleteReply(replyIdx);
+
+		return "/qna/reply_delete.do";
+	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public String modify(@RequestParam("contentIdx") int contentIdx,

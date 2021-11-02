@@ -123,4 +123,59 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 	public List<Users> findAll(){
 		return userRepository.findAll();
 	}
+
+	@Override
+	public Users findByUserId(String email,String name) {
+		
+		List<Users> userlist=userRepository.findAll();
+		Users user=new Users();
+		
+		for(Users ul : userlist) {
+			if(ul.getEmail().equals(email) && ul.getName().equals(name)) {
+				
+				
+				user.setId(ul.getId());
+				
+			}
+		}
+		
+		
+		return user;
+	}
+	
+	
+	@Override
+	public Users findByUserPw(String id,String email,String name) {
+		
+		List<Users> userlist=userRepository.findAll();
+		Users user=new Users();
+		
+		for(Users ul : userlist) {
+			if(ul.getId().equals(id) && ul.getEmail().equals(email) && ul.getName().equals(name)) {
+				
+				
+			}
+		}
+		
+		
+		return user;
+	}
+
+	@Override
+	@Transactional("jpatransactionManager")
+	public void updatePw(String password, String id,UserDto userDto) {
+		
+		
+		Users user=new Users();
+		
+		String pass = encoder.encode(password);
+		user.setEmail(userDto.getEmail());
+		user.setName(userDto.getName());
+		user.setPassword(pass);
+		System.out.println(id);
+		user.setId(id);
+		
+		
+		userRepository.updatePw(user.getPassword(),user.getId());
+	}
 }

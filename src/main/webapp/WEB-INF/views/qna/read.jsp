@@ -57,7 +57,7 @@
 					
 					
 					<a href="/qna/read?contentIdx=${readContent.contentIdx }&lang=ko">한국어</a> 
-					<a href="/qna/read?contentIdx=${readContent.contentIdx }&lang=en">영어</a> 
+					<a href="/qna/read?contentIdx=${readContent.contentIdx }&lang=en">English</a> 
 					
 					
 					<div class="form-group">
@@ -80,8 +80,14 @@
 </div>
 <c:if test="${replyList ne null }">
     <c:forEach items="${replyList}" var="replyList" >
+    	<c:if test="${userName eq null || userName == pageContext.request.userPrincipal.name}">
         작성자 : ${replyList.name} &nbsp; &nbsp; &nbsp; ${replyList.content} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 작성 날짜 : ${replyList.date } 
-         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="/qna/reply_delete?contentIdx=${readContent.contentIdx}&replyIdx=${replyList.replyIdx}">삭제하기</a><br>
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+         </c:if>
+         
+         <c:if test="${userName == pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name == 'admin' || pageContext.request.userPrincipal.name ne null } ">
+         <a href="/qna/reply_delete?contentIdx=${readContent.contentIdx}&replyIdx=${replyList.replyIdx}">삭제하기</a><br>
+    	</c:if>
     </c:forEach>   
 </c:if>
 </body>

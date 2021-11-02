@@ -3,5 +3,5 @@
 
 <script>
 	alert('댓글작성이 완료되었습니다.')
-	location.href="/qna/list?"
+	location.href="/qna/read?userName=${userName}&contentIdx=${contentIdx}"
 </script>

@@ -50,12 +50,12 @@
                <c:when test="${cont.writerIdx.id == pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name == 'admin' }">
                  <td>${contentlist.totalElements-(((pageNumber)*10) + status.index)}</td>
                <c:if test="${lang == 'ko' || lang == null }">
-               <td><a href="/qna/read?contentIdx=${cont.contentIdx}"><c:out value="${cont.subject}"/></a></td>
-               <td><c:out value="${cont.text}"/></td>
+               <td><a href="/qna/read?contentIdx=${cont.contentIdx}">${cont.subject}</a></td>
+               <td>${cont.text}</td>
                </c:if>
                <c:if test="${lang == 'en'}">
-               <td><a href="/qna/read?contentIdx=${cont.contentIdx}&lang=en"><c:out value="${cont.ensubject}"/></a></td>
-               <td><c:out value="${cont.entext}"/></td>
+               <td><a href="/qna/read?contentIdx=${cont.contentIdx}&lang=en">${cont.ensubject}</a></td>
+               <td>${cont.entext}</td>
                </c:if>
                <td><c:out value="${cont.writer}"/></td>
                <td><c:out value="${cont.date}"/></td>
@@ -71,12 +71,12 @@
         <c:if test="${cont.open == 'Y'}" >
         	   <td>${contentlist.totalElements-(((pageNumber)*10) + status.index)}</td>
                <c:if test="${lang == 'ko' || lang == null }">
-               <td><a href="/qna/read?contentIdx=${cont.contentIdx}"><c:out value="${cont.subject}"/></a></td>
-               <td><c:out value="${cont.text}"/></td>
+               <td><a href="/qna/read?contentIdx=${cont.contentIdx}">${cont.subject}</a></td>
+               <td>${cont.text}</td>
                </c:if>
                <c:if test="${lang == 'en'}">
-               <td><a href="/qna/read?contentIdx=${cont.contentIdx}&lang=en"><c:out value="${cont.ensubject}"/></a></td>
-               <td><c:out value="${cont.entext}"/></td>
+               <td><a href="/qna/read?contentIdx=${cont.contentIdx}&lang=en">${cont.ensubject}</a></td>
+               <td>${cont.entext}</td>
                </c:if>
                <td>${cont.writer }</td>
                <td>${cont.date}</td>

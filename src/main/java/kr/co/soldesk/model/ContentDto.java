@@ -16,5 +16,6 @@ public class ContentDto {
 	private int count;
 	private String open;
 	private String writer;
+	private String answer;
 	
 }
