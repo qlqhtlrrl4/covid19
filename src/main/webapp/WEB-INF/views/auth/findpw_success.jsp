@@ -21,14 +21,18 @@
 		<div class="col-sm-6">
 			<div class="card shadow">
 				<div class="card-body">
-				
+				<c:if test="${not empty errorMsg }">
+					<div style="color: #ff0000;">
+						<h3>${errorMsg }</h3>
+					</div>
+				</c:if>
 					<form:form action="/auth/findpw_pro2?id=${id}" method="post" modelAttribute="findpw">
 						<div class="form-group"><form:label path="name">비밀번호 재설정</form:label>
-						<form:input path="password" class="form-control"/>
+						<form:password path="password" class="form-control"/>
 						<form:errors path="password"/>
 						</div>
 						<div class="form-group">
-							<form:input path="password_check" class="form-control" rows="10" style="resize:none"/>
+							<form:password path="password_check" class="form-control" rows="10" style="resize:none"/>
 							<form:errors path="password_check"/>
 						</div>
 						

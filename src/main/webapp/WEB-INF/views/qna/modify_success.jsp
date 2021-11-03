@@ -4,5 +4,5 @@
 
 <script>
 	alert('수정되었습니다')
-	location.href="${root}qna/list"
+	location.href="${root}qna/read?contentIdx=${modifyContent.contentIdx}"
 </script>

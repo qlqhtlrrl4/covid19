@@ -30,6 +30,7 @@ import kr.co.soldesk.model.Users;
 import kr.co.soldesk.service.ContentDetailsService;
 import kr.co.soldesk.service.CustomUserDetailsService;
 import kr.co.soldesk.service.ReplyServiceImp;
+import kr.co.soldesk.service.TextTrans;
 
 @Controller
 @RequestMapping(value = "/qna")
@@ -45,10 +46,6 @@ public class QnaController {
 
 	@Autowired
 	private ReplyServiceImp replyServiceImp;
-<<<<<<< Updated upstream
-	
-	
-=======
 
 	@Autowired
 	private TextTrans textTrans;
@@ -56,7 +53,6 @@ public class QnaController {
 
 	@Autowired
 	private HttpServletRequest req;
->>>>>>> Stashed changes
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@Transactional
@@ -248,7 +244,7 @@ public class QnaController {
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(@RequestParam("contentIdx") int contentIdx) {
-
+		
 		contentDetailServiceImp.deleteContent(contentIdx);
 
 		return "/qna/delete.do";
