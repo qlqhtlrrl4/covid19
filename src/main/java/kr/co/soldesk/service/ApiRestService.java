@@ -360,4 +360,9 @@ public class ApiRestService {
 		
 		return covidGubunRepository.genderData();
 	}
+
+	public List<Map<String, Object>> getAreaData() {
+		
+		return cityStatusRepository.areaData();
+	}
 }

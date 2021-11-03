@@ -36,6 +36,8 @@
 
 <script src="${pageContext.request.contextPath}/resources/js/handlebars-helper.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/resources/js/vaccine-location.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/resources/js/home-vaccine.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/resources/js/details-bar-chart.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/resources/js/location-bar-chart.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/resources/js/location-pie-chart.js" type="text/javascript"></script>
 <!-- <script src="<c:url value="/resources/js/jquery.counteup.js"/>"></script> -->

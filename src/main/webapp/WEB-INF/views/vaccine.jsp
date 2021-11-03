@@ -6,11 +6,12 @@
 <%@ page import="java.util.*"%>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.1.0/progressbar.min.js" integrity="sha512-EZhmSl/hiKyEHklogkakFnSYa5mWsLmTC4ZfvVzhqYNLPbXKAXsjUYRf2O9OlzQN33H0xBVfGSEIUeqt9astHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <div class="vaccine-main">
 	<div class="row">
 		<div class="col-lg-2dot5 col-md-3 col-sm-12">
-			<div class="summary-left-pane">
+			<div id="vaccine-left-pane" class="summary-left-pane">
 				<div class="accordion" id ="vaccineAccordion">
 					<div class="card active">
 						<div class="card-header" id ="headingOne">
@@ -28,7 +29,7 @@
 							<div class="card-body">
 								접종현황
 								<label class="switch">
-									<input id="location-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+									<input id="location-check-box" type="checkbox" class="chart-toggle-btn vaccine" checked>
 									<span id="location-toggle" class="slider round"></span>
 								</label>
 							</div>
@@ -51,7 +52,7 @@
 							<div class="card-body">
 								일별
 								<label class="switch">
-									<input id="dayLocation-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+									<input id="dayLocation-check-box" type="checkbox" class="chart-toggle-btn vaccine" checked>
 									<span id="dayLocation-toggle" class="slider round"></span>
 								</label>
 							</div>
@@ -59,7 +60,7 @@
 							<div class="card-body">
 								주별
 								<label class="switch">
-									<input id="weekLocation-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+									<input id="weekLocation-check-box" type="checkbox" class="chart-toggle-btn vaccine" checked>
 									<span id="weekLocation-toggle" class="slider round"></span>
 								</label>
 							</div>
@@ -67,7 +68,7 @@
 							<div class="card-body">
 								월별
 								<label class="switch">
-									<input id="monthLocation-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+									<input id="monthLocation-check-box" type="checkbox" class="chart-toggle-btn vaccine" checked>
 									<span id="monthLocation-toggle" class="slider round"></span>
 								</label>
 							</div>
@@ -94,13 +95,13 @@
 		
 		<div class="col-lg-9dot5 col-md-9 col-sm-12">
 			<div class="row">
-				<div class="col-lg-6 col-md-12 col-sm-12">
+				<div class="col-lg-9 col-md-12">
 					<div class="vaccine-info-count-wrapper">
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm-12">
 								<span class= "vaccine-info-count-title">1차 접종</span><br/>
-								<span class="vaccine-color-gray counter"><fmt:formatNumber type="number" maxFractionDigits="3" value="${vaccineData.totalFirstCnt}"/></span><br/>
-								<span class="vaccine-color-gray badge badge-pill badge-primary vaccine-color-blue">
+								<span class="vaccine-color-gray counter" style="color: #4c4d52;"><fmt:formatNumber type="number" maxFractionDigits="3" value="${vaccineData.totalFirstCnt}"/></span><br/>
+								<span class="vaccine-color-gray badge badge-pill badge-primary vaccine-color-blue" style="color: #4c4d52;">
 									<i class="fas fa-arrow-up"></i>
 									<span><fmt:formatNumber type="number" maxFractionDigits="3" value="${vaccineData.firstCnt}"/></span>
 								</span>
@@ -108,8 +109,8 @@
 							
 							<div class="col-lg-6 col-md-6 col-sm-12">
 								<span class="vaccine-info-count-title">접종 완료</span><br/>
-								<span class="vaccine-color-gray counter"><fmt:formatNumber type="number" maxFractionDigits="3" value="${vaccineData.totalSecondCnt}"/></span><br>
-								<span class="vaccine-color-gray badge badge-pill badge-primary vaccine-color-blue">
+								<span class="vaccine-color-gray counter" style="color: #4c4d52;"><fmt:formatNumber type="number" maxFractionDigits="3" value="${vaccineData.totalSecondCnt}"/></span><br>
+								<span class="vaccine-color-gray badge badge-pill badge-primary vaccine-color-blue" style="color: #4c4d52;">
 									<i class="fas fa-arrow-up"></i>
 									<span><fmt:formatNumber type="number" maxFractionDigits="3" value="${vaccineData.secondCnt}"/></span>
 								</span>
@@ -118,18 +119,18 @@
 					</div>
 				</div> <!-- col-9 -->
 				
-				<div class="col-lg-3 col-md-12 col-sm-12">
-					<div class="summary-right-pane">
-						
-						<canvas class="vaccine-percent-chart" id="canvas"></canvas>
-						<span class ="vaccine-complete-text">접종 완료</span>
-						<span class="vaccine-percent-text" id="percent"></span>
+				<div class="col-lg-3 col-md-12">
+					<div id="vaccine-circle-wrapper" class="summary-right-pane" style="background-color: whitesmoke; padding: 15px; width: 100%;">
+
+<%--						<canvas class="vaccine-percent-chart" id="canvas"></canvas>--%>
+<%--						<span class ="vaccine-complete-text">접종 완료</span>--%>
+<%--						<span class="vaccine-percent-text" id="percent"></span>--%>
 					</div>
 				</div>
 			</div>
 			
 			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+				<div class="col-lg-12 col-md-12 col-sm-12">
 					<div class="vaccine-chart-count-wrapper">
 						<span class="vaccine-chart-count-title">
 							백신 접종 현황
@@ -144,16 +145,16 @@
 				<div class="col-lg-12 col-md-12 col-sm-12 mt-3">
 					<div class="vaccine-info-wrapper">
 						<ul class="nav nav-tabs nav-justified vaccine-info-nav">
-							<li class="nav-item">
+							<li class="vaccine-medi-name">
 								<a class="nav-link active vaccine-info-link-color" data-toggle="tab" href="#pfizer" >화이자</a>
 							</li>
-							<li class="nav-item">
+							<li class="vaccine-medi-name">
 								<a class="nav-link vaccine-info-link-color" data-toggle="tab" href="#astra" >아스트라제네카</a>
 							</li>
-							<li class="nav-item">
+							<li class="vaccine-medi-name">
 								<a class="nav-link vaccine-info-link-color" data-toggle="tab" href="#janssen">얀센</a>
 							</li>
-							<li class="nav-item">
+							<li class="vaccine-medi-name">
 								<a class="nav-link vaccine-info-link-color" data-toggle="tab" href="#moderna" >모더나</a>
 							</li>
 						</ul>
@@ -286,7 +287,7 @@
 			
 			<div class="location-collection row" id="location-collection">
 				
-				<div id="dayLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12">
+				<div id="dayLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-12">
 					<div class="location-chart-title">일별</div>
 					<div class="form-inline nav nav-tabs" role="tablist">
 						<div class="form-group">
@@ -324,7 +325,7 @@
 				</div>
 				
 				
-				<div id="weekLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12">
+				<div id="weekLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-12">
 					<div class="location-chart-title">주별</div>
 						<div class="form-inline nav nav-tabs" role="tablist">
 							<div class="form-group">
@@ -361,7 +362,7 @@
 						</div>
 				</div>
 				
-				<div id="monthLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-4 col-sm-12">
+				<div id="monthLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-12">
 					<div class="location-chart-title">월별</div>
 					<div class="form-inline nav nav-tabs" role="tablist">
 						<div class="form-group">
@@ -757,8 +758,9 @@ $(document).ready(function() {
 	var secondCnt = ${vaccineData.totalSecondCnt};
 	var percentage = secondCnt / 51780000 *100;
 	
-	
-	percentageChart(percentage);
+	// percentageChart(percentage);
+
+	AnimateCircle("vaccine-circle-wrapper", percentage);
 	
 	$.ajax({
 		url:'/vaccineStatus',
@@ -1400,49 +1402,81 @@ function vaccineAllLineChart(data) {
 
 
 
-function percentageChart(data) {
-	
-	var can = document.getElementById('canvas');
-	var	spanPercent = document.getElementById('percent');
-	var c = can.getContext('2d');
-	
-	//c.arc에서 중심을 잡기위한 변수 posX, posY
-	var posX = can.width /2;
-	var posY = can.height/2;
-	var fps = 1000/200;
-	var percent = 0;
-	var onePercent = 360/100;
-	var result = onePercent * data;
-	
-	c.lineCap = 'round';
-	
-	arcMove();
-	
-	function arcMove() {
-		var deegres = 0;
-		var acrInterval = setInterval(function () {
-			deegres +=1;
-			c.clearRect(0,0,can.width, can.height);
-			percent = deegres / onePercent;
-			
-			spanPercent.innerHTML = percent.toFixed();
-			c.beginPath();
-			c.arc(posX,posY, 70, (Math.PI/100)*270,(Math.PI/180) * (270+360));
-			c.strokeStyle = '#b1b1b1';
-	        c.lineWidth = '10';
-	        c.stroke();
+// function percentageChart(data) {
+//
+// 	var can = document.getElementById('canvas');
+// 	var	spanPercent = document.getElementById('percent');
+// 	var c = can.getContext('2d');
+//
+// 	//c.arc에서 중심을 잡기위한 변수 posX, posY
+// 	var posX = can.width /2;
+// 	var posY = can.height/2;
+// 	var fps = 1000/200;
+// 	var percent = 0;
+// 	var onePercent = 360/100;
+// 	var result = onePercent * data;
+//
+// 	c.lineCap = 'round';
+//
+// 	arcMove();
+//
+// 	function arcMove() {
+// 		var deegres = 0;
+// 		var acrInterval = setInterval(function () {
+// 			deegres +=1;
+// 			c.clearRect(0,0,can.width, can.height);
+// 			percent = deegres / onePercent;
+//
+// 			spanPercent.innerHTML = percent.toFixed();
+// 			c.beginPath();
+// 			c.arc(posX,posY, 70, (Math.PI/100)*270,(Math.PI/180) * (270+360));
+// 			c.strokeStyle = '#b1b1b1';
+// 	        c.lineWidth = '10';
+// 	        c.stroke();
+//
+// 	        c.beginPath();
+// 		    c.strokeStyle = '#3949AB';
+// 		    c.lineWidth = '10';
+// 		    c.arc( posX, posY, 70, (Math.PI/180) * 270, (Math.PI/180) * (270 + deegres) );
+// 		     c.stroke();
+// 		    if( deegres >= result ) {
+// 		    	clearInterval(acrInterval);
+// 		    }
+// 		},fps);
+// 	}
+// }
 
-	        c.beginPath();
-		    c.strokeStyle = '#3949AB';
-		    c.lineWidth = '10';
-		    c.arc( posX, posY, 70, (Math.PI/180) * 270, (Math.PI/180) * (270 + deegres) );
-		     c.stroke();
-		    if( deegres >= result ) {
-		    	clearInterval(acrInterval);
-		    }
-		},fps);
-	}
-}	
+function AnimateCircle(container_id, animatePercentage) {
+	var startColor = '#FC5B3F';
+	var endColor = '#3F4756';
+
+	var element = document.getElementById(container_id);
+	var circle = new ProgressBar.Circle(element, {
+		color: startColor,
+		trailColor: '#eee',
+		trailWidth: 5,
+		duration: 2000,
+		easing: 'bounce',
+		strokeWidth: 5,
+		text: {
+			value: (animatePercentage * 100) + " % 접종완료",
+			className: 'progressbar__label'
+		},
+		// Set default step function for all animate calls
+		step: function (state, circle) {
+			circle.path.setAttribute('stroke', state.color);
+		}
+	});
+
+	circle.animate(animatePercentage, {
+		from: {
+			color: startColor
+		},
+		to: {
+			color: endColor
+		}
+	});
+}
 
 $(function () {
 	

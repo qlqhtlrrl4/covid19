@@ -10,6 +10,9 @@
  		<div class="col-lg-8 col-md-12" >
 	 		<div class="map">
 	 			<div id="map" style="width:100%;height:590px;"></div>
+				<div class="text-right" style="margin-top: 10px;">
+					<span class="my-place-btn" style="margin-right: 33px; cursor: pointer;"><span style="margin-right: 6px;">내위치</span><i class="fas fa-map-marker-alt"></i></span>
+				</div>
 	 		</div>
  		</div>
  		<div class="col-lg-4 col-md-12">
@@ -18,9 +21,6 @@
  					<div class="hospital-list-title d-flex justify-content-between">
 						<div>
 							<span>접종기관 목록</span>
-						</div>
- 						<div>
-							<span class="my-place-btn" style="margin-right: 33px; cursor: pointer;">내위치</span>
 						</div>
  					</div>
  					<div class="input-group rounded">
@@ -59,8 +59,8 @@
  
  <script>
     $(function() {
-		var myPlaceLat = 37.557731;
-		var myPlaceLng = 126.924392;
+		var myPlaceLat = 37.569559355478425;
+		var myPlaceLng = 126.98604413355123;
 	    var loca = new naver.maps.LatLng(myPlaceLat, myPlaceLng);
 	    var mapOptions = {
 	        center: loca,

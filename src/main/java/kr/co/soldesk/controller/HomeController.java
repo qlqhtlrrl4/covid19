@@ -74,7 +74,7 @@ public class HomeController {
 		return all;
 	}
 	
-	/*@RequestMapping(value="/detailsData", method=RequestMethod.POST)
+	@RequestMapping(value="/detailsData", method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, List<Map<String,Object>>> detailsData() {
 		
@@ -88,6 +88,6 @@ public class HomeController {
 		detailsData.put("ageData",ageData);
 		System.out.println(detailsData);
 		return detailsData;
-	}*/
+	}
 	
 }

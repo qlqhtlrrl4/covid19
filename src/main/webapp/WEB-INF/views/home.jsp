@@ -25,21 +25,21 @@
 				      <div class="card-body">
 				        성별 
 				        <label class="switch">
-							<input id="sex-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed">
+							<input id="sex-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
 							<span id="sex-toggle" class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        연령
 				        <label class="switch">
-							<input id="age-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed">
+							<input id="age-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed "checked>
 							<span id="age-toggle" class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        지역
 				        <label class="switch">
-							<input id="area-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed">
+							<input id="area-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
 							<span id="area-toggle" class="slider round"></span>
 						</label>
 				      </div>
@@ -390,6 +390,7 @@
 
 
 <script>
+
 	$(".card").on("show.bs.collapse", function() {
 		var icon = $(this).find(".arrow-icon");
 	
@@ -903,10 +904,11 @@ $.ajax({
    
     
 </script>
-    
+
 <script>
-$(function() {
-    var homeChartManager = new HomeChartManager();
-});    
-    
+$(function () {
+	
+	var homeChartManager = new HomeChartManager();
+});
 </script>
+    

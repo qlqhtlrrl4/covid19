@@ -16,9 +16,11 @@
 </head>
 <body>
 			<!-- 게시글 리스트 -->
-   <div class="container">
-      <br />
-      <h3 id="font-h3">QnA</h3>
+   <div style="margin-top: 80px; background-color: whitesmoke; border-radius: 25px; padding: 30px; margin-bottom: 60px;">
+      <div class="text-center">
+         <h3 id="font-h3">QnA</h3>
+      </div>
+
       <!-- 검색 영역 시작-->
       <form action="/qna/list" class="form-inline d-flex justify-content-end" method="GET">
          <select name="field" id="field" class="form-control form-control-sm">
@@ -26,62 +28,62 @@
             <option value="text"><spring:message code="tmenu.qna.text"/></option>
             <option value="writer"><spring:message code="tmenu.qna.writerName"/></option>
          </select> 
-         <input type="text" id="word" name="word" class="form-control form-control-sm" style="margin: 10px;">
-         <input type="submit" class="btn btn-outline-info btn-sm" value="<spring:message code="tmenu.qna.search"/>">
+         <input type="text" id="word" name="word" class="form-control form-control-sm">
+         <input id="qna-search-submit-btn" type="submit" class="btn btn-outline-info btn-sm" style="background-color: rgb(200,200,200); border: 1px solid rgb(200,200,200); color: white;" value="<spring:message code="tmenu.qna.search"/>">
       </form>
       <!-- 검색 영역 끝 -->
       <!-- 테이블 영역 시작-->
-      <table class="table table-hover">
+      <table class="table table-bordered">
          <caption><spring:message code="tmenu.qna.totalContent"/>: ${contentlist.totalElements}</caption>
      
          <!-- 게시글 수 -->
-         <tr>
-            <th><spring:message code="tmenu.qna.contentIdx"/></th>
-            <th><spring:message code="tmenu.qna.subject"/></th>
-            <th><spring:message code="tmenu.qna.text"/></th>
-            <th><spring:message code="tmenu.qna.writerName"/></th>
-            <th><spring:message code="tmenu.qna.date"/></th>
-            <th><spring:message code="tmenu.qna.count"/></th>
+         <tr style="background-color: rgb(210,210,210);">
+            <th class="text-center"><spring:message code="tmenu.qna.contentIdx"/></th>
+            <th class="text-center"><spring:message code="tmenu.qna.subject"/></th>
+            <th class="text-center"><spring:message code="tmenu.qna.text"/></th>
+            <th class="text-center"><spring:message code="tmenu.qna.writerName"/></th>
+            <th class="text-center"><spring:message code="tmenu.qna.date"/></th>
+            <th class="text-center"><spring:message code="tmenu.qna.count"/></th>
          </tr>
          <c:forEach items="${contentlist.content}" var="cont" varStatus="status">
-            <tr>
+            <tr style="background-color: rgb(244,244,244);">
                <c:if test="${cont.open == 'N'}" >
             <c:choose>
                <c:when test="${cont.writerIdx.id == pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name == 'admin' }">
-                 <td>${contentlist.totalElements-(((pageNumber)*10) + status.index)}</td>
+                 <td class="text-center">${contentlist.totalElements-(((pageNumber)*10) + status.index)}</td>
                <c:if test="${lang == 'ko' || lang == null }">
-               <td><a href="/qna/read?contentIdx=${cont.contentIdx}">${cont.subject}</a></td>
-               <td>${cont.text}</td>
+               <td class="text-center"><a href="/qna/read?contentIdx=${cont.contentIdx}"><c:out value="${cont.subject}"/></a></td>
+               <td class="text-center"><c:out value="${cont.text}"/></td>
                </c:if>
                <c:if test="${lang == 'en'}">
-               <td><a href="/qna/read?contentIdx=${cont.contentIdx}&lang=en">${cont.ensubject}</a></td>
-               <td>${cont.entext}</td>
+               <td class="text-center"><a href="/qna/read?contentIdx=${cont.contentIdx}&lang=en"><c:out value="${cont.ensubject}"/></a></td>
+               <td class="text-center"><c:out value="${cont.entext}"/></td>
                </c:if>
-               <td><c:out value="${cont.writer}"/></td>
-               <td><c:out value="${cont.date}"/></td>
+               <td class="text-center"><c:out value="${cont.writer}"/></td>
+               <td class="text-center">${cont.date}</td>
                <fmt:parseNumber var="percent" value="${cont.count div 2}" integerOnly="true" />
-               <td><c:out value="${percent }"/></td>
+               <td class="text-center"><c:out value="${percent }"/></td>
                </c:when>
                <c:otherwise>
-              	<td>${contentlist.totalElements-(((pageNumber)*10) + status.index)}</td>
-               <td colspan="5"><spring:message code="tmenu.qna.privateContent"/></td>
+              	<td class="text-center">${contentlist.totalElements-(((pageNumber)*10) + status.index)}</td>
+               <td class="text-center" colspan="5"><spring:message code="tmenu.qna.privateContent"/></td>
                </c:otherwise>
             </c:choose>
         </c:if>
         <c:if test="${cont.open == 'Y'}" >
-        	   <td>${contentlist.totalElements-(((pageNumber)*10) + status.index)}</td>
+        	   <td class="text-center">${contentlist.totalElements-(((pageNumber)*10) + status.index)}</td>
                <c:if test="${lang == 'ko' || lang == null }">
-               <td><a href="/qna/read?contentIdx=${cont.contentIdx}">${cont.subject}</a></td>
-               <td>${cont.text}</td>
+               <td class="text-center"><a href="/qna/read?contentIdx=${cont.contentIdx}"><c:out value="${cont.subject}"/></a></td>
+               <td class="text-center"><c:out value="${cont.text}"/></td>
                </c:if>
                <c:if test="${lang == 'en'}">
-               <td><a href="/qna/read?contentIdx=${cont.contentIdx}&lang=en">${cont.ensubject}</a></td>
-               <td>${cont.entext}</td>
+               <td class="text-center"><a href="/qna/read?contentIdx=${cont.contentIdx}&lang=en"><c:out value="${cont.ensubject}"/></a></td>
+               <td class="text-center"><c:out value="${cont.entext}"/></td>
                </c:if>
-               <td>${cont.writer }</td>
-               <td>${cont.date}</td>
+               <td class="text-center">${cont.writer }</td>
+               <td class="text-center">${cont.date}</td>
                <fmt:parseNumber var="percent" value="${cont.count div 2}" integerOnly="true" />
-               <td><c:out value="${percent }"/></td>
+               <td class="text-center"><c:out value="${percent }"/></td>
         </c:if>
             </tr>
        
@@ -129,7 +131,7 @@
       <!-- 페이징 영역 끝 -->
 			<div class="text-right">
 				<c:if test="${pageContext.request.userPrincipal.name != null }">
-				<a href="${root }qna/write" class="btn btn-primary"><spring:message code="tmenu.qna.write"/></a>
+				<a href="${root }qna/write" class="btn btn-primary" style="background-color: rgb(200,200,200); border: none;"><spring:message code="tmenu.qna.write"/></a>
 				</c:if>
 			</div>
 			

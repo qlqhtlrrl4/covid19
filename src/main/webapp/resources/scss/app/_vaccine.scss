@@ -57,6 +57,10 @@
 		border-radius : 25px;
 		text-align : center;
 		padding : 30px;
+
+		@media (max-width: 992px) {
+			margin-bottom: 15px;
+		}
 		
 		
 		.vaccine-info-count-title {
@@ -70,7 +74,7 @@
 			font-size:var(--font-xlarge);
 			
 			&.vaccine-color-blue {
-				background-color :#7FD1AE;
+				background-color :#E3E3E3;
 				font-size:var(--font-regular);
 			}
 		}

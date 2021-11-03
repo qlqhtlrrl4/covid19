@@ -17,11 +17,10 @@
 
 <div class="container" style="margin-top:100px">
 	<div class="row">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6">
-			<div class="card shadow">
+		<div class="col-12" style="margin-bottom: 60px">
+			<div class="card shadow" style="background-color: rgb(245,245,245);">
 				<div class="card-body">
-					<form:form action="${root }qna/modify_pro?userName=${userName }" method="post" modelAttribute="modifyContent">
+					<form:form action="${root }qna/modify_pro" method="get" modelAttribute="modifyContent">
 					<form:hidden path="contentIdx"/>
 						<div class="form-group">
 							<form:label path="writerIdx.name"><spring:message code="tmenu.qna.writerName"/></form:label>
@@ -40,9 +39,9 @@
 							<form:textarea path="text" class="form-control" rows="10" style="resize:none"/>
 						</div>
 						<div class="form-group">
-							<div class="text-right">
-								<button type="submit" class="btn btn-primary"><spring:message code="tmenu.qna.modify.submit"/></button>
-								<a href="${root }qna/list" class="btn btn-info"><spring:message code="tmenu.qna.modify.reset"/></a>
+							<div class="text-center">
+								<a id="qna-modify-cancel-btn" href="${root }qna/list" class="btn btn-info"><spring:message code="tmenu.qna.modify.reset"/></a>
+								<button id="qna-modify-submit-btn" type="submit" class="btn btn-primary"><spring:message code="tmenu.qna.modify.submit"/></button>
 							</div>
 						</div>
 					</form:form>

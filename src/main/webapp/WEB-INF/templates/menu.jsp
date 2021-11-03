@@ -26,7 +26,7 @@
   </div>
   
 
-  	<c:if test="${path ne 'read' }">
+  	<%-- <c:if test="${path ne 'read' }">
 		<div class="dropdown show">
   			<a class="btn btn-secondary dropdown-toggle" href="?lang=ko" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     			한국어
@@ -35,7 +35,7 @@
     			<a class="dropdown-item" href="?lang=en">English</a>
   			</div>
 		</div>
-	</c:if>
+	</c:if> --%>
 
   
 	<c:if test="${pageContext.request.userPrincipal.name == null}">

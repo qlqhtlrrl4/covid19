@@ -1,6 +1,6 @@
-function drawBarChart(id, data, category, value) {
+function drawBarChart2(id, data, category, value) {
 	
-    am4core.useTheme(am4themes_animated);
+    /*am4core.useTheme(am4themes_animated);
  
     var chart = am4core.create(id, am4charts.XYChart);
  
@@ -53,7 +53,43 @@ function drawBarChart(id, data, category, value) {
     //valueAxis.renderer.labels.template.disabled = true; //disables labels
     valueAxis.renderer.grid.template.disabled = true;  //disables grid
     
-    dateAxis.keepSelection = true;
+    dateAxis.keepSelection = true;*/
+	
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+
+    var chart = am4core.create(id, am4charts.XYChart);
+    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+    chart.data = data;
+    console.log(data);
+
+    var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.dataFields.category = category;
+    categoryAxis.renderer.minGridDistance = 40;
+    categoryAxis.fontSize = 11;
+
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    
+    valueAxis.min = 0;
+    valueAxis.strictMinMax = true;
+    valueAxis.renderer.minGridDistance = 30;
+    
+    var series = chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.categoryX = category;
+    
+    debugger;
+    
+    series.dataFields.valueY = value;
+    series.columns.template.tooltipText = "{valueY.value}";
+    series.columns.template.tooltipY = 0;
+    series.columns.template.strokeOpacity = 0;
+
+    // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+    series.columns.template.adapter.add("fill", function(fill, target) {
+       return chart.colors.getIndex(target.dataItem.index);
+    });
 	
 	
 }

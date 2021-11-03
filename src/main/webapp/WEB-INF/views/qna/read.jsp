@@ -17,9 +17,8 @@
 
 <div class="container" style="margin-top:100px">
 	<div class="row">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6">
-			<div class="card shadow">
+		<div class="col-12" style="margin-bottom: 60px">
+			<div class="card shadow" style="background-color: rgb(245,245,245);">
 				<div class="card-body">
 					<div class="form-group">
 						<label for="subject"><spring:message code="tmenu.qna.writerName"/></label>
@@ -55,20 +54,14 @@
 					</c:if>
 					
 					
-					
-					<a href="/qna/read?contentIdx=${readContent.contentIdx }&lang=ko">한국어</a> 
-					<a href="/qna/read?contentIdx=${readContent.contentIdx }&lang=en">English</a> 
-					
+
 					
 					<div class="form-group">
-						<div class="text-right">
-							<a href="${root }qna/list" class="btn btn-primary"><spring:message code="tmenu.qna.read.list"/></a>
-							<c:if test="${readContent.writerIdx.id == pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name == 'admin' || pageContext.request.userPrincipal.name != null }">
-							<a href="/qna/reply_write?contentIdx=${readContent.contentIdx}" class="btn btn-info"><spring:message code="tmenu.qna.read.comment"/></a>
-							</c:if>
+						<div class="text-center">
+							<a href="${root }qna/list" id="qna-read-list-btn" class="btn btn-primary"><spring:message code="tmenu.qna.read.list"/></a>
 							<c:if test="${readContent.writerIdx.id == pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name == 'admin'}">
-							<a href="${root }qna/modify?contentIdx=${readContent.contentIdx}&userName=${pageContext.request.userPrincipal.name}" class="btn btn-info"><spring:message code="tmenu.qna.read.modify"/></a>
-							<a href="#" onclick="delchk()" class="btn btn-danger"><spring:message code="tmenu.qna.read.delete"/></a>
+							<a href="${root }qna/modify?contentIdx=${readContent.contentIdx}" id="qna-read-modify-btn" class="btn btn-info"><spring:message code="tmenu.qna.read.modify"/></a>
+							<a href="${root }qna/delete?contentIdx=${readContent.contentIdx}" id="qna-read-cancel-btn" class="btn btn-danger"><spring:message code="tmenu.qna.read.delete"/></a>
 							</c:if>
 						</div>
 					</div>
@@ -78,37 +71,6 @@
 		<div class="col-sm-3"></div>
 	</div>
 </div>
-<c:if test="${replyList ne null }">
-    <c:forEach items="${replyList}" var="replyList" >
-    <c:if test="${lang eq 'ko' || lang eq null }">
-        <spring:message code="tmenu.qna.writerName"/> : ${replyList.name} &nbsp; &nbsp; &nbsp; ${replyList.content} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <spring:message code="tmenu.qna.date"/> : ${replyList.date } 
-         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
-        <c:if test="${replyList.name eq pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name eq 'admin'}">
-         <a href="/qna/reply_delete?contentIdx=${readContent.contentIdx}&replyIdx=${replyList.replyIdx}">삭제하기</a><br>
-    	</c:if>
-    </c:if> 
-    
-    <c:if test="${lang eq 'en'}">
-         <spring:message code="tmenu.qna.writerName"/> : ${replyList.name} &nbsp; &nbsp; &nbsp; ${replyList.encontent} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <spring:message code="tmenu.qna.date"/> : ${replyList.date } 
-         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
-        <c:if test="${replyList.name eq pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name eq 'admin'}">
-         <a href="/qna/reply_delete?contentIdx=${readContent.contentIdx}&replyIdx=${replyList.replyIdx}">삭제하기</a><br>
-    	</c:if>
-    </c:if>
-    </c:forEach>   
-</c:if>
 </body>
-<script>
-
-function delchk(){
-	
-    if(confirm("삭제하시겠습니까?")== true){
-        location.href = "${root }qna/delete?contentIdx=${readContent.contentIdx}";
-    } else {
-        return;
-    }
-}
-</script>
-
 </html>
 

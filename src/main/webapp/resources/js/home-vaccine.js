@@ -1,5 +1,6 @@
 var HomeChartManager = function() {
-
+	
+	
 	this.chart = {};
 	this.detailsData = {};
 	this.cardTemplate = Handlebars.getTemplate("home-chart");
@@ -8,7 +9,7 @@ var HomeChartManager = function() {
 
 }
 
-HomeChartManager.property.setDetailsData = function(data) {
+HomeChartManager.prototype.setDetailsData = function(data) {
 
 	var self = this;
 	self.detailsData["sex-chart-card"]["data"] = data.sexData;
@@ -16,8 +17,9 @@ HomeChartManager.property.setDetailsData = function(data) {
 	self.detailsData["area-chart-card"]["data"] = data.areaData;
 }
 
-HomeChartManager.property.initEvent = function() {
+HomeChartManager.prototype.initEvent = function() {
 	var self = this;
+	
 	$(".chart-toggle-btn").on(
 			'change',
 			function() {
@@ -34,20 +36,18 @@ HomeChartManager.property.initEvent = function() {
 				if ($(this).prop("checked") == true) {
 					$("#details-collection").append(cardHtml);
 					if (type == 'sex') {
-						drawBarChart(chartBarId,
-								self.detailsData[cardId]["data"], "category",
-								"value");
+						drawBarChart2(chartBarId,
+								self.detailsData[cardId]["data"], "gubun", "confCase");
 					} else if (type == 'area') {
-						drawBarChart(chartBarId,
-								self.detailsData[cardId]["data"], "category",
-								"value");
+						drawBarChart2(chartBarId,
+								self.detailsData[cardId]["data"], "gubun", "defCnt");
 					} else {
-						drawBarChart(chartBarId,
-								self.detailsData[cardId]["data"], "category",
-								"value");
+						drawBarChart2(chartBarId,
+								self.detailsData[cardId]["data"], "gubun","confCase");
 					}
 				} else {
-					$("#" + cardId).remove();
+					$("#" + cardId).parent().remove();
+					debugger;
 				}
 			});
 }
@@ -73,9 +73,9 @@ HomeChartManager.prototype.drawDetails = function() {
 				console.log(data);
 				self.setDetailsData(data);
 
-				drawBarChart("sex-bar-chart", data.sexData, "category", "value");
-				drawBarChart("age-bar-chart", data.ageData, "category", "value");
-				drawBarChart("area-bar-chart", data.areaData, "category", "value");
+				drawBarChart2("sex-bar-chart", data.sexData, "gubun", "confCase");
+				drawBarChart2("age-bar-chart", data.ageData, "gubun", "confCase");
+				drawBarChart2("area-bar-chart", data.areaData, "gubun", "defCnt");
 			});
 		},
 
