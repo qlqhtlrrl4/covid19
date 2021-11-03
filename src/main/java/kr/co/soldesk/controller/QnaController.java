@@ -49,7 +49,6 @@ public class QnaController {
 
 	@Autowired
 	private TextTrans textTrans;
-	
 
 	@Autowired
 	private HttpServletRequest req;
@@ -131,16 +130,15 @@ public class QnaController {
 
 		return "/qna/write_success.do";
 	}
-	
-	@RequestMapping(value="/captchaImg")
+
+	@RequestMapping(value = "/captchaImg")
 	public void captchaImg(HttpServletResponse res) throws Exception {
 		new CaptchaUtil().getImgCaptCha(req, res);
 	}
-	
-	
-	@RequestMapping(value="/captchaAudio")
+
+	@RequestMapping(value = "/captchaAudio")
 	public void captchaAudio(HttpServletResponse res) throws Exception {
-		
+
 		new CaptchaUtil().getAudioCaptCha(req, res);
 	}
 
@@ -151,8 +149,15 @@ public class QnaController {
 		String lang = req.getParameter("lang");
 		model.addAttribute("lang", lang);
 
-		String userName = req.getParameter("userName");
-		model.addAttribute("userName", userName);
+
+		/*
+		 * List<Reply> replylist = replyServiceImp.findAll();
+		 * 
+		 * for(Reply rl : replylist) { if(userName.equals(rl.getName())) { String
+		 * writerName=rl.getName();
+		 * 
+		 * model.addAttribute("writerName",writerName); } }
+		 */
 
 		contentDetailServiceImp.getCount(contentList.getContentIdx());
 		System.out.println(contentList.getContentIdx());
@@ -164,7 +169,6 @@ public class QnaController {
 		List<Reply> replyList = replyServiceImp.readReply(contentIdx);
 		model.addAttribute("replyList", replyList);
 
-		model.addAttribute("userName", userName);
 		model.addAttribute("path", "read");
 
 		return "/qna/read.do";
@@ -182,7 +186,7 @@ public class QnaController {
 	@RequestMapping(value = "/reply_write_pro", method = RequestMethod.POST)
 	public String write_pro(@Valid @ModelAttribute("writeReply") Reply writeReply, BindingResult result,
 			@RequestParam(name = "userName") String userName, @RequestParam(name = "contentIdx") int contentIdx,
-			Model model) {
+			Model model,Locale locale) {
 
 		if (result.hasErrors()) {
 
@@ -192,7 +196,7 @@ public class QnaController {
 		List<Users> userList = userService.findAll();
 		for (Users ul : userList) {
 			if (userName.equals(ul.getId())) {
-				replyServiceImp.addReply(writeReply, ul.getName());
+				replyServiceImp.addReply(writeReply, ul.getId(),locale);
 			}
 		}
 
@@ -207,15 +211,18 @@ public class QnaController {
 
 		replyServiceImp.deleteReply(replyIdx);
 
+		
 		return "/qna/reply_delete.do";
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public String modify(@RequestParam("contentIdx") int contentIdx,
-			@ModelAttribute("modifyContent") Contents modifyContent, Model model) {
+						 @RequestParam("userName") String userName,
+						 @ModelAttribute("modifyContent") Contents modifyContent, Model model) {
 
 		model.addAttribute("contentIdx", contentIdx);
-
+		model.addAttribute("userName",userName);
+		System.out.println(userName);
 		Contents modiContent = contentDetailServiceImp.readContent(contentIdx);
 		model.addAttribute("modiContent", modiContent);
 
@@ -224,27 +231,41 @@ public class QnaController {
 		modifyContent.setWriterIdx(modiContent.getWriterIdx());
 		modifyContent.setDate(modiContent.getDate());
 		modifyContent.setContentIdx(contentIdx);
+		
+		modifyContent.setEnsubject(modiContent.getEnsubject());
+		modifyContent.setEntext(modiContent.getEntext());
 
 		return "/qna/modify.do";
 	}
 
-	@RequestMapping(value = "/modify_pro", method = RequestMethod.GET)
-	public String modify_pro(@RequestParam("subject") String subject, @RequestParam("text") String text,
-			@RequestParam("contentIdx") int contentIdx, @Valid @ModelAttribute("modifyContent") Contents modifyContent,
-			BindingResult result) {
+	@RequestMapping(value = "/modify_pro", method = RequestMethod.POST)
+	public String modify_pro(
+			@RequestParam("contentIdx") int contentIdx, @Valid @ModelAttribute("modifyContent") ContentDto modifyContent,
+			BindingResult result,Locale locale) {
+		
+		
+		String userName=req.getParameter("userName");
 
 		if (result.hasErrors()) {
 			return "/qna/modify.do";
 		}
+		
+		List<Users> userList = userService.findAll();
+		for (Users ul : userList) {
+			if (userName.equals(ul.getId())) {
 
-		contentDetailServiceImp.modifyContent(subject, text, contentIdx);
+				System.out.println(locale);
+				contentDetailServiceImp.modifyContent(modifyContent,ul,contentIdx, locale);
+			}
+		}
+
 
 		return "/qna/modify_success.do";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(@RequestParam("contentIdx") int contentIdx) {
-		
+
 		contentDetailServiceImp.deleteContent(contentIdx);
 
 		return "/qna/delete.do";

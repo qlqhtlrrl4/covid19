@@ -17,7 +17,7 @@ public class UserDto {
 	
 	private String password;
 	
-	private String password_check;
+	private String find_password_check;
 		
 	private String name;
 	

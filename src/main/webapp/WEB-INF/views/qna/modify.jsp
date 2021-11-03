@@ -21,7 +21,7 @@
 		<div class="col-sm-6">
 			<div class="card shadow">
 				<div class="card-body">
-					<form:form action="${root }qna/modify_pro" method="get" modelAttribute="modifyContent">
+					<form:form action="${root }qna/modify_pro?userName=${userName }" method="post" modelAttribute="modifyContent">
 					<form:hidden path="contentIdx"/>
 						<div class="form-group">
 							<form:label path="writerIdx.name"><spring:message code="tmenu.qna.writerName"/></form:label>

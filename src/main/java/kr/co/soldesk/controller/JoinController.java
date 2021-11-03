@@ -78,7 +78,7 @@ public class JoinController {
 	/*@RequestMapping(value="/idCheck", method=RequestMethod.POST)
 	@ResponseBody
 	public int idCheck(@RequestParam("id") String id) {
-		int cnt = userService.idCheck(id);
+		int cnt = use[/rService.idCheck(id);
 		return cnt;
 	}*/
 	
@@ -87,5 +87,12 @@ public class JoinController {
 	public List<Map<String,String>> getAllid() {
 		List<Map<String,String>> allUserIdList = userService.getAllId();
 		return allUserIdList;
+	}
+	
+	@RequestMapping(value="/allUserEmail",method=RequestMethod.GET)
+	@ResponseBody
+	public List<Map<String,String>> getAllEmail() {
+		List<Map<String,String>> allUserEmailList = userService.getAllEmail();
+		return allUserEmailList;
 	}
 }

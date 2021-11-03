@@ -105,7 +105,7 @@ public class LoginController {
 		
 		System.out.println("asdasd"+id);
 		
-		if(findpw.getPassword().equals(findpw.getPassword_check())) {
+		if(findpw.getPassword().equals(findpw.getFind_password_check())) {
 
 		String passwd = findpw.getPassword();
 
@@ -115,6 +115,7 @@ public class LoginController {
 		}
 		
 		model.addAttribute("errorMsg", "비밀번호가 일치하지 않습니다");
+		
 		return "/auth/findpw_success.do";
 		
 	}

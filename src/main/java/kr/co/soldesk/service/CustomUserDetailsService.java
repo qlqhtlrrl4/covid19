@@ -16,6 +16,8 @@ public interface CustomUserDetailsService extends UserDetailsService {
 	
 	public List<Map<String,String>> getAllId();
 	
+	public List<Map<String,String>> getAllEmail();
+	
 	public List<Users> findAll();
 	
 	public Users findByUserId(String email,String name);
