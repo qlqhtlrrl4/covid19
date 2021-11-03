@@ -19,7 +19,7 @@ public interface ContentDetailsService{
 	
 	void deleteContent(int contentIdx); //글 삭제
 
-	void modifyContent(String subject, String text, int contentIdx);
+	void modifyContent(ContentDto modifyContent,Users user,int contentIdx,Locale locale);
 	
 	void getCount(int contentIdx);
 	

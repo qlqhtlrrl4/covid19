@@ -25,10 +25,18 @@
     </ul>
   </div>
   
-  	<c:if test="${path ne 'read'}">
-	<a href="?lang=ko">한국어</a> 
-	<a href="?lang=en">English</a>
-	</c:if>   
+
+  	<c:if test="${path ne 'read' }">
+		<div class="dropdown show">
+  			<a class="btn btn-secondary dropdown-toggle" href="?lang=ko" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    			한국어
+ 			</a>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    			<a class="dropdown-item" href="?lang=en">English</a>
+  			</div>
+		</div>
+	</c:if>
+
   
 	<c:if test="${pageContext.request.userPrincipal.name == null}">
   		<div class="navbar-user-wrapper">
@@ -44,8 +52,15 @@
   					<!-- <a class="nav-link" href="#"><i class="fas fa-user-circle"></i></a> -->
   				</div>
   			
-				<span class="nav-info-text">안녕하세요,</span><br/>
-  				<span class="nav-info-text nav-info-text-name">${pageContext.request.userPrincipal.name}님</span>				
+
+				<%-- <span class="nav-info-text">안녕하세요,</span><br/>
+  				<span class="nav-info-text nav-info-text-name">${pageContext.request.userPrincipal.name}님</span>				 --%>
+
+  				<div>
+  					<span class="nav-info-text">안녕하세요,</span><br>
+  					<span class="nav-info-text nav-info-text-name">${pageContext.request.userPrincipal.name}님</span><br/>
+  				</div>	
+
   			
   				<span class="nav-info-text">
   					<a class="nav-link" href="/logout">로그아웃</a>

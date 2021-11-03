@@ -15,7 +15,7 @@ import kr.co.soldesk.model.Reply;
 @Repository
 public interface ReplyRepository extends JpaRepository<Reply, Integer>{
 	
-	@Query(value="SELECT * FROM reply WHERE contentIdx = :contentIdx", nativeQuery = true)
+	@Query(value="SELECT * FROM reply WHERE contentIdx = :contentIdx order by replyIdx desc", nativeQuery = true)
 	List<Reply> readReply(@Param("contentIdx") int contentIdx);
 	
 	@Query(value="SELECT count(*) FROM reply where contentIdx = :contentIdx", nativeQuery = true)
@@ -25,5 +25,7 @@ public interface ReplyRepository extends JpaRepository<Reply, Integer>{
 	@Modifying
 	@Query(value = "DELETE FROM reply WHERE replyIdx = :replyIdx", nativeQuery = true)
 	void deleteReply(@Param("replyIdx") int replyIdx);
+	
+	List<Reply> findAll();
 		
 }

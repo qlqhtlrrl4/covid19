@@ -17,5 +17,13 @@ public interface CustomUserDetailsService extends UserDetailsService {
 	
 	public List<Map<String,Object>> findAllUser();
 
+	public List<Map<String,String>> getAllEmail();
+	
 	public List<Users> findAll();
+	
+	public Users findByUserId(String email,String name);
+	
+	public Users findByUserPw(String id,String email,String name);
+	
+	void updatePw(String password, String id,UserDto user);
 }

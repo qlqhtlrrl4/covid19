@@ -24,9 +24,9 @@ public interface ContentRepository extends JpaRepository<Contents, Integer> {
 
 	@Transactional("jpatransactionManager")
 	@Modifying
-	@Query(value = "UPDATE contents SET subject = :subject, text = :text, date = now() WHERE contentIdx=:contentIdx", nativeQuery = true)
+	@Query(value = "UPDATE contents SET subject = :subject, text = :text, date = now(), ensubject =:ensubject, entext=:entext WHERE contentIdx=:contentIdx", nativeQuery = true)
 	void modifyContent(@Param("subject") String subject, @Param("text") String text,
-			@Param("contentIdx") int contentIdx); // 글 업데이트, text만
+			@Param("contentIdx") int contentIdx,@Param("ensubject") String ensubject, @Param("entext") String entext); // 글 업데이트, text만
 
 	@Modifying
 	@Query(value = "UPDATE contents SET count=count+1 WHERE contentIdx=:contentIdx", nativeQuery = true)

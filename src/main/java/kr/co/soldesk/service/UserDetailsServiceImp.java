@@ -38,15 +38,14 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 	@Override
 	@Transactional("jpatransactionManager")
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-	
+
 		Users user = userRepository.findById(id);
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 		for (Roles role : user.getRoles()) {
 			grantedAuthorities.add(new SimpleGrantedAuthority(role.getRole()));
 		}
-		
-		return new User(user.getId(), user.getPassword(),
-				grantedAuthorities);
+
+		return new User(user.getId(), user.getPassword(), grantedAuthorities);
 	}
 
 	@Transactional("jpatransactionManager")
@@ -59,9 +58,9 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 		member.setId(memberDto.getId());
 		member.setEmail(memberDto.getEmail());
 		member.setName(memberDto.getName());
-		
+
 		member.setVaccine(memberDto.getVaccine());
-		
+
 		userRepository.save(member);
 
 		Roles role = new Roles();
@@ -93,40 +92,92 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 			role.setUser(admin);
 			role.setRole("ROLE_ADMIN");
 			roleRepository.save(role);
-
 		}
 	}
 
 	@Override
 	public int idCheck(String id) {
-		
+
 		int cnt;
-		
-		if(userRepository.findById(id) != null) {
+
+		if (userRepository.findById(id) != null) {
 			cnt = 1;
-		}
-		else {
-			cnt  = 0;
+		} else {
+			cnt = 0;
 		}
 		return cnt;
 	}
 
 	@Override
 	public List<Map<String, String>> getAllId() {
-		List<Map<String,String>> allUserIdList = userRepository.findAllById();
-		
+		List<Map<String, String>> allUserIdList = userRepository.findAllById();
+
 		System.out.println(allUserIdList);
 		return allUserIdList;
 	}
-	
+
 	@Override
-	public List<Users> findAll(){
+	public List<Users> findAll() {
 		return userRepository.findAll();
 	}
 
 	@Override
-	public List<Map<String,Object>> findAllUser() {
-		
+	public List<Map<String, Object>> findAllUser() {
+
 		return userRepository.findAllUser();
+	}
+
+	public Users findByUserId(String email, String name) {
+
+		List<Users> userlist = userRepository.findAll();
+		Users user = new Users();
+
+		for (Users ul : userlist) {
+			if (ul.getEmail().equals(email) && ul.getName().equals(name)) {
+
+				user.setId(ul.getId());
+
+			}
+		}
+
+		return user;
+	}
+
+	@Override
+	public Users findByUserPw(String id, String email, String name) {
+
+		List<Users> userlist = userRepository.findAll();
+		Users user = new Users();
+
+		for (Users ul : userlist) {
+			if (ul.getId().equals(id) && ul.getEmail().equals(email) && ul.getName().equals(name)) {
+
+			}
+		}
+
+		return user;
+	}
+
+	@Override
+	@Transactional("jpatransactionManager")
+	public void updatePw(String password, String id, UserDto userDto) {
+
+		Users user = new Users();
+
+		String pass = encoder.encode(password);
+		user.setEmail(userDto.getEmail());
+		user.setName(userDto.getName());
+		user.setPassword(pass);
+		System.out.println(id);
+		user.setId(id);
+
+		userRepository.updatePw(user.getPassword(), user.getId());
+	}
+
+	@Override
+	public List<Map<String, String>> getAllEmail() {
+		List<Map<String, String>> allUserEmailList = userRepository.findAllByEmail();
+		return allUserEmailList;
+
 	}
 }

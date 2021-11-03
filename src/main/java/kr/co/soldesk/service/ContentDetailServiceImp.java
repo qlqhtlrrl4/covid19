@@ -36,27 +36,25 @@ public class ContentDetailServiceImp implements ContentDetailsService {
 	public void addContent(ContentDto writeContent, Users users, Locale locale) {
 
 		Contents content = new Contents();
-		
+
 		if (locale.getLanguage().equals("ko")) {
 			content.setSubject(writeContent.getSubject());
 			content.setText(writeContent.getText());
 			content.setWriterIdx(users);
 			content.setOpen(writeContent.getOpen());
 			content.setWriter(users.getName());
-			
+
 			content.setEnsubject(textTrans.translateEn(writeContent.getSubject()));
 			content.setEntext(textTrans.translateEn(writeContent.getText()));
-		
-		
+
 		} else if (locale.getLanguage().equals("en")) {
-			
+
 			content.setSubject(textTrans.translateKo(writeContent.getSubject()));
 			content.setText(textTrans.translateKo(writeContent.getText()));
 			content.setWriterIdx(users);
 			content.setOpen(writeContent.getOpen());
 			content.setWriter(users.getName());
-			
-			
+
 			content.setEnsubject(writeContent.getSubject());
 			content.setEntext(writeContent.getText());
 		}
@@ -70,8 +68,33 @@ public class ContentDetailServiceImp implements ContentDetailsService {
 	}
 
 	@Override
-	public void modifyContent(String subject, String text, int contentIdx) {
-		contentRepository.modifyContent(subject, text, contentIdx);
+	public void modifyContent(ContentDto modifyContent,Users users, int contentIdx,Locale locale) {
+
+		Contents content = new Contents();
+
+		if (locale.getLanguage().equals("ko")) {
+			content.setSubject(modifyContent.getSubject());
+			content.setText(modifyContent.getText());
+			content.setWriterIdx(users);
+			content.setOpen(modifyContent.getOpen());
+			content.setWriter(users.getName());
+
+			content.setEnsubject(textTrans.translateEn(modifyContent.getSubject()));
+			content.setEntext(textTrans.translateEn(modifyContent.getText()));
+
+		} else if (locale.getLanguage().equals("en")) {
+
+			content.setSubject(textTrans.translateKo(modifyContent.getSubject()));
+			content.setText(textTrans.translateKo(modifyContent.getText()));
+			content.setWriterIdx(users);
+			content.setOpen(modifyContent.getOpen());
+			content.setWriter(users.getName());
+
+			content.setEnsubject(modifyContent.getSubject());
+			content.setEntext(modifyContent.getText());
+		}
+
+		contentRepository.modifyContent(content.getSubject(),content.getText(),contentIdx,content.getEnsubject(),content.getEntext());
 	}
 
 	@Override

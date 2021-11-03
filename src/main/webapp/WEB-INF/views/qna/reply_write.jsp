@@ -19,8 +19,7 @@
 		<div class="col-sm-6">
 			<div class="card shadow">
 				<div class="card-body">
-					<form:form action="/qna/reply_write_pro?userName=${pageContext.request.userPrincipal.name }" method="post" modelAttribute="writeReply">
-					<form:hidden path="contentIdx"/>
+					<form:form action="/qna/reply_write_pro?userName=${pageContext.request.userPrincipal.name }&contentIdx=${contentIdx }" method="post" modelAttribute="writeReply">
 						<div class="form-group">
 							<form:label path="content">댓글 내용</form:label>
 							<form:textarea path="content" class="form-control" rows="10" style="resize:none"/>

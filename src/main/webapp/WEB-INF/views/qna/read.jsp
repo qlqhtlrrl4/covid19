@@ -57,7 +57,7 @@
 					
 					
 					<a href="/qna/read?contentIdx=${readContent.contentIdx }&lang=ko">한국어</a> 
-					<a href="/qna/read?contentIdx=${readContent.contentIdx }&lang=en">영어</a> 
+					<a href="/qna/read?contentIdx=${readContent.contentIdx }&lang=en">English</a> 
 					
 					
 					<div class="form-group">
@@ -67,8 +67,8 @@
 							<a href="/qna/reply_write?contentIdx=${readContent.contentIdx}" class="btn btn-info"><spring:message code="tmenu.qna.read.comment"/></a>
 							</c:if>
 							<c:if test="${readContent.writerIdx.id == pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name == 'admin'}">
-							<a href="${root }qna/modify?contentIdx=${readContent.contentIdx}" class="btn btn-info"><spring:message code="tmenu.qna.read.modify"/></a>
-							<a href="${root }qna/delete?contentIdx=${readContent.contentIdx}" class="btn btn-danger"><spring:message code="tmenu.qna.read.delete"/></a>
+							<a href="${root }qna/modify?contentIdx=${readContent.contentIdx}&userName=${pageContext.request.userPrincipal.name}" class="btn btn-info"><spring:message code="tmenu.qna.read.modify"/></a>
+							<a href="#" onclick="delchk()" class="btn btn-danger"><spring:message code="tmenu.qna.read.delete"/></a>
 							</c:if>
 						</div>
 					</div>
@@ -80,10 +80,35 @@
 </div>
 <c:if test="${replyList ne null }">
     <c:forEach items="${replyList}" var="replyList" >
-        작성자 : ${replyList.name} &nbsp; &nbsp; &nbsp; ${replyList.content} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 작성 날짜 : ${replyList.date } 
-         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="/qna/reply_delete?contentIdx=${readContent.contentIdx}&replyIdx=${replyList.replyIdx}">삭제하기</a><br>
+    <c:if test="${lang eq 'ko' || lang eq null }">
+        <spring:message code="tmenu.qna.writerName"/> : ${replyList.name} &nbsp; &nbsp; &nbsp; ${replyList.content} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <spring:message code="tmenu.qna.date"/> : ${replyList.date } 
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+        <c:if test="${replyList.name eq pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name eq 'admin'}">
+         <a href="/qna/reply_delete?contentIdx=${readContent.contentIdx}&replyIdx=${replyList.replyIdx}">삭제하기</a><br>
+    	</c:if>
+    </c:if> 
+    
+    <c:if test="${lang eq 'en'}">
+         <spring:message code="tmenu.qna.writerName"/> : ${replyList.name} &nbsp; &nbsp; &nbsp; ${replyList.encontent} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <spring:message code="tmenu.qna.date"/> : ${replyList.date } 
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+        <c:if test="${replyList.name eq pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name eq 'admin'}">
+         <a href="/qna/reply_delete?contentIdx=${readContent.contentIdx}&replyIdx=${replyList.replyIdx}">삭제하기</a><br>
+    	</c:if>
+    </c:if>
     </c:forEach>   
 </c:if>
 </body>
+<script>
+
+function delchk(){
+	
+    if(confirm("삭제하시겠습니까?")== true){
+        location.href = "${root }qna/delete?contentIdx=${readContent.contentIdx}";
+    } else {
+        return;
+    }
+}
+</script>
+
 </html>
 

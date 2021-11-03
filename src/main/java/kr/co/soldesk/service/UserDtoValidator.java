@@ -15,7 +15,12 @@ import kr.co.soldesk.model.UserDto;
 @Service
 public class UserDtoValidator implements Validator {
 
+
 	private static final String emailRegExp = "^[0-9a-zA-Z]([-_\\\\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\\\\.]?[0-9a-zA-Z])*\\\\.[a-zA-Z]{2,3}$";
+
+	
+
+
 	private Pattern pattern;
 
 	public UserDtoValidator() {
@@ -43,7 +48,6 @@ public class UserDtoValidator implements Validator {
 		String password = userDto.getPassword();
 		String name = userDto.getName();
 		String answer = userDto.getAnswer();
-		String password_check = userDto.getPassword_check();
 
 		if (id.length() < 6 || id.length() > 15) {
 			errors.rejectValue("id", "user.id.range.invalid");
@@ -72,10 +76,8 @@ public class UserDtoValidator implements Validator {
 		else if (password.length() < 8 || password.length() > 15) {
 			errors.rejectValue("password", "user.password.range.invalid");
 		}
-		
-		else if(!password.equals(password_check)) {
-			errors.rejectValue("password_check", "user.password_check.bad");
-		}
+
+
 
 		if (name == null || name.trim().isEmpty()) {
 			errors.rejectValue("name", "user.name.required");

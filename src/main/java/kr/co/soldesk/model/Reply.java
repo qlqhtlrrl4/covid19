@@ -40,5 +40,7 @@ public class Reply {
 	
 	@Column(insertable = false)
 	private String date;
+	
+	private String encontent;
 
 }

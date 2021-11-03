@@ -79,9 +79,11 @@
 	</div>
 </div>
 <ul class="loginfindAndjoin">
-	<li><a href = "#">아이디 찾기</a></li>
-	<li><a href = "#">비밀번호 찾기</a></li>
-	<li><a href="/auth/join">회원가입</a></li>
+
+	<li><a href="/auth/findid">아이디 찾기</a></li>
+	<li><a href="/auth/findpw">비밀번호 찾기</a></li>
+
+<li><a href="/auth/join">회원가입</a></li>
 </ul>
 </body>
 </html>
