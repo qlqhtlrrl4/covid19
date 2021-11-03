@@ -94,10 +94,10 @@
 		
 		<div class="col-lg-9dot5 col-md-9 col-sm-12">
 			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-12">
+				<div class="col-lg-6 col-md-12 col-sm-12">
 					<div class="vaccine-info-count-wrapper">
 						<div class="row">
-							<div class="col-lg-6 col-md-12 col-sm-12">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<span class= "vaccine-info-count-title">1차 접종</span><br/>
 								<span class="vaccine-color-gray counter"><fmt:formatNumber type="number" maxFractionDigits="3" value="${vaccineData.totalFirstCnt}"/></span><br/>
 								<span class="vaccine-color-gray badge badge-pill badge-primary vaccine-color-blue">
@@ -106,7 +106,7 @@
 								</span>
 							</div>
 							
-							<div class="col-lg-6 col-md-12 col-sm-12">
+							<div class="col-lg-6 col-md-6 col-sm-12">
 								<span class="vaccine-info-count-title">접종 완료</span><br/>
 								<span class="vaccine-color-gray counter"><fmt:formatNumber type="number" maxFractionDigits="3" value="${vaccineData.totalSecondCnt}"/></span><br>
 								<span class="vaccine-color-gray badge badge-pill badge-primary vaccine-color-blue">
@@ -118,7 +118,7 @@
 					</div>
 				</div> <!-- col-9 -->
 				
-				<div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="col-lg-3 col-md-12 col-sm-12">
 					<div class="summary-right-pane">
 						
 						<canvas class="vaccine-percent-chart" id="canvas"></canvas>
@@ -129,7 +129,7 @@
 			</div>
 			
 			<div class="row">
-				<div class="col-lg-9 col-md-9 col-sm-9">
+				<div class="col-lg-12 col-md-12 col-sm-12 mt-3">
 					<div class="vaccine-chart-count-wrapper">
 						<span class="vaccine-chart-count-title">
 							백신 접종 현황
@@ -140,8 +140,8 @@
 				</div>
 			</div>
 			
-			
-				<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 mt-3">
 					<div class="vaccine-info-wrapper">
 						<ul class="nav nav-tabs nav-justified vaccine-info-nav">
 							<li class="nav-item">
@@ -282,7 +282,7 @@
 						</div>
 					</div>
 				</div>
-			
+			</div>
 			
 			<div class="location-collection row" id="location-collection">
 				
@@ -298,7 +298,7 @@
 									   data-target="#dayLocation-bar-chart"
 								checked>
 								<label class="form-check-label" for="dayLocation-bar-type">
-									<a href=""></a>Bar
+									Bar
 								</label>
 							</div>
 						</div>
@@ -403,8 +403,13 @@
 			
 			<div class="row sm-12 content" id="target">
 				<div class="city-info-box">
-					<span class="city-info-count"></span><br>
-					<span class="city-current-count"></span>
+					<div class="city-info-text">
+						<span class="city-info-name"></span> 누적 <span class="city-info-count"></span>명
+					</div>
+					<div class="city-current-text">
+						<span>격리해제<span class="city-isolClear-count"></span> | 치료중<span class="city-cure-count"></span> | 사망<span class="city-death-count"></span></span>
+					</div>
+					
 				</div>
 			
 				<div class="seoul-info-box">
@@ -1293,7 +1298,6 @@ function cityDynamic(data) {
 	console.log(data);
 	$(".btn-light").click(function() {
 		
-		
 		$('.btn-light').removeClass('active');
 		$(this).addClass("active");
 		var title = $(this).find(".location-info-title").text();
@@ -1301,12 +1305,20 @@ function cityDynamic(data) {
 		for(var i=0;i<data.length;i++) {
 			if(data[i].gubun.toString()==title) {
 				console.log(title);
-				$('.city-info-count').text(title+" 누적 "+data[i].defCnt+"명");
-				$('.city-current-count').text("격리해제"+data[i].isolClearCnt+" 사망자"+data[i].deathCnt);
+				$('.city-info-name').text(title);
+				$('.city-info-count').text(data[i].defCnt.toString().replace(
+						/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+				//$('.city-current-count').text("격리해제"+data[i].isolClearCnt+" 사망자"+data[i].deathCnt);
+				$('.city-isolClear-count').text(data[i].isolClearCnt.toString().replace(
+						/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+		
+				$('.city-death-count').text(data[i].deathCnt.toString().replace(
+						/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+				$('.city-cure-count').text(data[i].isolIngCnt.toString().replace(
+						/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+		
 			}
 		}
-		//$('.btn-light.active').find()
-		
 	});
 }
 
@@ -1437,3 +1449,5 @@ $(function () {
 	var vaccineChartManager = new VaccineChartManager();
 })
 </script>
+
+

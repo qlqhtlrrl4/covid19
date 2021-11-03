@@ -7,7 +7,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+  
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -25,10 +25,10 @@
     </ul>
   </div>
   
-  	<c:if test="${path ne 'read' }">
+  	<c:if test="${path ne 'read'}">
 	<a href="?lang=ko">한국어</a> 
 	<a href="?lang=en">English</a>
-	</c:if>
+	</c:if>   
   
 	<c:if test="${pageContext.request.userPrincipal.name == null}">
   		<div class="navbar-user-wrapper">
@@ -44,10 +44,8 @@
   					<!-- <a class="nav-link" href="#"><i class="fas fa-user-circle"></i></a> -->
   				</div>
   			
-  			
 				<span class="nav-info-text">안녕하세요,</span><br/>
   				<span class="nav-info-text nav-info-text-name">${pageContext.request.userPrincipal.name}님</span>				
-  			
   			
   				<span class="nav-info-text">
   					<a class="nav-link" href="/logout">로그아웃</a>
@@ -63,3 +61,4 @@
   
   
 </nav>
+

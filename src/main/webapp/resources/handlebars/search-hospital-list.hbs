@@ -1,0 +1,17 @@
+{{#each covidhospitals}}
+    <div class="list-group-item list-group-item-action" data-lat="{{lat}}" data-lng="{{lng}}">
+        <div class="hospital-title">
+            <h6 class="mb-1">{{orgnm}}</h6>
+            <i class="fas fa-arrow-circle-right"></i>
+        </div>
+        <div class="hospital-info">
+            <p class="mb-1">{{orgZipaddr}}</p>
+            <small>{{orgTlno}}</small>
+        </div>
+        <div class="hospital-icon">
+            <a href="/search/${covidHospital.id}/detail" style="color: #495057;">
+                <i class="far fa-hospital"></i>
+            </a>
+        </div>
+    </div>
+{{/each}}

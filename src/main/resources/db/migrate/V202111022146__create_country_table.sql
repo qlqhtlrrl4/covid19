@@ -1,0 +1,17 @@
+CREATE TABLE `covid`.`country` (
+  `country_id` BIGINT NOT NULL,
+  `areaNm` VARCHAR(255) NULL,
+  `areaNmCn` VARCHAR(255) NULL,
+  `areaNmEn` VARCHAR(255) NULL,
+  `createDt` VARCHAR(255) NULL,
+  `natDeathCnt` INT NULL,
+  `natDeathRate` DOUBLE NULL,
+  `natDefCnt` INT NULL,
+  `countrycol` VARCHAR(255) NULL,
+  `nationNm` VARCHAR(255) NULL,
+  `nationNmCn` VARCHAR(255) NULL,
+  `nationNmEn` VARCHAR(255) NULL,
+  `stdDay` VARCHAR(255) NULL,
+  `updateDt` VARCHAR(255) NULL,
+  `seq` INT NULL,
+  PRIMARY KEY (`country_id`));

@@ -26,7 +26,10 @@
 
 			.form-group{
 				.id_ok{color:blue; display: none;}
-				.id_already{color:blue; display: none;}
+				.id_already{color:red; display: none;}
+				.id_size{color:red; display:none;}
+				.date-over{color:red; display:none;}
+				.date-formatError{color:red; display:none;}
 			
 			}
 		    
@@ -44,6 +47,7 @@
 			margin-top: 5px;
 			margin-left: 1px;
 		}
+		
 		}
 	}
 

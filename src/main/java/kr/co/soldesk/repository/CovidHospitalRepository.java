@@ -30,4 +30,7 @@ public interface CovidHospitalRepository extends JpaRepository<Covidhospital, In
 
 	@Query(value = "SELECT lat, lng, orgnm FROM covidhospital where lat is not null and lng is not null;", nativeQuery = true)
 	List<Map<String, String>> findAllLatLngNotNull();
+	
+	@Query(value = "SELECT * FROM covidhospital WHERE orgnm LIKE %:hospitalText% and lat is not null and lng is not null", nativeQuery = true)
+	List<Covidhospital> findSearchHospital(@Param("hospitalText") String hospitalText);
 }

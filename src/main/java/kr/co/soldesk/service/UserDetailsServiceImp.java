@@ -38,10 +38,7 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 	@Override
 	@Transactional("jpatransactionManager")
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-		
-		System.out.println("sdaaaaaaaaaaaaaaaaaaaaaaaaaa"+id);
-		System.out.println(userRepository.findById(id));
-		
+	
 		Users user = userRepository.findById(id);
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 		for (Roles role : user.getRoles()) {
@@ -62,6 +59,9 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 		member.setId(memberDto.getId());
 		member.setEmail(memberDto.getEmail());
 		member.setName(memberDto.getName());
+		
+		member.setVaccine(memberDto.getVaccine());
+		
 		userRepository.save(member);
 
 		Roles role = new Roles();
@@ -122,5 +122,11 @@ public class UserDetailsServiceImp implements CustomUserDetailsService {
 	@Override
 	public List<Users> findAll(){
 		return userRepository.findAll();
+	}
+
+	@Override
+	public List<Map<String,Object>> findAllUser() {
+		
+		return userRepository.findAllUser();
 	}
 }

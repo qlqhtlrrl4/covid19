@@ -16,5 +16,8 @@ public interface HomeRepository extends JpaRepository<CovidStatus, Long>{
 					"limit 1; ", nativeQuery=true)
 	CovidStatus findRecentData();
 	
+	@Query(value="select * from covidstatus where date_format(createDt,\"%Y-%m-%d\")  like DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 DAY),\"%Y-%m-%d\");",nativeQuery=true)
+	CovidStatus findYesterData();
+	
 	
 }

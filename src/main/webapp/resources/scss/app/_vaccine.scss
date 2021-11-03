@@ -57,7 +57,7 @@
 		border-radius : 25px;
 		text-align : center;
 		padding : 30px;
-		height : 150px;
+		
 		
 		.vaccine-info-count-title {
 			color : var(--grey-dark-color);
@@ -82,6 +82,8 @@
 		padding : 30px;
 		margin-top : 20px;
 		text-align : center;
+		margin-left: 0px;
+    	margin-right: 0px;
 		
 		.location-collection-title {
 			
@@ -135,7 +137,7 @@
 		text-align : center;
 		padding : 30px;
 		margin-top : 20px;	
-		height : 500px;
+		
 		
 		.vaccine-info-nav {
 			background-color : #d3d3d3;
@@ -218,12 +220,7 @@
 				}
 			}
 		}
-		
-		
-		
-		
-		
-		
+	
 		.seoul-info-box {
 			position:absolute;
 			z-index:1;
@@ -400,12 +397,25 @@
 		.city-info-box {
 			position:absolute;
 			z-index:1;
-			background-color: transparent;
-		
-			border-radius: 5px;
-			
+			background-color: transparent;	
+			border-radius: 5px;		
 			top:85px;
 			left:75px;
+			
+			.city-info-name {
+				font-size : var(--font-large);
+				color : blue;
+			}
+			
+			.city-info-text {
+				font-size : var(--font-large);
+				color : black;
+			}
+			
+			.city-current-text {
+				font-size : var(--font-medium);
+				color : black;
+			}
 			
 			
 		}

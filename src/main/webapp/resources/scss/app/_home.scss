@@ -96,7 +96,18 @@
 		    right: 50px;
 		    font-size: 35px;
 		    color: var(--grey-light-color);
+            border:none;
+            background-color:whitesmoke;
+            outline:0;
+            cursor:pointer;
 		}
+        .syringe-icon:hover {
+            color:black;
+        }
+        .syringe-icon[disabled]:hover {
+            color:var(--grey-light-color);
+            cursor:initial;
+        }
 	}
 	
 	.corona-info-count-wrapper{
@@ -183,5 +194,14 @@
 	
 }
 
+.corona-info-wrapper {
+
+}
+
+.media-margin-bottom-20 {
+	@media screen and (max-width: 992px) {
+		margin-bottom: 20px;
+	}
+}
 
 

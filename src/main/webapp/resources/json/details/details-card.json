@@ -1,0 +1,22 @@
+{
+	"sex-chart-card" : {
+		"name" : "성별",
+		"enName" : "sex",
+		"type" : "sex",
+		"data" : null
+	},
+	
+	"age-chart-card" : {
+		"name" : "나이",
+		"enName" : "age",
+		"type" : "age",
+		"data" : null
+	},
+	
+	"area-chart-card" : {
+		"name" : "지역",
+		"enName" : "area",
+		"type" : "area",
+		"data" : null
+	}
+}

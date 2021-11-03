@@ -23,5 +23,7 @@ public class UserDto {
 	
 	private String answer;
 	
+	private String vaccine;
+	
 	
 }

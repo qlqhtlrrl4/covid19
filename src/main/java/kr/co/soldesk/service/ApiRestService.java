@@ -16,11 +16,13 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
 import kr.co.soldesk.data.CityResponse;
+import kr.co.soldesk.data.CountryResponse;
 import kr.co.soldesk.data.CovidHospitalData;
 import kr.co.soldesk.data.CovidStatusResponse;
 import kr.co.soldesk.data.GubunResponse;
 import kr.co.soldesk.data.VaccinationStatus;
 import kr.co.soldesk.model.CityStatus;
+import kr.co.soldesk.model.Country;
 import kr.co.soldesk.model.CovidGubun;
 import kr.co.soldesk.model.CovidStatus;
 import kr.co.soldesk.model.Covidhospital;
@@ -28,6 +30,7 @@ import kr.co.soldesk.model.GeoCodingResult;
 import kr.co.soldesk.model.GeoCodingResultLatLng;
 import kr.co.soldesk.model.Vaccination;
 import kr.co.soldesk.repository.CityStatusRepository;
+import kr.co.soldesk.repository.CountryRepository;
 import kr.co.soldesk.repository.CovidGubunRepository;
 import kr.co.soldesk.repository.CovidHospitalRepository;
 import kr.co.soldesk.repository.CovidStatusRepository;
@@ -58,12 +61,16 @@ public class ApiRestService {
 	
 	@Autowired
 	private CityStatusRepository cityStatusRepository;
+	
+	@Autowired
+	private CountryRepository countryRepository;
 
 	private List<Covidhospital> covidList;
 	private List<Vaccination> vaccinList;
 	private List<CovidStatus> itemList;
 	private List<CovidGubun> gubunList;
 	private List<CityStatus> cityList;
+	private List<Country> countryList;
 
 	@Value("${api.covidHospitalKey}")
 	private String covidHospitalKey;
@@ -79,6 +86,9 @@ public class ApiRestService {
 	
 	@Value("${api.cityStatusKey}")
 	private String cityStatusKey;
+	
+	@Value("${api.countryKey}")
+	private String countryKey;
 
 	private Date date = new Date();
 
@@ -113,12 +123,19 @@ public class ApiRestService {
 		if(cityList == null) {
 			cityList = new ArrayList<>();
 		}
+		
+		if(countryList == null) {
+			countryList = new ArrayList<>();
+			
+		}
 
 		CovidHospitalData result = null;
 		VaccinationStatus result2 = null;
 		CovidStatusResponse parseResult = null;
 		GubunResponse gubunResult = null;
 		CityResponse cityResult = null;
+		CountryResponse countryResult = null;
+				
 		
 
 		RestClient restClient = new RestClient();
@@ -130,13 +147,14 @@ public class ApiRestService {
 		String covidStatus = covidstatusKey + nowDate;
 		String gubunUrl = gubunKey+ nowDate;
 		String cityUrl = cityStatusKey+nowDate;
+		String countryUrl = countryKey+nowDate;
 
 		result = restClient.call(HttpMethod.GET, hospitalUrl, jsonObject.toString(), CovidHospitalData.class);
 		result2 = restClient.call(HttpMethod.GET, vaccinUrl, jsonObject.toString(), VaccinationStatus.class);
 		parseResult = (CovidStatusResponse) restClient.parser(covidStatus,CovidStatusResponse.class);
 		gubunResult = (GubunResponse) restClient.parser(gubunUrl,GubunResponse.class);
 		cityResult = (CityResponse) restClient.parser(cityUrl, CityResponse.class);
-		
+		countryResult=(CountryResponse) restClient.parser(countryUrl, CountryResponse.class);
 		
 		if (covidList != null) {
 			covidRepository.deleteAll();
@@ -156,6 +174,10 @@ public class ApiRestService {
 		
 		if(cityList != null) {
 			cityStatusRepository.deleteAll();
+		}
+		
+		if(countryList !=null) {
+			countryRepository.deleteAll();
 		}
 
 		for (int i = 0; i < result.getData().size(); i++) {
@@ -178,6 +200,10 @@ public class ApiRestService {
 		for(int i=0; i<gubunResult.getBody().getItems().size();i++) {
 			gubunList.add(gubunResult.getBody().getItems().get((gubunResult.getBody().getItems().size()-1)-i));
 		}
+		
+		for(int i=0; i<countryResult.getBody().getItems().size();i++) {
+			countryList.add(countryResult.getBody().getItems().get((countryResult.getBody().getItems().size()-1)-i));
+		}
 
 		logger.debug(apiRestServiceTag + "CovidData saveAll Start");
 		covidRepository.saveAll(covidList);
@@ -198,6 +224,10 @@ public class ApiRestService {
 		logger.debug(apiRestServiceTag + "cityStatusRepository saveAll Start");
 		cityStatusRepository.saveAll(cityList);
 		logger.debug(apiRestServiceTag + "cityStatusRepository saveAll End");
+		
+		logger.debug(apiRestServiceTag + "countryRepository saveAll Start");
+		countryRepository.saveAll(countryList);
+		logger.debug(apiRestServiceTag + "countryRepository saveAll End");
 		
 	}
 
@@ -300,8 +330,7 @@ public class ApiRestService {
 		List<Map<String, String>> latLngList = covidRepository.findAllLatLngNotNull();
 
 		for(Map<String, String> latLngMap : latLngList) {
-//			double lng = (double) latLngMap.get("lng");
-//			double lat = (double) latLngMap.get("lat");
+
 			double lng = Double.parseDouble(latLngMap.get("lng"));
 			double lat = Double.parseDouble(latLngMap.get("lat"));
 			String orgnm = (String) latLngMap.get("orgnm");
@@ -314,21 +343,21 @@ public class ApiRestService {
 	public List<GeoRadiusResponse> getGeoRadius1km(double lng, double lat) {
 		Jedis jedis = new Jedis("localhost");
 		GeoRadiusParam geoRadiusParam = GeoRadiusParam.geoRadiusParam().withCoord();
-
 		List<GeoRadiusResponse> geoRadiusResponseList = jedis.georadius(redisGeoKey, lng, lat, 1, GeoUnit.KM, geoRadiusParam);
-
-
 		return geoRadiusResponseList;
 	}
-
-	/*public CityStatus getTodayCityData() {
-		
-		return cityStatusRepository.todayData();
+	
+	public List<Covidhospital> findSearchHospital(String hospitalText) {
+		return covidRepository.findSearchHospital(hospitalText);
 	}
 
-	public CityStatus getYesterDayCityData() {
-		// TODO Auto-generated method stub
-		return cityStatusRepository.yesterDayData();
-	}*/
-
+	public List<Map<String, Object>> getAgeData() {
+		
+		return covidGubunRepository.rangeAgeData();
+	}
+	
+	public List<Map<String, Object>> getSexData() {
+		
+		return covidGubunRepository.genderData();
+	}
 }

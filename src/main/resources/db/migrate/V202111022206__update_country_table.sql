@@ -1,0 +1,1 @@
+alter table country add column imageFilepath varchar(200);

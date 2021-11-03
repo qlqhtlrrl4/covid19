@@ -25,7 +25,7 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Users {
+public class Users  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,6 +40,8 @@ public class Users {
 	private String password;
 	
 	private String name;
+	
+	private String vaccine;
 		
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval=true)
 	private Set<Roles> roles;

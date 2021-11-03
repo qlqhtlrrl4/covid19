@@ -69,16 +69,19 @@
 					<div class="form-group">
 						<input type="password" class="form-control" name="password" id="password" placeholder="비밀번호">
 					</div>
+					
+					<a href="<c:url value="/" />" class="btn btn-primary">취소</a>
 					<button type="submit" class="btn btn-primary">로그인</button>
+					
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
 <ul class="loginfindAndjoin">
-	<li><a>아이디 찾기</a></li>
-	<li><a>비밀번호 찾기</a></li>
-	<li><a>회원가입</a></li>
+	<li><a href = "#">아이디 찾기</a></li>
+	<li><a href = "#">비밀번호 찾기</a></li>
+	<li><a href="/auth/join">회원가입</a></li>
 </ul>
 </body>
 </html>
