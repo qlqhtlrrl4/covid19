@@ -365,4 +365,13 @@ public class ApiRestService {
 		
 		return cityStatusRepository.areaData();
 	}
+	
+	public List<CityStatus> getSeoulData() {
+		return cityStatusRepository.seoulData();
+	}
+
+	public CityStatus getSeoulToday() {
+		
+		return cityStatusRepository.toDay();
+	}
 }

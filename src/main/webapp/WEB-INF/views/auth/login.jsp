@@ -69,10 +69,14 @@
 					<div class="form-group">
 						<input type="password" class="form-control" name="password" id="password" placeholder="비밀번호">
 					</div>
-					
-					<a href="<c:url value="/" />" class="btn btn-primary">취소</a>
-					<button type="submit" class="btn btn-primary">로그인</button>
-					
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<a href="<c:url value="/" />" class="btn btn-primary">취소</a>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<button type="submit" class="btn btn-primary">로그인</button>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>

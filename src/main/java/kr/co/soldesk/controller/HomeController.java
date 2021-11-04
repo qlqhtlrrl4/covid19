@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.soldesk.model.CityStatus;
 import kr.co.soldesk.model.Country;
 import kr.co.soldesk.model.CovidStatus;
 import kr.co.soldesk.service.ApiRestService;
@@ -40,6 +41,13 @@ public class HomeController {
 		CovidStatus covidStatusData = homeService.findRecentData();
 		CovidStatus covidYesterDayData = homeService.findYesterDay();
 		
+		List<CityStatus> seoulData = restService.getSeoulData();
+		
+		int seoul = seoulData.get(0).getDefCnt()-seoulData.get(1).getDefCnt();
+		
+		System.out.println(seoul);
+		
+		
 		List<Country> asiaCountryList = homeService.findCountryList("Asia");
 		List<Country> eastCountryList = homeService.findCountryList("Middle East");
 		List<Country> americaCountryList = homeService.findCountryList("America");
@@ -51,6 +59,7 @@ public class HomeController {
 		SimpleDateFormat format1 = new SimpleDateFormat("yyyy.MM.dd E요일");
 		String today = format1.format(now);
 		
+		model.addAttribute("seoul", seoul);
 		model.addAttribute("now",today);
 		model.addAttribute("active", "home");
 		model.addAttribute("covidStatusData", covidStatusData);

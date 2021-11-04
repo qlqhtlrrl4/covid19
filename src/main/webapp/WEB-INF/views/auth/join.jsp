@@ -47,7 +47,7 @@ function audio() {
    var rand = Math.random();
 
    var uAgent = navigator.userAgent;
-   var soundUrl = '${pageContext.request.contextPath}/captchaAudio?rand = '+rand;
+   var soundUrl = 'captchaAudio?rand = '+rand;
    
    if(uAgent.indexOf('Trident')>-1 || uAgent.indexOf('MSIE') > -1) {
       winPlayer(soundUrl);
@@ -119,6 +119,7 @@ function winPlayer(objUrl) {
 							<label for="email"><spring:message code="이메일" /></label>
 							<sf:input path="email" id="email" class="form-control" type="text" onchange="checkEmail()"/>
 							<sf:errors path="email" cssStyle="color:#ff0000;" />
+							<span class="email_pattern">이메일 형식이 아닙니다</span>
 							<span class="email_ok">사용 가능한 이메일 입니다.</span> 
 							<span class="email_already">다른 유저가 사용중인 이메일 입니다.</span>
 					</div>
@@ -160,8 +161,14 @@ function winPlayer(objUrl) {
 	                  <sf:errors path="answer" cssStyle="color:#ff0000;" />
 	               </div>
 	         
-	               <a href="<c:url value="/" />" class="btn btn-primary">취소</a>
-	               <input type="submit" value="가입하기" class="btn btn-primary">
+	               <div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<a href="<c:url value="/" />" class="btn btn-primary">취소</a>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<button type="submit" class="btn btn-primary">로그인</button>
+						</div>
+					</div>
 	            </sf:form>
 	         </div>
 	      </div>
@@ -184,10 +191,11 @@ $(document).ready(function(){
        
        success:function(data) {
           allUserId = data;
+          console.log(data);
                     
        }
     });
-
+});
 
 	function checkId() {
 	   debugger;
@@ -226,7 +234,7 @@ $(document).ready(function(){
 	}
 
 	function checkDate() {
-		
+		debugger;
 		var y;
 		var d;
 		var m;
@@ -294,6 +302,7 @@ $(document).ready(function(){
 	
 	function inputYMDNumber(obj) {
 	
+		debugger;
 	   
 	    if(event.keyCode != 8) {
 			
@@ -332,15 +341,12 @@ $(document).ready(function(){
 	                    return false;
 	                }
 				} 
-	            
-	            
-	            
+        
 				obj.value = ymd; 
 	            $('.date-formatError').css("display","none");
 	            $('.date-over').css("display","none");
 			}
-	    	
-			
+	    				
 			else {
 				
 	            $('.date-formatError').css("display","inline-block");
@@ -354,73 +360,84 @@ $(document).ready(function(){
 			return false;
 	    }
 	}
-
-var allUserEmail;
-
-$(document).ready(function(){
-
-	$.ajax({
-    	url :'/auth/allUserEmail',
-    	type:'get',
-    	dataType : 'json',
-    	async:false,
-    	
-    	success:function(data) {
-    		allUserEmail = data;
-    		
-    		
-    		//console.log(data['user_id']);
-    		
-    	}
-    	
-  });
-
-});
-
-
-	function checkEmail() {
-		var email = $('#email').val();
-		
-		
-		if(email.trim() == "") {
-			console.log("empty");
-			$('.email_ok').css("display","none");
-			$('.email_already').css("display","none");
-		}
-		
-		
-		else if(allUserEmail.some(e=>e.email === email) == true ){ 
-			$('.email_ok').css("display","none");
-	    	$('.email_already').css("display", "inline-block");
+	var allUserEmail;
+	$(document).ready(function(){
+		$.ajax({
+	    	url :'/auth/allUserEmail',
+	    	type:'get',
+	    	dataType : 'json',
+	    	async:false,
 	    	
-		} else { 
+	    	success:function(data) {
+	    		allUserEmail = data;
+	    		
+	    		
+	    		//console.log(data['user_id']);
+	    		
+	    	}
 	    	
-	    	$('.email_ok').css("display","inline-block"); 
-	    	$('.email_already').css("display", "none");
-		}
-	}
-	
-	
-	function checkPw() {
-		var p1 = $('#password').val();
-		var p2 = $('#password_check').val();
+	  });
+	});
+		function checkEmail() {
+			var email = $('#email').val();
+			debugger;
+			var lowerEmail = email.toLowerCase();
 		
-		
-		
-		if(p2.trim() == "") {
-			console.log("empty");
-			$('.password_check1').css("display","none");
-			$('.password_check2').css("display","none");
-		}
-		else if(p1 !== p2 ){ 
-	    	$('.password_check1').css("display", "none");
-	    	$('.password_check2').css("display", "inline-block");
-	    	
-		} else if(p1 === p2) { 
-			$('.password_check1').css("display", "inline-block");
-			$('.password_check2').css("display", "none");
+			var regex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 			
+			var emailReg 
+			
+			console.log(email.match(emailReg));
+			
+			if(lowerEmail.trim() == "") {
+				console.log("empty");
+				$('.email_ok').css("display","none");
+				$('.email_already').css("display","none");
+				$('.email_pattern').css("display","none");
+				
+			}
+			
+			
+			else if(allUserEmail.some(e=>e.lowerEmail === lowerEmail) == true ){ 
+				$('.email_ok').css("display","none");
+		    	$('.email_already').css("display", "inline-block");
+		    	$('.email_pattern').css("display","none");
+			}
+			else if(!regex.test(lowerEmail)) {
+				$('.email_ok').css("display","none");
+		    	$('.email_already').css("display", "none");
+		    	$('.email_pattern').css("display","inline-block");
+			}
+			
+			else { 
+		    	
+		    	$('.email_ok').css("display","inline-block"); 
+		    	$('.email_already').css("display", "none");
+		    	$('.email_pattern').css("display","none");
+			}
 		}
-	}
+		
+		
+		function checkPw() {
+			var p1 = $('#password').val();
+			var p2 = $('#password_check').val();
+			
+			
+			
+			if(p2.trim() == "") {
+				console.log("empty");
+				$('.password_check1').css("display","none");
+				$('.password_check2').css("display","none");
+			}
+			else if(p1 !== p2 ){ 
+		    	$('.password_check1').css("display", "none");
+		    	$('.password_check2').css("display", "inline-block");
+		    	
+			} else if(p1 === p2) { 
+				$('.password_check1').css("display", "inline-block");
+				$('.password_check2').css("display", "none");
+				
+			}
+		}
 
 </script>

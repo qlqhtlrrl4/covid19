@@ -23,32 +23,51 @@ HomeChartManager.prototype.initEvent = function() {
 	$(".chart-toggle-btn").on(
 			'change',
 			function() {
+				debugger;
 				var type = $(this).prop("id").replace(/-check-box/, "");
 				var cardId = type + "-chart-card";
 				var chartBarId = type + "-bar-chart";
 				// var chartPieId = type + "-pie-chart";
-				var name = self.detailsData[cardId]["name"];
-				var cardHtml = self.cardTemplate({
-					type : type,
-					name : name
-				});
+				
+				if(type == "sex" || type=="age" || type=="area") {
+					var name = self.detailsData[cardId]["name"];
+					var cardHtml = self.cardTemplate({
+						type : type,
+						name : name
+					});
 
-				if ($(this).prop("checked") == true) {
-					$("#details-collection").append(cardHtml);
-					if (type == 'sex') {
-						drawBarChart2(chartBarId,
-								self.detailsData[cardId]["data"], "gubun", "confCase");
-					} else if (type == 'area') {
-						drawBarChart2(chartBarId,
-								self.detailsData[cardId]["data"], "gubun", "defCnt");
+					if ($(this).prop("checked") == true) {
+						$("#details-collection").append(cardHtml);
+						if (type == 'sex') {
+							drawBarChart2(chartBarId,
+									self.detailsData[cardId]["data"], "gubun", "confCase");
+						} else if (type == 'area') {
+							drawBarChart2(chartBarId,
+									self.detailsData[cardId]["data"], "gubun", "defCnt");
+						} else {
+							drawBarChart2(chartBarId,
+									self.detailsData[cardId]["data"], "gubun","confCase");
+						}
 					} else {
-						drawBarChart2(chartBarId,
-								self.detailsData[cardId]["data"], "gubun","confCase");
+						$("#" + cardId).parent().remove();
+						
 					}
-				} else {
-					$("#" + cardId).parent().remove();
-					debugger;
 				}
+				
+				else {
+					var country = $(this).prop("id").replace(/-check-box/, "");
+					var list = country+"-country-list";
+					
+					if ($(this).prop("checked") == true) {
+						
+						$("#"+list).css("display","block");
+					}
+					else {
+						$("#"+list).css("display","none");
+					}
+					
+				}
+				
 			});
 }
 HomeChartManager.prototype.drawAll = function() {

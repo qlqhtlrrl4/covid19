@@ -52,7 +52,7 @@
                <c:when test="${cont.writerIdx.id == pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name == 'admin' }">
                  <td class="text-center">${contentlist.totalElements-(((pageNumber)*10) + status.index)}</td>
                <c:if test="${lang == 'ko' || lang == null }">
-               <td class="text-center"><a href="/qna/read?contentIdx=${cont.contentIdx}"><c:out value="${cont.subject}"/></a></td>
+               <td class="text-center"><a class="text-deco" href="/qna/read?contentIdx=${cont.contentIdx}"><c:out value="${cont.subject}"/></a></td>
                <td class="text-center"><c:out value="${cont.text}"/></td>
                </c:if>
                <c:if test="${lang == 'en'}">

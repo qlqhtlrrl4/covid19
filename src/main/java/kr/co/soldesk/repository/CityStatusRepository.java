@@ -24,4 +24,10 @@ public interface CityStatusRepository extends JpaRepository<CityStatus, Long> {
 	@Query(value="select gubun,defCnt from citystatus where date_format(createDt,\"%Y-%m-%d\") = DATE_FORMAT(now(),\"%Y-%m-%d\") and gubun not like '검역' and gubun not like '합계';",nativeQuery=true)
 	List<Map<String, Object>> areaData();
 	
+	@Query(value="select * from citystatus where date_format(createDt,\"%Y-%m-%d\")  between DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 DAY),\"%Y-%m-%d\")and DATE_FORMAT(now(),\"%Y-%m-%d\")and gubun like '서울' ;",nativeQuery=true)
+	List<CityStatus> seoulData();
+	
+	@Query(value="select * from citystatus where date_format(createDt,\"%Y-%m-%d\")  = DATE_FORMAT(now(),\"%Y-%m-%d\")and gubun like '서울' ;",nativeQuery=true)
+	CityStatus toDay();
+	
 }

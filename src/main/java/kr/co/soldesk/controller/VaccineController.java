@@ -29,6 +29,9 @@ public class VaccineController {
 		model.addAttribute("active", "vaccine");
 		model.addAttribute("vaccineData", vaccineData);
 		
+		CityStatus seoulData = restService.getSeoulToday();
+		model.addAttribute("seoulData",seoulData);
+		
 		/*CityStatus todayCityData = restService.getTodayCityData();
 		CityStatus yesterDayCityData = restService.getYesterDayCityData();
 		

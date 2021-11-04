@@ -13,7 +13,7 @@
 		<div class="col-lg-2dot5 col-md-3 col-sm-12">
 			<div id="vaccine-left-pane" class="summary-left-pane">
 				<div class="accordion" id ="vaccineAccordion">
-					<div class="card active">
+					<!-- <div class="card active">
 						<div class="card-header" id ="headingOne">
 							<h2 class="mb-0">
 								<a class="btn btn-link btn-block text-left panel-title" type="button" data-toggle="collapse" data-target="#collapseOne">
@@ -23,22 +23,22 @@
 									</div>
 								</a>
 							</h2>
-						</div> <!-- card-header -->
+						</div> card-header
 						
 						<div id="collapseOne" class="collapse show" data-parent="#vaccineAccordion">
 							<div class="card-body">
 								접종현황
 								<label class="switch">
-									<input id="location-check-box" type="checkbox" class="chart-toggle-btn vaccine" checked>
+									<input id="location-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed vaccine" checked>
 									<span id="location-toggle" class="slider round"></span>
 								</label>
 							</div>
 							
 							
 						</div>
-					</div> <!-- card active -->
+					</div> card active -->
 					
-					<div class ="card">
+					<div class="card active">
 						<div class="card-header" id="headingTwo">
 							<h2 class="mb-0">
 								<a class="btn btn-link btn-block text-left panel-title" type="button" data-toggle="collapse" data-target="#collapseTwo">
@@ -48,11 +48,11 @@
 							</h2>
 						</div>
 						
-						<div id="collapseTwo" class="collapse" data-parent="#vaccineAccordion">
+						<div id="collapseTwo" class="collapse show" data-parent="#vaccineAccordion">
 							<div class="card-body">
 								일별
 								<label class="switch">
-									<input id="dayLocation-check-box" type="checkbox" class="chart-toggle-btn vaccine" checked>
+									<input id="dayLocation-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed vaccine" checked>
 									<span id="dayLocation-toggle" class="slider round"></span>
 								</label>
 							</div>
@@ -60,7 +60,7 @@
 							<div class="card-body">
 								주별
 								<label class="switch">
-									<input id="weekLocation-check-box" type="checkbox" class="chart-toggle-btn vaccine" checked>
+									<input id="weekLocation-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed vaccine" checked>
 									<span id="weekLocation-toggle" class="slider round"></span>
 								</label>
 							</div>
@@ -68,7 +68,7 @@
 							<div class="card-body">
 								월별
 								<label class="switch">
-									<input id="monthLocation-check-box" type="checkbox" class="chart-toggle-btn vaccine" checked>
+									<input id="monthLocation-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed vaccine" checked>
 									<span id="monthLocation-toggle" class="slider round"></span>
 								</label>
 							</div>
@@ -139,6 +139,125 @@
 						
 					</div>
 				</div>
+			</div>
+			
+			
+			
+			<div class="location-collection row" id="location-collection">
+				
+				<div id="dayLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-12">
+					<div class="location-chart-title">일별</div>
+					<div class="form-inline nav nav-tabs" role="tablist">
+						<div class="form-group">
+							<div class="abc-radio abc-radio-primary">
+								<input class="check-chart-type"
+									   type="radio"
+									   id="dayLocation-bar-type"
+									   name="dayLocation-chart-type"
+									   data-target="#dayLocation-bar-chart"
+								checked>
+								<label class="form-check-label" for="dayLocation-bar-type">
+									Bar
+								</label>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<div class="abc-radio abc-radio-primary">
+								<input class="check-chart-type"
+									   type="radio"
+									   id="dayLocation-pie-type"
+									   name="dayLocation-chart-type"
+									   data-target="#dayLocation-pie-chart">
+								<label class="form-check-label" for="dayLocation-pie-type">
+									Pie
+								</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="tab-content">
+						<div id="dayLocation-bar-chart" class="data-location-chart tab-pane fade show active"></div>
+						<div id="dayLocation-pie-chart" class="data-location-chart tab-pane fade"></div>
+					</div>
+				</div>
+				
+				
+				<div id="weekLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-12">
+					<div class="location-chart-title">주별</div>
+						<div class="form-inline nav nav-tabs" role="tablist">
+							<div class="form-group">
+								<div class="abc-radio abc-radio-primary">
+									<input class="check-chart-type"
+										   type="radio"
+										   id="weekLocation-bar-type"
+										   name="weekLocation-chart-type"
+										   data-target="#weekLocation-bar-chart"
+									checked>
+									<label class="form-check-label" for="weekLocation-bar-type">
+										Bar
+									</label>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="abc-radio abc-radio-primary">
+									<input class="check-chart-type"
+										   type="radio"
+										   id="weekLocation-pie-type"
+										   name="weekLocation-chart-type"
+										   data-target="#weekLocation-pie-chart">
+									<label class="form-check-label" for="weekLocation-pie-type">
+										Pie
+									</label>
+								</div>
+							</div>
+						</div>
+						
+						<div class="tab-content">
+							<div id="weekLocation-bar-chart" class="data-location-chart tab-pane fade show active"></div>
+							<div id="weekLocation-pie-chart" class="data-location-chart tab-pane fade"></div>
+						</div>
+				</div>
+				
+				<div id="monthLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-12">
+					<div class="location-chart-title">월별</div>
+					<div class="form-inline nav nav-tabs" role="tablist">
+						<div class="form-group">
+							<div class="abc-radio abc-radio-primary">
+								<input class="check-chart-type"
+									   type="radio"
+									   id="monthLocation-bar-type"
+									   name="monthLocation-chart-type"
+									   data-target="#monthLocation-bar-chart"
+								checked>
+								<label class="form-check-label" for="monthLocation-bar-type">
+									Bar
+								</label>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<div class="abc-radio abc-radio-primary">
+								<input class="check-chart-type"
+									   type="radio"
+									   id="monthLocation-pie-type"
+									   name="monthLocation-chart-type"
+									   data-target="#monthLocation-pie-chart">
+								<label class="form-check-label" for="monthLocation-pie-type">
+									Pie
+								</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="tab-content">
+						<div id="monthLocation-bar-chart" class="data-location-chart tab-pane fade show active"></div>
+						<div id="monthLocation-pie-chart" class="data-location-chart tab-pane fade"></div>
+					</div>
+				</div>
+				
+				
 			</div>
 			
 			<div class="row">
@@ -285,130 +404,13 @@
 				</div>
 			</div>
 			
-			<div class="location-collection row" id="location-collection">
-				
-				<div id="dayLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-12">
-					<div class="location-chart-title">일별</div>
-					<div class="form-inline nav nav-tabs" role="tablist">
-						<div class="form-group">
-							<div class="abc-radio abc-radio-primary">
-								<input class="check-chart-type"
-									   type="radio"
-									   id="dayLocation-bar-type"
-									   name="dayLocation-chart-type"
-									   data-target="#dayLocation-bar-chart"
-								checked>
-								<label class="form-check-label" for="dayLocation-bar-type">
-									Bar
-								</label>
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<div class="abc-radio abc-radio-primary">
-								<input class="check-chart-type"
-									   type="radio"
-									   id="dayLocation-pie-type"
-									   name="dayLocation-chart-type"
-									   data-target="#dayLocation-pie-chart">
-								<label class="form-check-label" for="dayLocation-pie-type">
-									Pie
-								</label>
-							</div>
-						</div>
-					</div>
-					
-					<div class="tab-content">
-						<div id="dayLocation-bar-chart" class="data-location-chart tab-pane fade show active"></div>
-						<div id="dayLocation-pie-chart" class="data-location-chart tab-pane fade"></div>
-					</div>
-				</div>
-				
-				
-				<div id="weekLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-12">
-					<div class="location-chart-title">주별</div>
-						<div class="form-inline nav nav-tabs" role="tablist">
-							<div class="form-group">
-								<div class="abc-radio abc-radio-primary">
-									<input class="check-chart-type"
-										   type="radio"
-										   id="weekLocation-bar-type"
-										   name="weekLocation-chart-type"
-										   data-target="#weekLocation-bar-chart"
-									checked>
-									<label class="form-check-label" for="weekLocation-bar-type">
-										Bar
-									</label>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<div class="abc-radio abc-radio-primary">
-									<input class="check-chart-type"
-										   type="radio"
-										   id="weekLocation-pie-type"
-										   name="weekLocation-chart-type"
-										   data-target="#weekLocation-pie-chart">
-									<label class="form-check-label" for="weekLocation-pie-type">
-										Pie
-									</label>
-								</div>
-							</div>
-						</div>
-						
-						<div class="tab-content">
-							<div id="weekLocation-bar-chart" class="data-location-chart tab-pane fade show active"></div>
-							<div id="weekLocation-pie-chart" class="data-location-chart tab-pane fade"></div>
-						</div>
-				</div>
-				
-				<div id="monthLocation-chart-card" class="location-chart-wrapper col-lg-4 col-md-12">
-					<div class="location-chart-title">월별</div>
-					<div class="form-inline nav nav-tabs" role="tablist">
-						<div class="form-group">
-							<div class="abc-radio abc-radio-primary">
-								<input class="check-chart-type"
-									   type="radio"
-									   id="monthLocation-bar-type"
-									   name="monthLocation-chart-type"
-									   data-target="#monthLocation-bar-chart"
-								checked>
-								<label class="form-check-label" for="monthLocation-bar-type">
-									Bar
-								</label>
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<div class="abc-radio abc-radio-primary">
-								<input class="check-chart-type"
-									   type="radio"
-									   id="monthLocation-pie-type"
-									   name="monthLocation-chart-type"
-									   data-target="#monthLocation-pie-chart">
-								<label class="form-check-label" for="monthLocation-pie-type">
-									Pie
-								</label>
-							</div>
-						</div>
-					</div>
-					
-					<div class="tab-content">
-						<div id="monthLocation-bar-chart" class="data-location-chart tab-pane fade show active"></div>
-						<div id="monthLocation-pie-chart" class="data-location-chart tab-pane fade"></div>
-					</div>
-				</div>
-				
-				
-			</div>
-			
 			<div class="row sm-12 content" id="target">
 				<div class="city-info-box">
 					<div class="city-info-text">
-						<span class="city-info-name"></span> 누적 <span class="city-info-count"></span>명
+						<span class="city-info-name">${seoulData.gubun }</span> 누적 <span class="city-info-count">${seoulData.defCnt}</span>명
 					</div>
 					<div class="city-current-text">
-						<span>격리해제<span class="city-isolClear-count"></span> | 치료중<span class="city-cure-count"></span> | 사망<span class="city-death-count"></span></span>
+						<span>격리해제<span class="city-isolClear-count">${seoulData.isolClearCnt }</span> | 치료중<span class="city-cure-count">${seoulData.isolIngCnt}</span> | 사망<span class="city-death-count">${seoulData.deathCnt}</span></span>
 					</div>
 					
 				</div>
@@ -758,7 +760,9 @@ $(document).ready(function() {
 	var secondCnt = ${vaccineData.totalSecondCnt};
 	var percentage = secondCnt / 51780000 *100;
 	
+	
 	// percentageChart(percentage);
+	debugger;
 
 	AnimateCircle("vaccine-circle-wrapper", percentage);
 	
@@ -1402,53 +1406,10 @@ function vaccineAllLineChart(data) {
 
 
 
-// function percentageChart(data) {
-//
-// 	var can = document.getElementById('canvas');
-// 	var	spanPercent = document.getElementById('percent');
-// 	var c = can.getContext('2d');
-//
-// 	//c.arc에서 중심을 잡기위한 변수 posX, posY
-// 	var posX = can.width /2;
-// 	var posY = can.height/2;
-// 	var fps = 1000/200;
-// 	var percent = 0;
-// 	var onePercent = 360/100;
-// 	var result = onePercent * data;
-//
-// 	c.lineCap = 'round';
-//
-// 	arcMove();
-//
-// 	function arcMove() {
-// 		var deegres = 0;
-// 		var acrInterval = setInterval(function () {
-// 			deegres +=1;
-// 			c.clearRect(0,0,can.width, can.height);
-// 			percent = deegres / onePercent;
-//
-// 			spanPercent.innerHTML = percent.toFixed();
-// 			c.beginPath();
-// 			c.arc(posX,posY, 70, (Math.PI/100)*270,(Math.PI/180) * (270+360));
-// 			c.strokeStyle = '#b1b1b1';
-// 	        c.lineWidth = '10';
-// 	        c.stroke();
-//
-// 	        c.beginPath();
-// 		    c.strokeStyle = '#3949AB';
-// 		    c.lineWidth = '10';
-// 		    c.arc( posX, posY, 70, (Math.PI/180) * 270, (Math.PI/180) * (270 + deegres) );
-// 		     c.stroke();
-// 		    if( deegres >= result ) {
-// 		    	clearInterval(acrInterval);
-// 		    }
-// 		},fps);
-// 	}
-// }
 
 function AnimateCircle(container_id, animatePercentage) {
-	var startColor = '#FC5B3F';
-	var endColor = '#3F4756';
+	var startColor = '#3F4756';
+	var endColor = '#366C83';
 
 	var element = document.getElementById(container_id);
 	var circle = new ProgressBar.Circle(element, {
@@ -1459,7 +1420,7 @@ function AnimateCircle(container_id, animatePercentage) {
 		easing: 'bounce',
 		strokeWidth: 5,
 		text: {
-			value: (animatePercentage * 100) + " % 접종완료",
+			value: (parseInt(animatePercentage)) + " % 접종완료",
 			className: 'progressbar__label'
 		},
 		// Set default step function for all animate calls

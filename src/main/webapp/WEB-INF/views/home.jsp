@@ -25,21 +25,21 @@
 				      <div class="card-body">
 				        성별 
 				        <label class="switch">
-							<input id="sex-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+							<input id="sex-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" >
 							<span id="sex-toggle" class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        연령
 				        <label class="switch">
-							<input id="age-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed "checked>
+							<input id="age-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed ">
 							<span id="age-toggle" class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        지역
 				        <label class="switch">
-							<input id="area-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" checked>
+							<input id="area-check-box" type="checkbox" class="chart-toggle-btn primary-confirmed" >
 							<span id="area-toggle" class="slider round"></span>
 						</label>
 				      </div>
@@ -60,68 +60,48 @@
 				      <div class="card-body">
 				        아시아
 				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance"  id="asia-check-box">
+							<span class="slider round"></span>
+						</label>
+				      </div>
+				      <div class="card-body">
+				      중동
+				        <label class="switch">
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" id="east-check-box">
+							<span class="slider round"></span>
+						</label>
+				      </div>
+				      <div class="card-body">
+				        아메리카
+				        <label class="switch">
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" id="america-check-box">
 							<span class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        유럽
 				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
-							<span class="slider round"></span>
-						</label>
-				      </div>
-				      <div class="card-body">
-				        남아메리카
-				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
-							<span class="slider round"></span>
-						</label>
-				      </div>
-				      <div class="card-body">
-				        북아메리카
-				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
-							<span class="slider round"></span>
-						</label>
-				      </div>
-				      <div class="card-body">
-				        아프리카
-				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" id="europe-check-box">
 							<span class="slider round"></span>
 						</label>
 				      </div>
 				      <div class="card-body">
 				        오세아니아
 				        <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" id="oceania-check-box">
 							<span class="slider round"></span>
 						</label>
 				      </div>
-				    </div>
-				  </div>
-				  <div class="card">
-				  	<div class="card-header" id="headingThree">
-				      <h2 class="mb-0">
-				        <a class="btn btn-link btn-block text-left panel-title" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-				          <span class="card-header-title">거리두기</span>
-				          <div class="panel-title-icon">
-				          	<i class="fa fa-chevron-up arrow-icon"></i>
-				          </div>
-				        </a>
-				      </h2>
-				    </div>
-				    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 				      <div class="card-body">
-				       단계별 정보
-				       <label class="switch">
-							<input type="checkbox" class="chart-toggle-btn primary-keep-distance">
+				        아프리카
+				        <label class="switch">
+							<input type="checkbox" class="chart-toggle-btn primary-keep-distance" id="africa-check-box">
 							<span class="slider round"></span>
 						</label>
 				      </div>
 				    </div>
 				  </div>
+				  
 				</div>
 			</div>
 		</div>
@@ -168,7 +148,7 @@
 							</div>
 							<div class="arrowAndamount">
 								<i class="fas fa-arrow-up"></i>
-								<span class="amount"><fmt:formatNumber type="number" maxFractionDigits="3" value="${covidStatusData.deathCnt}" /></span>
+								<span class="amount"><fmt:formatNumber type="number" maxFractionDigits="3" value="${seoul}" /></span>
 							</div>
 							<span class="words">개인위생에 각별히 신경 쓰세요.</span>
 							<button class="syringe-icon nav-link" id="vaccineBtn" disabled="disabled">
@@ -191,158 +171,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12">
-					<div id="asia-country-list" style="background-color: var(--white-color);border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px;">
-						<table class="table">
-							<thead>
-								<tr>
-									<th scope="col" style="width: 20%"></th>
-									<th scope="col" style="width: 40%">국가명</th>
-									<th scope="col" style="width: 40%">사망자수</th>
-<%--									<th scope="col">사망비율</th>--%>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="asiaCountry" items="${asiaCountryList}" varStatus="status">
-									<tr>
-										<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${asiaCountry.imageFilepath}"/>'/></th>
-<%--										<th scope="row"><c:out value="${asiaCountry.imageFilepath}"/></th>--%>
-										<td><c:out value="${asiaCountry.nationNm}"/></td>
-										<td><c:out value="${asiaCountry.natDeathCnt}"/></td>
-<%--										<td><c:out value="${asiaCountry.natDeathRate}"/></td>--%>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="col-12">
-					<div id="east-country-list" style="background-color: var(--white-color);border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px;">
-						<table class="table">
-							<thead>
-							<tr>
-								<th scope="col" style="width: 20%"></th>
-								<th scope="col" style="width: 40%">국가명</th>
-								<th scope="col" style="width: 40%">사망자수</th>
-								<%--									<th scope="col">사망비율</th>--%>
-							</tr>
-							</thead>
-							<tbody>
-							<c:forEach var="eastCountry" items="${eastCountryList}" varStatus="status">
-								<tr>
-									<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${eastCountry.imageFilepath}"/>'/></th>
-										<%--										<th scope="row"><c:out value="${asiaCountry.imageFilepath}"/></th>--%>
-									<td><c:out value="${eastCountry.nationNm}"/></td>
-									<td><c:out value="${eastCountry.natDeathCnt}"/></td>
-										<%--										<td><c:out value="${asiaCountry.natDeathRate}"/></td>--%>
-								</tr>
-							</c:forEach>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="col-12">
-					<div id="america-country-list" style="background-color: var(--white-color);border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px;">
-						<table class="table">
-							<thead>
-							<tr>
-								<th scope="col" style="width: 20%"></th>
-								<th scope="col" style="width: 40%">국가명</th>
-								<th scope="col" style="width: 40%">사망자수</th>
-								<%--									<th scope="col">사망비율</th>--%>
-							</tr>
-							</thead>
-							<tbody>
-							<c:forEach var="americaCountry" items="${americaCountryList}" varStatus="status">
-								<tr>
-									<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${americaCountry.imageFilepath}"/>'/></th>
-										<%--										<th scope="row"><c:out value="${asiaCountry.imageFilepath}"/></th>--%>
-									<td><c:out value="${americaCountry.nationNm}"/></td>
-									<td><c:out value="${americaCountry.natDeathCnt}"/></td>
-										<%--										<td><c:out value="${asiaCountry.natDeathRate}"/></td>--%>
-								</tr>
-							</c:forEach>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="col-12">
-					<div id="europe-country-list" style="background-color: var(--white-color);border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px;">
-						<table class="table">
-							<thead>
-							<tr>
-								<th scope="col" style="width: 20%"></th>
-								<th scope="col" style="width: 40%">국가명</th>
-								<th scope="col" style="width: 40%">사망자수</th>
-								<%--									<th scope="col">사망비율</th>--%>
-							</tr>
-							</thead>
-							<tbody>
-							<c:forEach var="europeCountry" items="${europeCountryList}" varStatus="status">
-								<tr>
-									<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${europeCountry.imageFilepath}"/>'/></th>
-										<%--										<th scope="row"><c:out value="${asiaCountry.imageFilepath}"/></th>--%>
-									<td><c:out value="${europeCountry.nationNm}"/></td>
-									<td><c:out value="${europeCountry.natDeathCnt}"/></td>
-										<%--										<td><c:out value="${asiaCountry.natDeathRate}"/></td>--%>
-								</tr>
-							</c:forEach>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="col-12">
-					<div id="oceania-country-list" style="background-color: var(--white-color);border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px;">
-						<table class="table">
-							<thead>
-							<tr>
-								<th scope="col" style="width: 20%"></th>
-								<th scope="col" style="width: 40%">국가명</th>
-								<th scope="col" style="width: 40%">사망자수</th>
-								<%--									<th scope="col">사망비율</th>--%>
-							</tr>
-							</thead>
-							<tbody>
-							<c:forEach var="oceaniaCountry" items="${oceaniaCountryList}" varStatus="status">
-								<tr>
-									<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${oceaniaCountry.imageFilepath}"/>'/></th>
-										<%--										<th scope="row"><c:out value="${asiaCountry.imageFilepath}"/></th>--%>
-									<td><c:out value="${oceaniaCountry.nationNm}"/></td>
-									<td><c:out value="${oceaniaCountry.natDeathCnt}"/></td>
-										<%--										<td><c:out value="${asiaCountry.natDeathRate}"/></td>--%>
-								</tr>
-							</c:forEach>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="col-12">
-					<div id="africa-country-list" style="background-color: var(--white-color);border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px;">
-						<table class="table">
-							<thead>
-							<tr>
-								<th scope="col" style="width: 20%"></th>
-								<th scope="col" style="width: 40%">국가명</th>
-								<th scope="col" style="width: 40%">사망자수</th>
-								<%--									<th scope="col">사망비율</th>--%>
-							</tr>
-							</thead>
-							<tbody>
-							<c:forEach var="africaCountry" items="${africaCountryList}" varStatus="status">
-								<tr>
-									<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${africaCountry.imageFilepath}"/>'/></th>
-										<%--										<th scope="row"><c:out value="${asiaCountry.imageFilepath}"/></th>--%>
-									<td><c:out value="${africaCountry.nationNm}"/></td>
-									<td><c:out value="${africaCountry.natDeathCnt}"/></td>
-										<%--										<td><c:out value="${asiaCountry.natDeathRate}"/></td>--%>
-								</tr>
-							</c:forEach>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+			
 			<div class="row">
 				<div class="col-12">
 					<div class="corona-info-chart-wrapper">
@@ -357,7 +186,7 @@
 			</div>
 			
 			<div class ="row" id="details-collection">
-                <div class="col-lg-4 col-md-12">
+               <!--  <div class="col-lg-4 col-md-12">
                     <div class="corona-info-chart-wrapper" id="sex-chart-card">
                         <span class="corona-info-chart-title">
                             성별 확진자 비율
@@ -382,8 +211,161 @@
                         </span><br>
                         <div id="area-bar-chart"></div>
                     </div>
-                </div>
+                </div> -->
             </div>
+            
+            <div class="row">
+				<div class="col-12">
+					<div id="asia-country-list" style="background-color: var(--white-color);border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px; display:none">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col" style="width: 20%"></th>
+									<th scope="col" style="width: 40%">국가명</th>
+									<th scope="col" style="width: 40%">사망자수</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="asiaCountry" items="${asiaCountryList}" varStatus="status">
+									<tr>
+										<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${asiaCountry.imageFilepath}"/>'/></th>
+
+										<td><c:out value="${asiaCountry.nationNm}"/></td>
+										<td><c:out value="${asiaCountry.natDeathCnt}"/></td>
+
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-12">
+					<div id="east-country-list" style="background-color: var(--white-color);display:none;border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px;">
+						<table class="table">
+							<thead>
+							<tr>
+								<th scope="col" style="width: 20%"></th>
+								<th scope="col" style="width: 40%">국가명</th>
+								<th scope="col" style="width: 40%">사망자수</th>
+								<%--									<th scope="col">사망비율</th>--%>
+							</tr>
+							</thead>
+							<tbody>
+							<c:forEach var="eastCountry" items="${eastCountryList}" varStatus="status">
+								<tr>
+									<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${eastCountry.imageFilepath}"/>'/></th>
+										<%--										<th scope="row"><c:out value="${asiaCountry.imageFilepath}"/></th>--%>
+									<td><c:out value="${eastCountry.nationNm}"/></td>
+									<td><c:out value="${eastCountry.natDeathCnt}"/></td>
+										<%--										<td><c:out value="${asiaCountry.natDeathRate}"/></td>--%>
+								</tr>
+							</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-12">
+					<div id="america-country-list" style=" display:none; background-color: var(--white-color);border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px;">
+						<table class="table">
+							<thead>
+							<tr>
+								<th scope="col" style="width: 20%"></th>
+								<th scope="col" style="width: 40%">국가명</th>
+								<th scope="col" style="width: 40%">사망자수</th>
+								<%--									<th scope="col">사망비율</th>--%>
+							</tr>
+							</thead>
+							<tbody>
+							<c:forEach var="americaCountry" items="${americaCountryList}" varStatus="status">
+								<tr>
+									<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${americaCountry.imageFilepath}"/>'/></th>
+										<%--										<th scope="row"><c:out value="${asiaCountry.imageFilepath}"/></th>--%>
+									<td><c:out value="${americaCountry.nationNm}"/></td>
+									<td><c:out value="${americaCountry.natDeathCnt}"/></td>
+										<%--										<td><c:out value="${asiaCountry.natDeathRate}"/></td>--%>
+								</tr>
+							</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-12">
+					<div id="europe-country-list" style="display:none; background-color: var(--white-color);border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px;">
+						<table class="table">
+							<thead>
+							<tr>
+								<th scope="col" style="width: 20%"></th>
+								<th scope="col" style="width: 40%">국가명</th>
+								<th scope="col" style="width: 40%">사망자수</th>
+								<%--									<th scope="col">사망비율</th>--%>
+							</tr>
+							</thead>
+							<tbody>
+							<c:forEach var="europeCountry" items="${europeCountryList}" varStatus="status">
+								<tr>
+									<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${europeCountry.imageFilepath}"/>'/></th>
+										<%--										<th scope="row"><c:out value="${asiaCountry.imageFilepath}"/></th>--%>
+									<td><c:out value="${europeCountry.nationNm}"/></td>
+									<td><c:out value="${europeCountry.natDeathCnt}"/></td>
+										<%--										<td><c:out value="${asiaCountry.natDeathRate}"/></td>--%>
+								</tr>
+							</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-12">
+					<div id="oceania-country-list" style="display:none; background-color: var(--white-color);border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px;">
+						<table class="table">
+							<thead>
+							<tr>
+								<th scope="col" style="width: 20%"></th>
+								<th scope="col" style="width: 40%">국가명</th>
+								<th scope="col" style="width: 40%">사망자수</th>
+								<%--									<th scope="col">사망비율</th>--%>
+							</tr>
+							</thead>
+							<tbody>
+							<c:forEach var="oceaniaCountry" items="${oceaniaCountryList}" varStatus="status">
+								<tr>
+									<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${oceaniaCountry.imageFilepath}"/>'/></th>
+										<%--										<th scope="row"><c:out value="${asiaCountry.imageFilepath}"/></th>--%>
+									<td><c:out value="${oceaniaCountry.nationNm}"/></td>
+									<td><c:out value="${oceaniaCountry.natDeathCnt}"/></td>
+										<%--										<td><c:out value="${asiaCountry.natDeathRate}"/></td>--%>
+								</tr>
+							</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-12">
+					<div id="africa-country-list" style="display:none; background-color: var(--white-color);border-radius: 25px;text-align: center;padding: 30px;margin-top: 15px;">
+						<table class="table">
+							<thead>
+							<tr>
+								<th scope="col" style="width: 20%"></th>
+								<th scope="col" style="width: 40%">국가명</th>
+								<th scope="col" style="width: 40%">사망자수</th>
+								<%--									<th scope="col">사망비율</th>--%>
+							</tr>
+							</thead>
+							<tbody>
+							<c:forEach var="africaCountry" items="${africaCountryList}" varStatus="status">
+								<tr>
+									<th scope="row"><img class="img-fluid" style="width: 60px;" src='<c:out value="${africaCountry.imageFilepath}"/>'/></th>
+										<%--										<th scope="row"><c:out value="${asiaCountry.imageFilepath}"/></th>--%>
+									<td><c:out value="${africaCountry.nationNm}"/></td>
+									<td><c:out value="${africaCountry.natDeathCnt}"/></td>
+										<%--										<td><c:out value="${asiaCountry.natDeathRate}"/></td>--%>
+								</tr>
+							</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -815,9 +797,13 @@ $.ajax({
 		// Create chart instance
 		var chart = am4core.create("chartdiv", am4charts.XYChart);
 		var colors = [
-			am4core.color("#F9F871"),
-	        am4core.color("#BBFC9C"),
-	        am4core.color("#83C0A4")
+			am4core.color("#D8BCCC"),
+	        am4core.color("#B0BFDC"),
+	        am4core.color("#D8BCCC"),
+	        am4core.color("#B0BFDC"),
+	        am4core.color("#D8BCCC"),
+	        am4core.color("#B0BFDC"),
+	        am4core.color("#D8BCCC")
 		];
 
 		// Add data

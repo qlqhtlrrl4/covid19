@@ -37,7 +37,7 @@
 						<div style="margin-bottom: 30px;">
 							<span>공개여부</span>
 							<div>
-								<input type="radio" name="open" value="Y" class="radio" /><span class="ml_10"><spring:message code="tmenu.qna.open"/></span>&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="open" value="Y" class="radio" checked/><span class="ml_10"><spring:message code="tmenu.qna.open"/></span>&nbsp;&nbsp;&nbsp;&nbsp;
 								<input type="radio" name="open" value="N" class="radio" /><span class="ml_10"><spring:message code="tmenu.qna.secret"/></span>&nbsp;
 							</div>
 						</div>

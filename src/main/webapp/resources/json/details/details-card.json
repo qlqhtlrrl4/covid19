@@ -7,7 +7,7 @@
 	},
 	
 	"age-chart-card" : {
-		"name" : "나이",
+		"name" : "연령",
 		"enName" : "age",
 		"type" : "age",
 		"data" : null

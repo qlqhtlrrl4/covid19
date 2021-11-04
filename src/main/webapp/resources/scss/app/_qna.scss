@@ -110,12 +110,17 @@
         .pagination{
                 margin-top:18px;
                 margin-left:500px;
+                
                 .page-item{
                         .page-link{
+                        		background-clip: content-box;
                                 background: none;
                                 border:none;
                                 color: var(--gery-dark-color);
                         }
+                        
+
+									
                 }
         }
 }
@@ -139,3 +144,4 @@
                 }
         }
 }
+
