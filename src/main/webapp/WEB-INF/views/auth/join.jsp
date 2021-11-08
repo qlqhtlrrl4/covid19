@@ -166,7 +166,7 @@ function winPlayer(objUrl) {
 							<a href="<c:url value="/" />" class="btn btn-primary">취소</a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-12">
-							<button type="submit" class="btn btn-primary">로그인</button>
+							<button type="submit" class="btn btn-primary">회원가입</button>
 						</div>
 					</div>
 	            </sf:form>
@@ -398,7 +398,7 @@ $(document).ready(function(){
 			}
 			
 			
-			else if(allUserEmail.some(e=>e.lowerEmail === lowerEmail) == true ){ 
+			else if(allUserEmail.some(e=>e.email === lowerEmail) == true ){ 
 				$('.email_ok').css("display","none");
 		    	$('.email_already').css("display", "inline-block");
 		    	$('.email_pattern').css("display","none");

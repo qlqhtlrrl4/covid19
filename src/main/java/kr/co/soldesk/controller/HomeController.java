@@ -41,11 +41,13 @@ public class HomeController {
 		CovidStatus covidStatusData = homeService.findRecentData();
 		CovidStatus covidYesterDayData = homeService.findYesterDay();
 		
-		List<CityStatus> seoulData = restService.getSeoulData();
+		//List<CityStatus> seoulData = restService.getSeoulData();
 		
-		int seoul = seoulData.get(0).getDefCnt()-seoulData.get(1).getDefCnt();
+		CityStatus one = restService.getSeoulToday();
+		CityStatus two = restService.getSeoulYesterDay();
 		
-		System.out.println(seoul);
+		
+		//System.out.println(seoul);
 		
 		
 		List<Country> asiaCountryList = homeService.findCountryList("Asia");
@@ -56,10 +58,11 @@ public class HomeController {
 		List<Country> africaCountryList = homeService.findCountryList("Africa");
 		
 		Date now = new Date();
-		SimpleDateFormat format1 = new SimpleDateFormat("yyyy.MM.dd E요일");
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy.MM.dd E");
 		String today = format1.format(now);
 		
-		model.addAttribute("seoul", seoul);
+		model.addAttribute("one", one);
+		model.addAttribute("two", two);
 		model.addAttribute("now",today);
 		model.addAttribute("active", "home");
 		model.addAttribute("covidStatusData", covidStatusData);

@@ -30,4 +30,7 @@ public interface CityStatusRepository extends JpaRepository<CityStatus, Long> {
 	@Query(value="select * from citystatus where date_format(createDt,\"%Y-%m-%d\")  = DATE_FORMAT(now(),\"%Y-%m-%d\")and gubun like '서울' ;",nativeQuery=true)
 	CityStatus toDay();
 	
+	@Query(value="select * from citystatus where date_format(createDt,\"%Y-%m-%d\")  = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 DAY),\"%Y-%m-%d\")and gubun like '서울' ;",nativeQuery=true)
+	CityStatus yesterDay();
+	
 }

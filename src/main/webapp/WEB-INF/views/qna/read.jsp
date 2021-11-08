@@ -60,7 +60,7 @@
 						<div class="text-center">
 							<a href="${root }qna/list" id="qna-read-list-btn" class="btn btn-primary"><spring:message code="tmenu.qna.read.list"/></a>
 							<c:if test="${readContent.writerIdx.id == pageContext.request.userPrincipal.name || pageContext.request.userPrincipal.name == 'admin'}">
-							<a href="${root }qna/modify?contentIdx=${readContent.contentIdx}" id="qna-read-modify-btn" class="btn btn-info"><spring:message code="tmenu.qna.read.modify"/></a>
+							<a href="${root }qna/modify?contentIdx=${readContent.contentIdx}&userName=${pageContext.request.userPrincipal.name}" id="qna-read-modify-btn" class="btn btn-info"><spring:message code="tmenu.qna.read.modify"/></a>
 							<a href="${root }qna/delete?contentIdx=${readContent.contentIdx}" id="qna-read-cancel-btn" class="btn btn-danger"><spring:message code="tmenu.qna.read.delete"/></a>
 							</c:if>
 						</div>

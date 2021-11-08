@@ -148,7 +148,7 @@
 							</div>
 							<div class="arrowAndamount">
 								<i class="fas fa-arrow-up"></i>
-								<span class="amount"><fmt:formatNumber type="number" maxFractionDigits="3" value="${seoul}" /></span>
+								<span class="amount"><fmt:formatNumber type="number" maxFractionDigits="3" value="${one.defCnt-two.defCnt}" /></span>
 							</div>
 							<span class="words">개인위생에 각별히 신경 쓰세요.</span>
 							<button class="syringe-icon nav-link" id="vaccineBtn" disabled="disabled">

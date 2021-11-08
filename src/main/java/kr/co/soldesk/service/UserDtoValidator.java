@@ -16,7 +16,7 @@ import kr.co.soldesk.model.UserDto;
 public class UserDtoValidator implements Validator {
 
 
-	private static final String emailRegExp = "^[0-9a-zA-Z]([-_\\\\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\\\\.]?[0-9a-zA-Z])*\\\\.[a-zA-Z]{2,3}$";
+	private static final String emailRegExp = "^[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*\\.[a-zA-Z]{2,3}$";
 
 	private Pattern pattern;
 

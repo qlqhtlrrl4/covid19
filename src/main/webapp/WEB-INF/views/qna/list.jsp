@@ -16,7 +16,8 @@
 </head>
 <body>
 			<!-- 게시글 리스트 -->
-   <div style="margin-top: 80px; background-color: whitesmoke; border-radius: 25px; padding: 30px; margin-bottom: 60px;">
+			
+   <div class="col-12"style="margin-top: 80px; background-color: whitesmoke; border-radius: 25px; padding: 30px; margin-bottom: 60px;">
       <div class="text-center">
          <h3 id="font-h3">QnA</h3>
       </div>

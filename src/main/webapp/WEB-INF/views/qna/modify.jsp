@@ -20,7 +20,7 @@
 		<div class="col-12" style="margin-bottom: 60px">
 			<div class="card shadow" style="background-color: rgb(245,245,245);">
 				<div class="card-body">
-					<form:form action="${root }qna/modify_pro" method="get" modelAttribute="modifyContent">
+					<form:form action="${root }qna/modify_pro?userName=${userName }" method="post" modelAttribute="modifyContent">
 					<form:hidden path="contentIdx"/>
 						<div class="form-group">
 							<form:label path="writerIdx.name"><spring:message code="tmenu.qna.writerName"/></form:label>

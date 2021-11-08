@@ -31,7 +31,7 @@ public class LoginController {
 			@RequestParam(value = "logout", required = false) String logout, Model model) {
 
 		if (error != null) {
-			model.addAttribute("errorMsg", "Invalid username and password");
+			model.addAttribute("errorMsg", "아이디 또는 비밀번호가 틀렸습니다");
 
 		}
 

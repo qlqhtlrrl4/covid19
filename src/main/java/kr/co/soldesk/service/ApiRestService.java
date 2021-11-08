@@ -374,4 +374,9 @@ public class ApiRestService {
 		
 		return cityStatusRepository.toDay();
 	}
+	
+	public CityStatus getSeoulYesterDay() {
+		
+		return cityStatusRepository.yesterDay();
+	}
 }
